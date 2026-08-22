@@ -6,7 +6,8 @@ import { Cta } from "./ui";
 import { openWhatsApp } from "@/lib/klibra";
 
 const LINKS = [
-  { href: "#solucoes", label: "Soluções" },
+  { href: "#solucao", label: "Solução" },
+  { href: "#portfolio", label: "Portfólio" },
   { href: "#diferenciais", label: "Diferenciais" },
   { href: "#como-funciona", label: "Como funciona" },
   { href: "#atendimento", label: "Atendimento" },

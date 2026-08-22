@@ -6,8 +6,10 @@ import { openWhatsApp, trackEvent } from "@/lib/klibra";
 type Fields = {
   nome: string;
   empresa: string;
+  cnpj: string;
   cidade: string;
   whatsapp: string;
+  email: string;
   negocio: string;
   interesse: string;
   mensagem: string;
@@ -16,8 +18,10 @@ type Fields = {
 const EMPTY: Fields = {
   nome: "",
   empresa: "",
+  cnpj: "",
   cidade: "",
   whatsapp: "",
+  email: "",
   negocio: "",
   interesse: "",
   mensagem: "",
@@ -34,6 +38,8 @@ function validate(values: Fields) {
   const digits = values.whatsapp.replace(/\D/g, "");
   if (digits.length < 10 || digits.length > 13)
     errors.whatsapp = "Informe um WhatsApp válido com DDD.";
+  if (values.email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email.trim()))
+    errors.email = "Informe um e-mail válido.";
   if (!values.negocio) errors.negocio = "Selecione o tipo de negócio.";
   if (!values.interesse) errors.interesse = "Selecione o principal interesse.";
   return errors;
@@ -71,10 +77,12 @@ export function LeadForm() {
 
     setSent(true);
     openWhatsApp(
-      `Olá, K-Libra! Solicitei atendimento comercial pelo site.\n\n` +
-        `Nome: ${values.nome}\nEmpresa: ${values.empresa}\nCidade/UF: ${values.cidade}\n` +
-        `WhatsApp: ${values.whatsapp}\nTipo de negócio: ${values.negocio}\n` +
-        `Interesse: ${values.interesse}` +
+      `Olá, K-Libra! Quero receber atendimento B2B para minha empresa.\n\n` +
+        `Nome: ${values.nome}\nEmpresa: ${values.empresa}\n` +
+        (values.cnpj ? `CNPJ: ${values.cnpj}\n` : "") +
+        `Cidade/UF: ${values.cidade}\nWhatsApp: ${values.whatsapp}\n` +
+        (values.email ? `E-mail: ${values.email}\n` : "") +
+        `Tipo de negócio: ${values.negocio}\nProdutos de interesse: ${values.interesse}` +
         (values.mensagem ? `\nMensagem: ${values.mensagem}` : ""),
       "formulario",
     );
@@ -139,6 +147,28 @@ export function LeadForm() {
             aria-invalid={!!errors.empresa}
           />
         </Field>
+        <Field label="CNPJ (opcional)" id="cnpj">
+          <input
+            id="cnpj"
+            className={fieldClass}
+            value={values.cnpj}
+            onChange={(e) => set("cnpj")(e.target.value)}
+            placeholder="00.000.000/0000-00"
+            inputMode="numeric"
+          />
+        </Field>
+        <Field label="E-mail (opcional)" error={errors.email} id="email">
+          <input
+            id="email"
+            type="email"
+            className={fieldClass}
+            value={values.email}
+            onChange={(e) => set("email")(e.target.value)}
+            placeholder="voce@suaempresa.com.br"
+            autoComplete="email"
+            aria-invalid={!!errors.email}
+          />
+        </Field>
         <Field label="Cidade e estado" error={errors.cidade} id="cidade">
           <input
             id="cidade"
@@ -177,7 +207,7 @@ export function LeadForm() {
             ))}
           </select>
         </Field>
-        <Field label="Principal interesse" error={errors.interesse} id="interesse">
+        <Field label="Produtos de interesse" error={errors.interesse} id="interesse">
           <select
             id="interesse"
             className={fieldClass}
@@ -208,7 +238,7 @@ export function LeadForm() {
       </div>
 
       <Cta type="submit" size="lg" className="mt-6 w-full sm:w-auto">
-        Solicitar atendimento
+        Quero receber atendimento B2B
       </Cta>
     </form>
   );
