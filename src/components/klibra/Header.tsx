@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, X, MessageCircle } from "lucide-react";
-import kLogoAsset from "@/assets/k-logo.png.asset.json";
-const kLogo = kLogoAsset.url;
+import kLogo from "@/assets/k-libra-logo.png";
 import { Cta } from "./ui";
 import { openWhatsApp } from "@/lib/klibra";
 

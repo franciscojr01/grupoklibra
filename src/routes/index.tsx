@@ -18,8 +18,7 @@ import {
 
 import heroImgAsset from "@/assets/hero-tires.jpg.asset.json";
 const heroImg = heroImgAsset.url;
-import kLogoAsset from "@/assets/k-logo.png.asset.json";
-const kLogo = kLogoAsset.url;
+import kLogo from "@/assets/k-libra-logo.png";
 import agricolaImg from "@/assets/line-agricola.jpg";
 import reparacaoImg from "@/assets/line-reparacao.jpg";
 import motosImg from "@/assets/line-motos.jpg";
