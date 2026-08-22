@@ -222,25 +222,44 @@ function Landing() {
 
       <main>
         {/* 01 — HERO */}
-        <section className="relative overflow-hidden pt-28 md:pt-32">
-          <div className="absolute inset-y-0 right-0 hidden w-[52%] lg:block">
+        <section className="relative overflow-hidden pt-28 md:pt-32 lg:min-h-[720px]">
+          {/* Fotografia full-bleed que nasce do fundo preto */}
+          <div className="absolute inset-0" aria-hidden>
             <img
               src={heroImg}
               alt="Estoque de câmaras de ar e pneus carregado para distribuição"
               width={1280}
               height={1280}
-              className="h-full w-full object-cover object-top"
+              className="h-full w-full object-cover object-center lg:object-right"
             />
+            {/* Degradê horizontal (desktop): preto na esquerda -> imagem forte na direita */}
+            <div
+              className="absolute inset-0 hidden lg:block"
+              style={{
+                background:
+                  "linear-gradient(90deg, #0C0C0C 0%, #0C0C0C 20%, rgba(12,12,12,0.95) 35%, rgba(12,12,12,0.55) 52%, rgba(12,12,12,0.12) 70%, rgba(12,12,12,0) 86%)",
+              }}
+            />
+            {/* Degradê vertical (tablet/mobile): topo preto para leitura, imagem emerge abaixo */}
+            <div
+              className="absolute inset-0 lg:hidden"
+              style={{
+                background:
+                  "linear-gradient(180deg, #0C0C0C 0%, rgba(12,12,12,0.82) 42%, rgba(12,12,12,0.45) 78%, rgba(12,12,12,0.25) 100%)",
+              }}
+            />
+            {/* Integração sutil no topo e na base para a imagem não terminar abruptamente */}
             <div
               className="absolute inset-0"
-              style={{ background: "var(--gradient-fade)" }}
-              aria-hidden
+              style={{
+                background:
+                  "linear-gradient(180deg, #0C0C0C 0%, rgba(12,12,12,0) 16%, rgba(12,12,12,0) 84%, #0C0C0C 100%)",
+              }}
             />
-            <div className="absolute inset-0 bg-background/45" aria-hidden />
           </div>
 
-          <div className="relative mx-auto grid max-w-7xl gap-10 px-4 pb-12 pt-8 md:px-8 lg:grid-cols-2 lg:pb-16">
-            <div className="reveal max-w-[620px]">
+          <div className="relative mx-auto grid max-w-7xl gap-10 px-4 pb-12 pt-8 md:px-8 lg:grid-cols-12 lg:items-center lg:pb-20 lg:pt-12">
+            <div className="reveal max-w-[620px] lg:col-span-7 xl:col-span-6">
               <p className="inline-flex items-center gap-2 border border-primary/50 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
                 Distribuição B2B para todo o estado da Bahia
               </p>
@@ -280,16 +299,6 @@ function Landing() {
                   </li>
                 ))}
               </ul>
-            </div>
-
-            <div className="relative lg:hidden">
-              <img
-                src={heroImg}
-                alt="Estoque de câmaras de ar e pneus carregado para distribuição"
-                width={1280}
-                height={1280}
-                className="angular-clip h-64 w-full object-cover object-top sm:h-80"
-              />
             </div>
           </div>
         </section>
