@@ -341,43 +341,48 @@ const ballotCandidates = [
 ] as const;
 
 function playVotingSound() {
-  const AudioContextClass =
-    window.AudioContext ||
-    (
-      window as typeof window & {
-        webkitAudioContext?: typeof AudioContext;
-      }
-    ).webkitAudioContext;
+  const votingAudio = new Audio(
+    "https://www.myinstants.com/media/sounds/urna-eletronica-confirma.mp3",
+  );
 
-  if (!AudioContextClass) return;
+  votingAudio.volume = 1;
+  votingAudio.currentTime = 0;
 
-  const context = new AudioContextClass();
-  const startTime = context.currentTime;
+  void votingAudio.play().catch(() => {
+    // Mantém um som de confirmação como alternativa caso o navegador bloqueie
+    // o áudio externo ou o arquivo esteja indisponível.
+    const AudioContextClass =
+      window.AudioContext ||
+      (
+        window as typeof window & {
+          webkitAudioContext?: typeof AudioContext;
+        }
+      ).webkitAudioContext;
 
-  const playTone = (frequency: number, offset: number, duration: number) => {
+    if (!AudioContextClass) return;
+
+    const context = new AudioContextClass();
+    const startTime = context.currentTime;
     const oscillator = context.createOscillator();
     const gain = context.createGain();
 
     oscillator.type = "square";
-    oscillator.frequency.setValueAtTime(frequency, startTime + offset);
+    oscillator.frequency.setValueAtTime(740, startTime);
+    oscillator.frequency.setValueAtTime(520, startTime + 0.16);
 
-    gain.gain.setValueAtTime(0.001, startTime + offset);
-    gain.gain.exponentialRampToValueAtTime(0.11, startTime + offset + 0.01);
-    gain.gain.exponentialRampToValueAtTime(0.001, startTime + offset + duration);
+    gain.gain.setValueAtTime(0.001, startTime);
+    gain.gain.exponentialRampToValueAtTime(0.11, startTime + 0.01);
+    gain.gain.exponentialRampToValueAtTime(0.001, startTime + 0.4);
 
     oscillator.connect(gain);
     gain.connect(context.destination);
-    oscillator.start(startTime + offset);
-    oscillator.stop(startTime + offset + duration);
-  };
+    oscillator.start(startTime);
+    oscillator.stop(startTime + 0.4);
 
-  // Dois tons curtos, semelhantes ao som de confirmação de uma urna.
-  playTone(740, 0, 0.14);
-  playTone(520, 0.16, 0.24);
-
-  window.setTimeout(() => {
-    void context.close();
-  }, 500);
+    window.setTimeout(() => {
+      void context.close();
+    }, 500);
+  });
 }
 
 function ModernJornalVozPatriota() {
