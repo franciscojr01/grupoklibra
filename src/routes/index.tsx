@@ -571,13 +571,20 @@ function ModernJornalVozPatriota() {
               <p className="text-xs text-muted-foreground">
                 Simulação meramente ilustrativa.
               </p>
-              <iframe
-                width="110"
-                height="200"
-                src="https://www.myinstants.com/instant/urna-eletronica-confirma/embed/"
-                title="Som de confirmação da urna eletrônica"
-                className="h-16 w-[110px] rounded-md border border-border bg-background"
-              />
+              <div className="flex flex-col items-center gap-1">
+                <span className="text-[10px] font-black uppercase tracking-wider text-muted-foreground">
+                  Som da urna
+                </span>
+                <iframe
+                  width="110"
+                  height="200"
+                  src="https://www.myinstants.com/instant/urna-eletronica-confirma/embed/"
+                  title="Botão de som de confirmação da urna eletrônica"
+                  className="h-[200px] w-[110px] rounded-md border border-border bg-background"
+                  frameBorder="0"
+                  scrolling="no"
+                />
+              </div>
             </div>
             <Button
             type="button"
