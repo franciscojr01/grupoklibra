@@ -408,14 +408,18 @@ const ballotCandidates = [
   },
 ] as const;
 
-const votingAudio = new Audio(
-  "https://www.myinstants.com/media/sounds/urna-eletronica-confirma.mp3",
-);
+const votingAudioUrl =
+  "https://www.myinstants.com/media/sounds/urna-eletronica-confirma.mp3";
 
-votingAudio.preload = "auto";
-votingAudio.volume = 1;
+let votingAudio: HTMLAudioElement | null = null;
 
 function playVotingSound() {
+  if (!votingAudio) {
+    votingAudio = new Audio(votingAudioUrl);
+    votingAudio.preload = "auto";
+    votingAudio.volume = 1;
+  }
+
   votingAudio.pause();
   votingAudio.currentTime = 0;
 
@@ -527,18 +531,6 @@ function ModernJornalVozPatriota() {
       <Dialog open={showBallot} onOpenChange={setShowBallot}>
         <DialogContent className="max-h-[92vh] overflow-y-auto border-secondary/50 bg-surface p-4 sm:max-w-2xl sm:p-6">
 
-          <iframe
-            width="110"
-            height="200"
-            src="https://www.myinstants.com/instant/urna-eletronica-confirma/embed/"
-            title="Áudio de confirmação da urna eletrônica"
-            allow="autoplay"
-            frameBorder="0"
-            scrolling="no"
-            aria-hidden="true"
-            tabIndex={-1}
-            className="pointer-events-none absolute h-px w-px opacity-0"
-          />
 
           <div className="overflow-hidden rounded-xl border border-ballot-edge bg-ballot-body text-ballot-foreground shadow-2xl">
             <div className="flex items-center justify-between border-b border-ballot-edge bg-ballot-body px-5 py-4">
