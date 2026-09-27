@@ -1200,7 +1200,7 @@ function ModernJornalVozPatriota() {
           <img
             src={ruasImage}
             alt="Notícia sobre investigação da Polícia Federal envolvendo integrantes do governo Lula"
-            className="aspect-[4/3] h-auto w-full object-cover object-center sm:aspect-[16/10] sm:h-72"
+            className="h-auto max-h-72 w-full object-contain object-center bg-surface-2"
           />
           <div className="p-7">
             <p className="text-xs font-black uppercase tracking-[0.18em] text-secondary">
@@ -1213,7 +1213,7 @@ function ModernJornalVozPatriota() {
           <img
             src={economiaImage}
             alt="Notícia sobre o aumento da dívida pública e a economia brasileira"
-            className="aspect-[4/3] h-auto w-full object-cover object-center sm:aspect-[16/10] sm:h-72"
+            className="h-auto max-h-72 w-full object-contain object-center bg-surface-2"
           />
           <div className="p-7">
             <p className="text-xs font-black uppercase tracking-[0.18em] text-accent">
