@@ -1041,7 +1041,7 @@ function ModernJornalVozPatriota() {
               <Button
                 type="button"
                 size="lg"
-                className="rounded-full bg-primary px-7 text-sm leading-tight text-primary-foreground shadow-[var(--shadow-hard)] transition-transform hover:-translate-y-0.5 hover:bg-primary-deep sm:text-base"
+                className="rounded-full bg-primary px-7 text-xs leading-tight text-primary-foreground shadow-[var(--shadow-hard)] transition-transform hover:-translate-y-0.5 hover:bg-primary-deep sm:text-sm"
                 onClick={openBallot}
               >
                 Assine agora. Antes que tentem calar a gente.
