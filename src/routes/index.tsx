@@ -294,11 +294,15 @@ function ModernJornalVozPatriota() {
     useState<(typeof ballotCandidates)[number] | null>(null);
   const [typedNumber, setTypedNumber] = useState("");
   const [confirmed, setConfirmed] = useState(false);
+  const [showQuiz, setShowQuiz] = useState(false);
+  const [quizAnswer, setQuizAnswer] = useState<string | null>(null);
 
   const openBallot = () => {
     setSelectedCandidate(null);
     setTypedNumber("");
     setConfirmed(false);
+    setQuizAnswer(null);
+    setShowQuiz(false);
     setShowBallot(true);
   };
 
@@ -445,27 +449,83 @@ function ModernJornalVozPatriota() {
             <Button
               type="button"
               disabled={!selectedCandidate || confirmed}
-              onClick={() => setConfirmed(true)}
+              onClick={() => {
+                setConfirmed(true);
+                setShowBallot(false);
+                setQuizAnswer(null);
+                setShowQuiz(true);
+              }}
             >
               {confirmed ? "VOTO CONFIRMADO" : "CONFIRMA"}
               {!confirmed ? <ArrowRight className="h-4 w-4" aria-hidden /> : null}
             </Button>
+          </DialogFooter>
+
           {confirmed ? (
             <div className="rounded-lg border border-primary/40 bg-primary/10 px-4 py-3 text-center text-sm font-bold text-primary">
               Voto demonstrativo confirmado. A simulação foi concluída.
             </div>
           ) : null}
+        </DialogContent>
+      </Dialog>
 
-          <DialogFooter>
-            {confirmed ? (
-              <Button type="button" variant="outline" onClick={() => setShowBallot(false)}>
-                Fechar simulação
+      <Dialog open={showQuiz} onOpenChange={setShowQuiz}>
+        <DialogContent className="border-secondary/50 bg-surface sm:max-w-lg">
+          <DialogHeader>
+            <DialogTitle className="text-2xl sm:text-3xl">
+              Você é um patriota?
+            </DialogTitle>
+            <DialogDescription className="leading-6 text-muted-foreground">
+              Responda a esta pergunta rápida depois da simulação. Não existe resposta certa ou
+              errada — o objetivo é conhecer a sua visão sobre o Brasil.
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="space-y-3">
+            <p className="font-bold">
+              O que mais representa a sua relação com o Brasil?
+            </p>
+
+            {[
+              "Quero ver o Brasil mais livre, seguro e próspero.",
+              "Acredito que participar e acompanhar a política é importante.",
+              "Ainda estou formando minha opinião, mas quero entender mais.",
+            ].map((answer) => (
+              <Button
+                key={answer}
+                type="button"
+                variant={quizAnswer === answer ? "default" : "outline"}
+                className="h-auto min-h-12 w-full justify-start whitespace-normal px-4 py-3 text-left"
+                onClick={() => setQuizAnswer(answer)}
+              >
+                {answer}
               </Button>
-            ) : null}
-          </DialogFooter>
+            ))}
+          </div>
+
+          {quizAnswer ? (
+            <div className="rounded-lg border border-primary/40 bg-primary/10 px-4 py-3 text-sm leading-6 text-primary">
+              <strong>Resultado:</strong> sua participação demonstra interesse pelo futuro do
+              Brasil. Ser patriota também é buscar informação, participar do debate e exercer a
+              cidadania com responsabilidade.
+            </div>
+          ) : null}
+
+          <DialogFooter className="flex-col gap-3 sm:flex-row sm:justify-between">
+            <p className="text-xs text-muted-foreground">
+              Quiz simbólico e sem coleta de respostas.
+            </p>
+            <Button
+              type="button"
+              disabled={!quizAnswer}
+              onClick={() => setShowQuiz(false)}
+            >
+              Concluir
+              <ArrowRight className="h-4 w-4" aria-hidden />
+            </Button>
           </DialogFooter>
         </DialogContent>
-        </Dialog>
+      </Dialog>
 
       <section id="inicio" className="relative isolate min-h-[680px] overflow-hidden border-b border-border">
         <div className="absolute inset-0 -z-20 bg-[url('https://images.pexels.com/photos/33625260/pexels-photo-33625260.jpeg?auto=compress&cs=tinysrgb&w=1600')] bg-cover bg-center" />
