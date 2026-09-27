@@ -72,12 +72,12 @@ function JornalVozPatriota() {
                 key={plan.name}
                 className={`relative rounded-3xl border p-7 sm:p-9 ${
                   plan.featured
-                    ? "border-primary bg-primary/10 shadow-[var(--shadow-heat)]"
+                    ? "border-secondary bg-secondary/10 shadow-[var(--shadow-heat)] ring-2 ring-secondary/60"
                     : "border-border bg-surface"
                 }`}
               >
                 {plan.featured ? (
-                  <div className="absolute right-6 top-0 -translate-y-1/2 bg-primary px-3 py-1 text-xs font-black uppercase tracking-wider text-primary-foreground">
+                  <div className="absolute right-6 top-0 -translate-y-1/2 bg-secondary px-3 py-1 text-xs font-black uppercase tracking-wider text-secondary-foreground">
                     Mais completo
                   </div>
                 ) : null}
@@ -958,12 +958,12 @@ function ModernJornalVozPatriota() {
                   key={plan.name}
                   className={`relative rounded-3xl border p-7 sm:p-9 ${
                     plan.featured
-                      ? "border-primary bg-primary/10 shadow-[var(--shadow-heat)]"
+                      ? "border-secondary bg-secondary/10 shadow-[var(--shadow-heat)] ring-2 ring-secondary/60"
                       : "border-border bg-background"
                   }`}
                 >
                   {plan.featured ? (
-                    <div className="absolute right-6 top-0 -translate-y-1/2 bg-primary px-3 py-1 text-xs font-black uppercase tracking-wider text-primary-foreground">
+                    <div className="absolute right-6 top-0 -translate-y-1/2 bg-secondary px-3 py-1 text-xs font-black uppercase tracking-wider text-secondary-foreground">
                       Mais completo
                     </div>
                   ) : null}
@@ -988,7 +988,7 @@ function ModernJornalVozPatriota() {
                     type="button"
                     size="lg"
                     className="mt-8 w-full"
-                    variant={plan.featured ? "default" : "outline"}
+                    variant={plan.featured ? "secondary" : "outline"}
                     onClick={() => setShowPlans(false)}
                   >
                     Assinar {plan.name}
