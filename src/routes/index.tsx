@@ -463,8 +463,9 @@ function ModernJornalVozPatriota() {
               </Button>
             ) : null}
           </DialogFooter>
+          </DialogFooter>
         </DialogContent>
-      </Dialog>
+        </Dialog>
 
       <section id="inicio" className="relative isolate min-h-[680px] overflow-hidden border-b border-border">
         <div className="absolute inset-0 -z-20 bg-[url('https://images.pexels.com/photos/33625260/pexels-photo-33625260.jpeg?auto=compress&cs=tinysrgb&w=1600')] bg-cover bg-center" />
