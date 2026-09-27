@@ -457,15 +457,6 @@ function ModernJornalVozPatriota() {
 
       <Dialog open={showBallot} onOpenChange={setShowBallot}>
         <DialogContent className="max-h-[92vh] overflow-y-auto border-secondary/50 bg-surface p-4 sm:max-w-2xl sm:p-6">
-          <DialogHeader>
-            <DialogTitle className="text-2xl sm:text-3xl">
-              Simulação de urna eletrônica
-            </DialogTitle>
-            <DialogDescription className="leading-6 text-muted-foreground">
-              Escolha um candidato demonstrativo para testar o funcionamento da urna. Esta
-              experiência não representa uma eleição real nem registra nenhum voto.
-            </DialogDescription>
-          </DialogHeader>
 
           <div className="overflow-hidden rounded-xl border border-border bg-surface-2 text-foreground shadow-2xl">
             <div className="flex items-center justify-between border-b border-border bg-surface-2 px-5 py-4">
