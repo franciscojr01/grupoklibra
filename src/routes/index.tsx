@@ -960,7 +960,7 @@ function ModernJornalVozPatriota() {
               </Button>
             </div>
             <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-xs font-bold uppercase tracking-[0.12em] text-foreground/70">
-              <span>✓ Notícias em tempo real</span>
+              <span>✓ Notícias em toda semana</span>
               <span>✓ Brasil e mundo</span>
               <span>✓ Análises exclusivas</span>
             </div>
