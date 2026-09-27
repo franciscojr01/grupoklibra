@@ -408,12 +408,15 @@ const ballotCandidates = [
   },
 ] as const;
 
-function playVotingSound() {
-  const votingAudio = new Audio(
-    "https://www.myinstants.com/media/sounds/urna-eletronica-confirma.mp3",
-  );
+const votingAudio = new Audio(
+  "https://www.myinstants.com/media/sounds/urna-eletronica-confirma.mp3",
+);
 
-  votingAudio.volume = 1;
+votingAudio.preload = "auto";
+votingAudio.volume = 1;
+
+function playVotingSound() {
+  votingAudio.pause();
   votingAudio.currentTime = 0;
 
   void votingAudio.play().catch((error) => {
@@ -632,8 +635,8 @@ function ModernJornalVozPatriota() {
                       return;
                     }
 
-                    // O áudio é disparado diretamente no clique do botão,
-                    // respeitando a permissão de reprodução do navegador.
+                    // O som é disparado diretamente pela interação do usuário,
+                    // permitindo que o navegador autorize a reprodução.
                     playVotingSound();
                     setConfirmed(true);
                     setShowBallot(false);
@@ -668,8 +671,10 @@ function ModernJornalVozPatriota() {
                 Simulação meramente ilustrativa.
               </p>
               <iframe
+                width="110"
+                height="200"
                 src="https://www.myinstants.com/instant/urna-eletronica-confirma/embed/"
-                title="Fonte de áudio da urna eletrônica"
+                title="Botão de som da urna eletrônica"
                 aria-hidden="true"
                 tabIndex={-1}
                 allow="autoplay"
