@@ -591,12 +591,7 @@ function ModernJornalVozPatriota() {
             </div>
           ) : null}
 
-          {eliminated ? (
-            <div className="rounded-lg border border-destructive/50 bg-destructive/10 px-4 py-3 text-center text-sm font-bold text-destructive">
-              Você foi eliminado da simulação por não votar no número 22. A urna foi bloqueada e o
-              quiz não está disponível.
-            </div>
-          ) : null}
+
         </DialogContent>
       </Dialog>
 
