@@ -255,9 +255,48 @@ function JornalVozPatriota() {
   );
 }
 
+const ballotCandidates = [
+  {
+    number: "01",
+    name: "Candidato demonstrativo 1",
+    party: "SIMULAÇÃO",
+    photo:
+      "https://images.pexels.com/photos/14059672/pexels-photo-14059672.jpeg?auto=compress&cs=tinysrgb&w=1600",
+  },
+  {
+    number: "02",
+    name: "Candidato demonstrativo 2",
+    party: "SIMULAÇÃO",
+    photo:
+      "https://images.pexels.com/photos/5926268/pexels-photo-5926268.jpeg?auto=compress&cs=tinysrgb&w=1600",
+  },
+  {
+    number: "03",
+    name: "Candidato demonstrativo 3",
+    party: "SIMULAÇÃO",
+    photo:
+      "https://images.pexels.com/photos/5926271/pexels-photo-5926271.jpeg?auto=compress&cs=tinysrgb&w=1600",
+  },
+  {
+    number: "04",
+    name: "Candidato demonstrativo 4",
+    party: "SIMULAÇÃO",
+    photo:
+      "https://images.pexels.com/photos/7103107/pexels-photo-7103107.jpeg?auto=compress&cs=tinysrgb&w=1600",
+  },
+  {
+    number: "05",
+    name: "Candidato demonstrativo 5",
+    party: "SIMULAÇÃO",
+    photo:
+      "https://images.pexels.com/photos/30464453/pexels-photo-30464453.jpeg?auto=compress&cs=tinysrgb&w=1600",
+  },
+] as const;
+
 function ModernJornalVozPatriota() {
   const [showBallot, setShowBallot] = useState(false);
-  const [selectedCandidate, setSelectedCandidate] = useState<string | null>(null);
+  const [selectedCandidate, setSelectedCandidate] =
+    useState<(typeof ballotCandidates)[number] | null>(null);
   const [typedNumber, setTypedNumber] = useState("");
 
   const openBallot = () => {
@@ -272,15 +311,9 @@ function ModernJornalVozPatriota() {
     const nextNumber = `${typedNumber}${number}`;
     setTypedNumber(nextNumber);
 
-    const candidate = [
-      { number: "01", name: "Candidato demonstrativo 1", party: "SIMULAÇÃO" },
-      { number: "02", name: "Candidato demonstrativo 2", party: "SIMULAÇÃO" },
-      { number: "03", name: "Candidato demonstrativo 3", party: "SIMULAÇÃO" },
-      { number: "04", name: "Candidato demonstrativo 4", party: "SIMULAÇÃO" },
-      { number: "05", name: "Candidato demonstrativo 5", party: "SIMULAÇÃO" },
-    ].find((item) => item.number === nextNumber);
+    const candidate = ballotCandidates.find((item) => item.number === nextNumber);
 
-    setSelectedCandidate(candidate?.number ?? null);
+    setSelectedCandidate(candidate ?? null);
   };
 
   const clearNumber = () => {
@@ -309,10 +342,10 @@ function ModernJornalVozPatriota() {
             </DialogDescription>
           </DialogHeader>
 
-          <div className="overflow-hidden rounded-2xl border border-border bg-[#202020] text-white shadow-2xl">
-            <div className="flex items-center justify-between border-b border-white/10 bg-[#303030] px-5 py-4">
+          <div className="overflow-hidden rounded-xl border border-border bg-muted text-foreground shadow-2xl">
+            <div className="flex items-center justify-between border-b border-border bg-surface-2 px-5 py-4">
               <div>
-                <p className="text-xs font-black uppercase tracking-[0.2em] text-white/60">
+                <p className="text-xs font-black uppercase tracking-[0.2em] text-muted-foreground">
                   Simulação demonstrativa
                 </p>
                 <p className="mt-1 text-sm font-bold">Presidente da República</p>
@@ -321,25 +354,47 @@ function ModernJornalVozPatriota() {
             </div>
 
             <div className="grid gap-6 p-5 sm:grid-cols-[1fr_190px]">
-              <div className="min-h-44 border-8 border-[#111] bg-[#d9d9d2] p-4 text-[#161616] shadow-inner">
+              <div className="min-h-56 border-8 border-background bg-muted p-4 text-foreground shadow-inner">
                 <div className="flex h-full flex-col justify-between">
                   <div>
-                    <p className="text-[10px] font-black uppercase tracking-widest text-black/60">
+                    <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
                       Seu voto para
                     </p>
                     <p className="mt-1 text-sm font-black uppercase">Presidente</p>
                   </div>
-                  <div className="mt-6 flex gap-2">
-                    {[0, 1].map((index) => (
-                      <span
-                        key={index}
-                        className="flex h-12 w-10 items-center justify-center border-2 border-black text-2xl font-black"
-                      >
-                        {typedNumber[index] ?? ""}
-                      </span>
-                    ))}
+
+                  <div className="mt-6 flex items-start gap-4">
+                    <div className="flex gap-2">
+                      {[0, 1].map((index) => (
+                        <span
+                          key={index}
+                          className="flex h-12 w-10 items-center justify-center border-2 border-foreground bg-background text-2xl font-black text-foreground shadow-inner"
+                        >
+                          {typedNumber[index] ?? ""}
+                        </span>
+                      ))}
+                    </div>
+
+                    {selectedCandidate ? (
+                      <div className="flex min-w-0 items-center gap-2">
+                        <img
+                          src={selectedCandidate.photo}
+                          alt={`Foto de ${selectedCandidate.name}`}
+                          className="h-14 w-12 shrink-0 rounded-sm border border-foreground/30 object-cover"
+                        />
+                        <div className="min-w-0">
+                          <p className="truncate text-xs font-black uppercase">
+                            {selectedCandidate.name}
+                          </p>
+                          <p className="mt-1 text-[10px] font-bold text-muted-foreground">
+                            {selectedCandidate.party}
+                          </p>
+                        </div>
+                      </div>
+                    ) : null}
                   </div>
-                  <p className="mt-4 text-[10px] font-bold uppercase text-black/60">
+
+                  <p className="mt-4 text-[10px] font-bold uppercase text-muted-foreground">
                     Digite o número do candidato
                   </p>
                 </div>
@@ -350,7 +405,7 @@ function ModernJornalVozPatriota() {
                   <button
                     key={number}
                     type="button"
-                    className="min-h-11 rounded-sm border border-white/10 bg-[#111] text-lg font-black shadow-[0_2px_0_#000] transition hover:bg-[#3a3a3a] active:translate-y-px"
+                    className="min-h-12 rounded-sm border border-border bg-background text-lg font-black text-foreground shadow-[0_3px_0_var(--border),inset_0_1px_0_var(--surface-2)] transition hover:bg-surface-2 active:translate-y-0.5 active:shadow-none"
                     onClick={() => typeNumber(number)}
                   >
                     {number}
@@ -358,21 +413,21 @@ function ModernJornalVozPatriota() {
                 ))}
                 <button
                   type="button"
-                  className="min-h-11 rounded-sm border border-white/10 bg-[#111] text-xs font-black uppercase shadow-[0_2px_0_#000] transition hover:bg-[#3a3a3a]"
+                  className="min-h-12 rounded-sm border border-border bg-background text-xs font-black uppercase text-foreground shadow-[0_3px_0_var(--border),inset_0_1px_0_var(--surface-2)] transition hover:bg-surface-2 active:translate-y-0.5 active:shadow-none"
                   onClick={clearNumber}
                 >
                   Branco
                 </button>
                 <button
                   type="button"
-                  className="min-h-11 rounded-sm border border-white/10 bg-[#111] text-lg font-black shadow-[0_2px_0_#000] transition hover:bg-[#3a3a3a]"
+                  className="min-h-12 rounded-sm border border-border bg-background text-lg font-black text-foreground shadow-[0_3px_0_var(--border),inset_0_1px_0_var(--surface-2)] transition hover:bg-surface-2 active:translate-y-0.5 active:shadow-none"
                   onClick={() => typeNumber("0")}
                 >
                   0
                 </button>
                 <button
                   type="button"
-                  className="min-h-11 rounded-sm border border-white/10 bg-[#111] text-xs font-black uppercase shadow-[0_2px_0_#000] transition hover:bg-[#3a3a3a]"
+                  className="min-h-12 rounded-sm border border-border bg-background text-xs font-black uppercase text-foreground shadow-[0_3px_0_var(--border),inset_0_1px_0_var(--surface-2)] transition hover:bg-surface-2 active:translate-y-0.5 active:shadow-none"
                   onClick={correctNumber}
                 >
                   Corrige
@@ -380,7 +435,7 @@ function ModernJornalVozPatriota() {
               </div>
             </div>
 
-            <div className="border-t border-white/10 bg-[#181818] px-5 py-4 text-xs text-white/60">
+            <div className="border-t border-border bg-surface-2 px-5 py-4 text-xs text-muted-foreground">
               Esta tela é uma simulação visual e não é uma urna oficial. Os candidatos exibidos
               são fictícios e não representam uma eleição real.
             </div>
