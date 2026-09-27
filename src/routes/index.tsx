@@ -622,21 +622,17 @@ function ModernJornalVozPatriota() {
                 >
                   0
                 </button>
-                <div className="relative min-h-14 overflow-hidden rounded-md border-2 border-black/80 bg-ballot-confirm shadow-[0_4px_0_oklch(0.08_0.012_90),inset_0_1px_0_oklch(1_0_0_/_0.3),inset_0_-3px_6px_oklch(0_0_0_/_0.45)] transition active:translate-y-1 active:shadow-[inset_0_2px_5px_oklch(0_0_0_/_0.6)]">
-                  <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center px-1 text-center text-[9px] font-black uppercase leading-none tracking-[-0.03em] text-ballot-foreground">
-                    Confirmar
-                  </div>
-                  <iframe
-                    width="110"
-                    height="200"
-                    src="https://www.myinstants.com/instant/urna-eletronica-confirma/embed/"
-                    title="Confirmar voto e reproduzir som da urna"
-                    allow="autoplay"
-                    frameBorder="0"
-                    scrolling="no"
-                    className="absolute inset-0 z-10 h-[200px] w-full cursor-pointer opacity-0"
-                  />
-                </div>
+                <button
+                  type="button"
+                  className="relative min-h-14 overflow-hidden rounded-md border-2 border-black/80 bg-ballot-confirm px-1 text-[9px] font-black uppercase leading-none tracking-[-0.03em] text-ballot-foreground shadow-[0_4px_0_oklch(0.08_0.012_90),inset_0_1px_0_oklch(1_0_0_/_0.3),inset_0_-3px_6px_oklch(0_0_0_/_0.45)] transition hover:brightness-105 active:translate-y-1 active:shadow-[inset_0_2px_5px_oklch(0_0_0_/_0.6)] disabled:cursor-not-allowed disabled:opacity-50"
+                  disabled={eliminated || !selectedCandidate}
+                  onClick={() => {
+                    playVotingSound();
+                    setConfirmed(true);
+                  }}
+                >
+                  Confirmar
+                </button>
               </div>
             </div>
 
