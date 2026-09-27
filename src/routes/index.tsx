@@ -1051,7 +1051,7 @@ function ModernJornalVozPatriota() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="rounded-full border-foreground/30 bg-background/35 px-7 backdrop-blur transition-transform hover:-translate-y-0.5"
+                className="rounded-full border-foreground/30 bg-background/35 px-7 text-xs backdrop-blur transition-transform hover:-translate-y-0.5 sm:text-sm"
               >
                 <a href="#noticias">Conhecer o jornal</a>
               </Button>
