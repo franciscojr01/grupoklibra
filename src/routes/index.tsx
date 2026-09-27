@@ -1027,13 +1027,13 @@ function ModernJornalVozPatriota() {
             <article className="rounded-2xl border border-border bg-surface p-6 shadow-[var(--shadow-hard)]">
               <div className="flex items-center gap-3">
                 <img
-                  src="https://candidate-photo.vercel.app/_next/image?url…pg&w=64&q=75&dpl=dpl_5KiSMZ9Js5hNRJVKUP79GwjgRT8E"
-                  alt="Foto de perfil de Patrícia Alves"
+                  src="https://images.pexels.com/photos/23496671/pexels-photo-23496671.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                  alt="Foto de perfil de Terezinha"
                   className="h-12 w-12 rounded-full border-2 border-primary/50 object-cover"
                 />
                 <div>
-                  <p className="font-black">Patrícia Alves</p>
-                  <p className="text-sm text-muted-foreground">@patricia.alves</p>
+                  <p className="font-black">Terezinha</p>
+                  <p className="text-sm text-muted-foreground">@dona.terezinha</p>
                 </div>
               </div>
               <div className="mt-5 flex gap-1 text-secondary" aria-label="5 estrelas">
@@ -1153,7 +1153,7 @@ function ModernJornalVozPatriota() {
             </div>
             <p className="mt-1">Informação, opinião e liberdade.</p>
             <p className="mt-3 text-xs">
-              Imagens: Pexels — Karolina Grabowska, Tochukwu Ekeh e Christina Morillo.
+              Imagens: Pexels — Vitaly Gariev, Tochukwu Ekeh e Christina Morillo.
             </p>
           </div>
           <p>© 2026 Jornal Voz Patriota. Todos os direitos reservados.</p>
