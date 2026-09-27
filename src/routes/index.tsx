@@ -531,7 +531,7 @@ function ModernJornalVozPatriota() {
       </Dialog>
 
       <section id="inicio" className="relative isolate min-h-[680px] overflow-hidden border-b border-border">
-        <div className="absolute inset-0 -z-20 bg-[url('https://images.pexels.com/photos/14357047/pexels-photo-14357047.jpeg?auto=compress&cs=tinysrgb&w=1600')] bg-cover bg-center" />
+        <div className="absolute inset-0 -z-20 bg-[url('https://picsum.photos/seed/manifestacao-patriota-brasil/1800/1200')] bg-cover bg-center" />
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,color-mix(in_oklch,var(--background)_97%,transparent)_0%,color-mix(in_oklch,var(--background)_86%,transparent)_46%,color-mix(in_oklch,var(--background)_45%,transparent)_100%),linear-gradient(0deg,var(--background),transparent_65%)]" />
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-24 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8 lg:py-32">
           <div>
@@ -614,7 +614,18 @@ function ModernJornalVozPatriota() {
 
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             <article className="rounded-2xl border border-border bg-surface p-6 shadow-[var(--shadow-hard)]">
-              <div className="flex gap-1 text-secondary" aria-label="5 estrelas">
+              <div className="flex items-center gap-3">
+                <img
+                  src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                  alt="Foto de perfil de Marcelo Ribeiro"
+                  className="h-12 w-12 rounded-full border-2 border-primary/50 object-cover"
+                />
+                <div>
+                  <p className="font-black">Marcelo Ribeiro</p>
+                  <p className="text-sm text-muted-foreground">@marceloribeiro</p>
+                </div>
+              </div>
+              <div className="mt-5 flex gap-1 text-secondary" aria-label="5 estrelas">
                 {"★★★★★"}
               </div>
               <blockquote className="mt-5 text-lg leading-8">
@@ -622,12 +633,23 @@ function ModernJornalVozPatriota() {
                 leitor como alguém incapaz de pensar.”
               </blockquote>
               <p className="mt-6 text-sm font-black uppercase tracking-wider text-primary">
-                Marcelo R. — leitor assinante
+                Leitor assinante
               </p>
             </article>
 
             <article className="rounded-2xl border border-border bg-surface p-6 shadow-[var(--shadow-hard)]">
-              <div className="flex gap-1 text-secondary" aria-label="5 estrelas">
+              <div className="flex items-center gap-3">
+                <img
+                  src="https://images.pexels.com/photos/32288633/pexels-photo-32288633.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                  alt="Foto de perfil de Patrícia Alves"
+                  className="h-12 w-12 rounded-full border-2 border-primary/50 object-cover"
+                />
+                <div>
+                  <p className="font-black">Patrícia Alves</p>
+                  <p className="text-sm text-muted-foreground">@patricia.alves</p>
+                </div>
+              </div>
+              <div className="mt-5 flex gap-1 text-secondary" aria-label="5 estrelas">
                 {"★★★★★"}
               </div>
               <blockquote className="mt-5 text-lg leading-8">
@@ -635,12 +657,23 @@ function ModernJornalVozPatriota() {
                 clara e alinhada aos valores da minha família.”
               </blockquote>
               <p className="mt-6 text-sm font-black uppercase tracking-wider text-primary">
-                Patrícia A. — leitora assinante
+                Leitora assinante
               </p>
             </article>
 
             <article className="rounded-2xl border border-border bg-surface p-6 shadow-[var(--shadow-hard)]">
-              <div className="flex gap-1 text-secondary" aria-label="5 estrelas">
+              <div className="flex items-center gap-3">
+                <img
+                  src="https://images.pexels.com/photos/1181519/pexels-photo-1181519.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                  alt="Foto de perfil de Eduardo Martins"
+                  className="h-12 w-12 rounded-full border-2 border-primary/50 object-cover"
+                />
+                <div>
+                  <p className="font-black">Eduardo Martins</p>
+                  <p className="text-sm text-muted-foreground">@eduardomartins</p>
+                </div>
+              </div>
+              <div className="mt-5 flex gap-1 text-secondary" aria-label="5 estrelas">
                 {"★★★★★"}
               </div>
               <blockquote className="mt-5 text-lg leading-8">
@@ -648,7 +681,7 @@ function ModernJornalVozPatriota() {
                 sobre o que realmente importa.”
               </blockquote>
               <p className="mt-6 text-sm font-black uppercase tracking-wider text-primary">
-                Eduardo M. — leitor assinante
+                Leitor assinante
               </p>
             </article>
           </div>
@@ -733,7 +766,7 @@ function ModernJornalVozPatriota() {
             </div>
             <p className="mt-1">Informação, opinião e liberdade.</p>
             <p className="mt-3 text-xs">
-              Imagens: Pexels — Joel Santos e Waldir Évora.
+              Imagens: Pexels — Karolina Grabowska, Tochukwu Ekeh e Christina Morillo.
             </p>
           </div>
           <p>© 2026 Jornal Voz Patriota. Todos os direitos reservados.</p>
