@@ -938,7 +938,7 @@ function ModernJornalVozPatriota() {
       </Dialog>
 
       {showPlans ? (
-        <section className="border-y border-primary/30 bg-surface px-5 py-16 lg:px-8">
+        <section className="fixed inset-0 z-50 min-h-screen overflow-y-auto bg-surface px-5 py-16 lg:px-8">
           <div className="mx-auto max-w-6xl">
             <div className="mx-auto max-w-3xl text-center">
               <p className="text-sm font-black uppercase tracking-[0.2em] text-secondary">
