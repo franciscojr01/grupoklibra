@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ArrowRight, Check, CheckCircle2, Globe2, Megaphone, ShieldAlert, Star } from "lucide-react";
 import { createFileRoute } from "@tanstack/react-router";
+import ruasImage from "@/assets/uploads/3675.jpeg";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -1124,8 +1125,8 @@ function ModernJornalVozPatriota() {
       <section className="mx-auto grid max-w-7xl gap-6 px-5 py-20 lg:grid-cols-2 lg:px-8">
         <div className="overflow-hidden rounded-[2rem] border border-border/80 bg-surface shadow-[var(--shadow-hard)]">
           <img
-            src="https://ibb.co/XrBg33cf"
-            alt="Multidão reunida em uma manifestação patriótica com bandeiras do Brasil"
+            src={ruasImage}
+            alt="Notícia sobre investigação da Polícia Federal envolvendo integrantes do governo Lula"
             className="h-72 w-full object-cover"
           />
           <div className="p-7">
