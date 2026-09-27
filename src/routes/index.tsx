@@ -41,7 +41,7 @@ const plans = [
     featured: true,
     features: [
       "Tudo do Plano Básico",
-      "Notícias da direita no Brasil e no mundo",
+      "Notícias da direita no Brasil",
       "Cobertura de líderes conservadores internacionais",
       "Notícias sobre Donald Trump e outros líderes mundiais",
     ],
