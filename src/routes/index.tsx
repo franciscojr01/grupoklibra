@@ -434,8 +434,23 @@ function ModernJornalVozPatriota() {
 
   return (
     <main className="min-h-screen overflow-hidden bg-background text-foreground">
-      <div className="border-b border-destructive/40 bg-destructive px-3 py-1 text-center text-[9px] font-black tracking-[0.04em] text-destructive-foreground sm:text-[10px]">
-        Jornal sob risco de censura por políticos de esquerda.
+      <div
+        className="overflow-hidden border-b border-destructive/50 bg-destructive px-3 py-1 text-[9px] font-black tracking-[0.04em] text-destructive-foreground sm:text-[10px]"
+        role="status"
+        aria-label="Aviso: jornal sob risco de censura por políticos de esquerda"
+      >
+        <div className="flex min-w-max animate-marquee whitespace-nowrap">
+          <span className="px-8">⚠️ Jornal sob risco de censura por políticos de esquerda.</span>
+          <span className="px-8" aria-hidden="true">
+            ⚠️ Jornal sob risco de censura por políticos de esquerda.
+          </span>
+          <span className="px-8" aria-hidden="true">
+            ⚠️ Jornal sob risco de censura por políticos de esquerda.
+          </span>
+          <span className="px-8" aria-hidden="true">
+            ⚠️ Jornal sob risco de censura por políticos de esquerda.
+          </span>
+        </div>
       </div>
 
       <Dialog open={showBallot} onOpenChange={setShowBallot}>
