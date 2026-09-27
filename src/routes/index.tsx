@@ -372,6 +372,8 @@ function ModernJornalVozPatriota() {
   const [showQuiz, setShowQuiz] = useState(false);
   const [quizStep, setQuizStep] = useState(0);
   const [quizAnswers, setQuizAnswers] = useState<string[]>([]);
+  const [quizScore, setQuizScore] = useState(0);
+  const [quizFailed, setQuizFailed] = useState(false);
   const [showPlans, setShowPlans] = useState(false);
 
   const openBallot = () => {
@@ -385,6 +387,8 @@ function ModernJornalVozPatriota() {
     setConfirmed(false);
     setQuizStep(0);
     setQuizAnswers([]);
+    setQuizScore(0);
+    setQuizFailed(false);
     setShowQuiz(false);
     setShowPlans(false);
     setShowBallot(true);
@@ -577,6 +581,8 @@ function ModernJornalVozPatriota() {
                 setShowBallot(false);
                 setQuizStep(0);
                 setQuizAnswers([]);
+                setQuizScore(0);
+                setQuizFailed(false);
                 setShowQuiz(true);
               }}
             >
@@ -592,6 +598,41 @@ function ModernJornalVozPatriota() {
           ) : null}
 
 
+        </DialogContent>
+      </Dialog>
+
+      <Dialog
+        open={quizFailed}
+        onOpenChange={(open) => {
+          if (!open) setQuizFailed(true);
+        }}
+      >
+        <DialogContent
+          className="border-destructive/50 bg-surface sm:max-w-md"
+          onEscapeKeyDown={(event) => event.preventDefault()}
+          onPointerDownOutside={(event) => event.preventDefault()}
+        >
+          <DialogHeader>
+            <DialogTitle className="text-2xl">Acesso não liberado</DialogTitle>
+            <DialogDescription className="leading-6 text-muted-foreground">
+              Para continuar, você precisa concluir o quiz patriota demonstrando conhecimento,
+              responsabilidade e compromisso com o Brasil.
+            </DialogDescription>
+          </DialogHeader>
+          <Button
+            type="button"
+            className="w-full"
+            onClick={() => {
+              setQuizFailed(false);
+              setQuizStep(0);
+              setQuizAnswers([]);
+              setQuizScore(0);
+              setShowQuiz(true);
+            }}
+          >
+            Refazer o quiz
+            <ArrowRight className="h-4 w-4" aria-hidden />
+          </Button>
         </DialogContent>
       </Dialog>
 
@@ -619,13 +660,13 @@ function ModernJornalVozPatriota() {
                 answers: [
                   "Cuidar do Brasil e defender sua liberdade.",
                   "Respeitar a história, os símbolos e as pessoas do país.",
-                  "Participar das decisões que definem o futuro da nação.",
+                  "Não me interesso pelo futuro do Brasil.",
                 ],
               },
               {
                 emoji: "🦅",
                 question: "Qual valor deve guiar o futuro do Brasil?",
-                answers: ["🕊️ Liberdade", "👨‍👩‍👧 Família", "⚖️ Responsabilidade"],
+                answers: ["🕊️ Liberdade", "👨‍👩‍👧 Família", "Nenhum valor deve orientar o país"],
               },
               {
                 emoji: "🗳️",
@@ -633,7 +674,7 @@ function ModernJornalVozPatriota() {
                 answers: [
                   "Busco diferentes fontes antes de formar opinião.",
                   "Acompanho notícias e debates diariamente.",
-                  "Converso com outras pessoas e participo quando posso.",
+                  "Prefiro não saber o que acontece no país.",
                 ],
               },
               {
@@ -642,7 +683,7 @@ function ModernJornalVozPatriota() {
                 answers: [
                   "Educação e trabalho.",
                   "Segurança e respeito às leis.",
-                  "União e participação dos cidadãos.",
+                  "Nada depende da participação dos cidadãos.",
                 ],
               },
               {
@@ -651,7 +692,7 @@ function ModernJornalVozPatriota() {
                 answers: [
                   "Sim. Informação livre é essencial para a democracia.",
                   "Sim, desde que exista responsabilidade com os fatos.",
-                  "Sim. O leitor deve poder conhecer diferentes perspectivas.",
+                  "Não. As pessoas não precisam conhecer diferentes perspectivas.",
                 ],
               },
               {
@@ -660,7 +701,7 @@ function ModernJornalVozPatriota() {
                 answers: [
                   "Um país mais livre, seguro e próspero.",
                   "Um país forte, unido e respeitado.",
-                  "Um país com mais oportunidades para todos.",
+                  "Não tenho nenhum desejo ou compromisso com o futuro do país.",
                 ],
               },
             ];
@@ -694,7 +735,7 @@ function ModernJornalVozPatriota() {
                   </div>
 
                   <div className="space-y-3">
-                    {currentQuestion.answers.map((answer) => (
+                    {currentQuestion.answers.map((answer, answerIndex) => (
                       <Button
                         key={answer}
                         type="button"
@@ -708,6 +749,14 @@ function ModernJornalVozPatriota() {
                           const nextAnswers = [...quizAnswers];
                           nextAnswers[quizStep] = answer;
                           setQuizAnswers(nextAnswers);
+
+                          const nextScore = nextAnswers.reduce((score, selectedAnswer, index) => {
+                            if (!selectedAnswer) return score;
+                            const selectedIndex = questions[index].answers.indexOf(selectedAnswer);
+                            return score + (selectedIndex === 0 ? 2 : selectedIndex === 1 ? 1 : 0);
+                          }, 0);
+
+                          setQuizScore(nextScore);
                         }}
                       >
                         <span className="whitespace-normal">{answer}</span>
@@ -731,9 +780,13 @@ function ModernJornalVozPatriota() {
                     onClick={() => {
                       if (quizStep < questions.length - 1) {
                         setQuizStep((step) => step + 1);
-                      } else {
+                      } else if (quizScore >= 8) {
                         setShowQuiz(false);
                         setShowPlans(true);
+                      } else {
+                        setShowQuiz(false);
+                        setShowPlans(false);
+                        setQuizFailed(true);
                       }
                     }}
                   >
