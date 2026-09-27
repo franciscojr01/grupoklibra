@@ -484,19 +484,25 @@ function ModernJornalVozPatriota() {
       </Dialog>
 
       <Dialog open={showQuiz} onOpenChange={setShowQuiz}>
-        <DialogContent className="border-secondary/50 bg-surface sm:max-w-lg">
-          <DialogHeader>
-            <DialogTitle className="text-2xl sm:text-3xl">
-              Quiz patriota
-            </DialogTitle>
-            <DialogDescription className="leading-6 text-muted-foreground">
-              Responda a 6 perguntas rápidas depois de realizar seu voto demonstrativo.
-            </DialogDescription>
-          </DialogHeader>
+        <DialogContent className="overflow-hidden rounded-[2rem] border-secondary/50 bg-surface p-0 shadow-2xl sm:max-w-lg">
+          <div className="bg-gradient-to-br from-primary/15 via-surface to-secondary/10 px-6 pb-6 pt-7 sm:px-8">
+            <DialogHeader>
+              <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-3xl border border-secondary/30 bg-secondary/15 text-3xl shadow-lg">
+                🇧🇷
+              </div>
+              <DialogTitle className="text-3xl sm:text-4xl">
+                Quiz patriota
+              </DialogTitle>
+              <DialogDescription className="mt-2 leading-6 text-muted-foreground">
+                Responda a 6 perguntas rápidas e mostre o que o Brasil representa para você.
+              </DialogDescription>
+            </DialogHeader>
+          </div>
 
           {(() => {
             const questions = [
               {
+                emoji: "🇧🇷",
                 question: "O que significa patriotismo para você?",
                 answers: [
                   "Cuidar do Brasil e defender sua liberdade.",
@@ -505,10 +511,12 @@ function ModernJornalVozPatriota() {
                 ],
               },
               {
+                emoji: "🦅",
                 question: "Qual valor deve guiar o futuro do Brasil?",
-                answers: ["Liberdade", "Família", "Responsabilidade"],
+                answers: ["🕊️ Liberdade", "👨‍👩‍👧 Família", "⚖️ Responsabilidade"],
               },
               {
+                emoji: "🗳️",
                 question: "Como você acompanha as decisões políticas?",
                 answers: [
                   "Busco diferentes fontes antes de formar opinião.",
@@ -517,6 +525,7 @@ function ModernJornalVozPatriota() {
                 ],
               },
               {
+                emoji: "💪",
                 question: "O que mais ajuda a fortalecer o país?",
                 answers: [
                   "Educação e trabalho.",
@@ -525,6 +534,7 @@ function ModernJornalVozPatriota() {
                 ],
               },
               {
+                emoji: "📰",
                 question: "Você acredita que a imprensa deve ser livre?",
                 answers: [
                   "Sim. Informação livre é essencial para a democracia.",
@@ -533,6 +543,7 @@ function ModernJornalVozPatriota() {
                 ],
               },
               {
+                emoji: "🌟",
                 question: "O que você deseja para o Brasil?",
                 answers: [
                   "Um país mais livre, seguro e próspero.",
@@ -546,36 +557,64 @@ function ModernJornalVozPatriota() {
 
             return (
               <>
-                <div className="mb-2 flex items-center justify-between text-xs font-black uppercase tracking-wider text-muted-foreground">
-                  <span>Pergunta {quizStep + 1} de {questions.length}</span>
-                  <span>{Math.round(((quizStep + 1) / questions.length) * 100)}%</span>
+                <div className="space-y-6 px-6 pb-2 pt-6 sm:px-8">
+                  <div className="flex items-center justify-between text-xs font-black uppercase tracking-wider text-muted-foreground">
+                    <span>Pergunta {quizStep + 1} de {questions.length}</span>
+                    <span className="rounded-full bg-primary/10 px-3 py-1 text-primary">
+                      {Math.round(((quizStep + 1) / questions.length) * 100)}%
+                    </span>
+                  </div>
+
+                  <div className="h-2 overflow-hidden rounded-full bg-muted">
+                    <div
+                      className="h-full rounded-full bg-gradient-to-r from-primary via-secondary to-accent transition-all duration-500"
+                      style={{ width: `${((quizStep + 1) / questions.length) * 100}%` }}
+                    />
+                  </div>
+
+                  <div className="rounded-[1.75rem] border border-border/80 bg-background/50 p-5 shadow-inner sm:p-6">
+                    <div className="mb-4 text-4xl" aria-hidden="true">
+                      {currentQuestion.emoji}
+                    </div>
+                    <p className="text-xl font-black leading-tight sm:text-2xl">
+                      {currentQuestion.question}
+                    </p>
+                  </div>
+
+                  <div className="space-y-3">
+                    {currentQuestion.answers.map((answer) => (
+                      <Button
+                        key={answer}
+                        type="button"
+                        variant={currentAnswer === answer ? "default" : "outline"}
+                        className={`h-auto min-h-14 w-full justify-between rounded-2xl px-5 py-4 text-left text-sm transition-all duration-200 ${
+                          currentAnswer === answer
+                            ? "scale-[1.02] shadow-lg shadow-primary/20"
+                            : "border-border/80 bg-background/40 hover:-translate-y-0.5 hover:border-primary/60 hover:bg-primary/5"
+                        }`}
+                        onClick={() => {
+                          const nextAnswers = [...quizAnswers];
+                          nextAnswers[quizStep] = answer;
+                          setQuizAnswers(nextAnswers);
+                        }}
+                      >
+                        <span className="whitespace-normal">{answer}</span>
+                        <span className="ml-3 shrink-0 text-lg" aria-hidden="true">
+                          {currentAnswer === answer ? "✅" : "👉"}
+                        </span>
+                      </Button>
+                    ))}
+                  </div>
                 </div>
 
-                <div className="space-y-3">
-                  <p className="font-bold">{currentQuestion.question}</p>
-                  {currentQuestion.answers.map((answer) => (
-                    <Button
-                      key={answer}
-                      type="button"
-                      variant={currentAnswer === answer ? "default" : "outline"}
-                      className="h-auto min-h-12 w-full justify-start whitespace-normal px-4 py-3 text-left"
-                      onClick={() => {
-                        const nextAnswers = [...quizAnswers];
-                        nextAnswers[quizStep] = answer;
-                        setQuizAnswers(nextAnswers);
-                      }}
-                    >
-                      {answer}
-                    </Button>
-                  ))}
-                </div>
-
-                <DialogFooter className="flex-col gap-3 sm:flex-row sm:justify-between">
+                <DialogFooter className="mt-6 flex-col gap-3 border-t border-border/70 bg-background/30 px-6 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-8">
                   <p className="text-xs text-muted-foreground">
-                    Quiz simbólico e sem coleta de respostas.
+                    🔒 Quiz simbólico e sem coleta de respostas.
                   </p>
                   <Button
                     type="button"
+                    size="lg"
+                    className="w-full rounded-full px-6 sm:w-auto"
                     disabled={!currentAnswer}
                     onClick={() => {
                       if (quizStep < questions.length - 1) {
@@ -586,7 +625,7 @@ function ModernJornalVozPatriota() {
                       }
                     }}
                   >
-                    {quizStep < questions.length - 1 ? "Próxima pergunta" : "Ver planos"}
+                    {quizStep < questions.length - 1 ? "Continuar" : "Ver planos"}
                     <ArrowRight className="h-4 w-4" aria-hidden />
                   </Button>
                 </DialogFooter>
