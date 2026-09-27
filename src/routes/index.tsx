@@ -935,7 +935,7 @@ function ModernJornalVozPatriota() {
       ) : null}
 
       <section id="inicio" className="relative isolate min-h-[680px] overflow-hidden border-b border-border">
-        <div className="absolute inset-0 -z-20 bg-[url('https://images.pexels.com/photos/6274231/pexels-photo-6274231.jpeg?auto=compress&cs=tinysrgb&w=1600')] bg-cover bg-center" />
+        <div className="absolute inset-0 -z-20 bg-[url('https://images.pexels.com/photos/14357047/pexels-photo-14357047.jpeg?auto=compress&cs=tinysrgb&w=1600')] bg-cover bg-center" />
         <div className="absolute inset-0 -z-10 bg-background/75" />
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-24 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8 lg:py-32">
           <div className="max-w-3xl">
@@ -1123,7 +1123,7 @@ function ModernJornalVozPatriota() {
         <div className="overflow-hidden rounded-[2rem] border border-border/80 bg-surface shadow-[var(--shadow-hard)]">
           <img
             src="https://images.pexels.com/photos/15869991/pexels-photo-15869991.jpeg?auto=compress&cs=tinysrgb&w=1600"
-            alt="Pessoas reunidas em uma manifestação usando bandeiras brasileiras"
+            alt="Multidão reunida em uma manifestação patriótica com bandeiras do Brasil"
             className="h-72 w-full object-cover"
           />
           <div className="p-7">
@@ -1197,7 +1197,7 @@ function ModernJornalVozPatriota() {
             </div>
             <p className="mt-1">Informação, opinião e liberdade.</p>
             <p className="mt-3 text-xs">
-              Imagem da hero: Pexels — Elena, foto de manifestação política patriótica.
+              Imagens de manifestações patrióticas: Pexels — Joel Santos e Waldir Évora.
             </p>
           </div>
           <p>© 2026 Jornal Voz Patriota. Todos os direitos reservados.</p>
