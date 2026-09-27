@@ -219,5 +219,6 @@
   .hero-title {
     overflow-wrap: normal;
     word-break: normal;
+    white-space: normal;
   }
 }
