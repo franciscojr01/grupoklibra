@@ -1047,8 +1047,8 @@ function ModernJornalVozPatriota() {
             <article className="rounded-3xl border border-border/80 bg-surface/90 p-6 shadow-[var(--shadow-hard)]">
               <div className="flex items-center gap-3">
                 <img
-                  src="https://images.pexels.com/photos/14357175/pexels-photo-14357175.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                  alt="Pessoas patriotas segurando a bandeira do Brasil"
+                  src="https://images.pexels.com/photos/3778610/pexels-photo-3778610.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                  alt="Foto de perfil de Marcelo Ribeiro"
                   className="h-12 w-12 rounded-full border-2 border-primary/50 object-cover"
                 />
                 <div>
@@ -1095,8 +1095,8 @@ function ModernJornalVozPatriota() {
             <article className="rounded-2xl border border-border bg-surface p-6 shadow-[var(--shadow-hard)]">
               <div className="flex items-center gap-3">
                 <img
-                  src="https://images.pexels.com/photos/14357175/pexels-photo-14357175.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                  alt="Pessoas patriotas segurando a bandeira do Brasil"
+                  src="https://images.pexels.com/photos/10319758/pexels-photo-10319758.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                  alt="Foto de perfil de Eduardo Martins"
                   className="h-12 w-12 rounded-full border-2 border-primary/50 object-cover"
                 />
                 <div>
