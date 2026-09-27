@@ -945,7 +945,9 @@ function ModernJornalVozPatriota() {
             </div>
             <h1 className="max-w-4xl text-5xl leading-[0.94] sm:text-6xl lg:text-8xl">
               Fique atento.{" "}
-              <span className="heat-text">A reta final das eleições está chegando.</span>
+              <span className="heat-text">
+                A reta final das eleições <span className="text-primary">está chegando.</span>
+              </span>
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-foreground/80">
               Acompanhe as principais notícias, os acontecimentos e os debates que podem definir o
