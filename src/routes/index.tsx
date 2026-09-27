@@ -527,7 +527,7 @@ function ModernJornalVozPatriota() {
                     key={number}
                     type="button"
                     disabled={eliminated}
-                    className="min-h-14 rounded-md border-2 border-black/80 bg-ballot-key text-2xl font-black text-foreground shadow-[0_4px_0_oklch(0.08_0.012_90),inset_0_1px_0_oklch(1_0_0_/_0.22),inset_0_-3px_6px_oklch(0_0_0_/_0.55)] transition hover:bg-ballot-key-hover active:translate-y-1 active:shadow-[inset_0_2px_5px_oklch(0_0_0_/_0.65)] disabled:cursor-not-allowed disabled:opacity-50"
+                    className="min-h-14 rounded-md border-2 border-black/80 bg-transparent text-2xl font-black text-foreground shadow-[0_4px_0_oklch(0.08_0.012_90),inset_0_1px_0_oklch(1_0_0_/_0.22),inset_0_-3px_6px_oklch(0_0_0_/_0.55)] transition hover:bg-transparent active:translate-y-1 active:shadow-[inset_0_2px_5px_oklch(0_0_0_/_0.65)] disabled:cursor-not-allowed disabled:opacity-50"
                     onClick={() => typeNumber(number)}
                   >
                     {number}
@@ -536,7 +536,7 @@ function ModernJornalVozPatriota() {
                 <button
                   type="button"
                   disabled={eliminated}
-                  className="min-h-14 rounded-md border-2 border-ballot-edge bg-ballot-body text-xs font-black uppercase text-ballot-foreground shadow-[0_4px_0_oklch(0.08_0.012_90),inset_0_1px_0_oklch(1_0_0_/_0.45),inset_0_-3px_6px_oklch(0_0_0_/_0.3)] transition hover:brightness-105 active:translate-y-1 active:shadow-[inset_0_2px_5px_oklch(0_0_0_/_0.55)] disabled:cursor-not-allowed disabled:opacity-50"
+                  className="min-h-14 rounded-md border-2 border-ballot-edge bg-transparent text-xs font-black uppercase text-ballot-foreground shadow-[0_4px_0_oklch(0.08_0.012_90),inset_0_1px_0_oklch(1_0_0_/_0.45),inset_0_-3px_6px_oklch(0_0_0_/_0.3)] transition hover:bg-transparent hover:brightness-105 active:translate-y-1 active:shadow-[inset_0_2px_5px_oklch(0_0_0_/_0.55)] disabled:cursor-not-allowed disabled:opacity-50"
                   onClick={clearNumber}
                 >
                   Branco
@@ -552,7 +552,7 @@ function ModernJornalVozPatriota() {
                 <button
                   type="button"
                   disabled={!selectedCandidate || confirmed || eliminated}
-                  className="min-h-14 rounded-md border-2 border-black/50 bg-ballot-correct text-xs font-black uppercase text-ballot-foreground shadow-[0_4px_0_oklch(0.08_0.012_90),inset_0_1px_0_oklch(1_0_0_/_0.3),inset_0_-3px_6px_oklch(0_0_0_/_0.4)] transition hover:brightness-110 active:translate-y-1 active:shadow-[inset_0_2px_5px_oklch(0_0_0_/_0.6)] disabled:cursor-not-allowed disabled:opacity-50"
+                  className="min-h-14 rounded-md border-2 border-black/50 bg-transparent text-xs font-black uppercase text-ballot-foreground shadow-[0_4px_0_oklch(0.08_0.012_90),inset_0_1px_0_oklch(1_0_0_/_0.3),inset_0_-3px_6px_oklch(0_0_0_/_0.4)] transition hover:bg-transparent hover:brightness-110 active:translate-y-1 active:shadow-[inset_0_2px_5px_oklch(0_0_0_/_0.6)] disabled:cursor-not-allowed disabled:opacity-50"
                   onClick={() => {
                     if (selectedCandidate?.number !== "22") {
                       setEliminated(true);
