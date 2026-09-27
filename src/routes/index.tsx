@@ -774,9 +774,7 @@ function ModernJornalVozPatriota() {
                         }}
                       >
                         <span className="whitespace-normal">{answer}</span>
-                        <span className="ml-3 shrink-0 text-lg" aria-hidden="true">
-                          {currentAnswer === answer ? "✅" : "👉"}
-                        </span>
+
                       </Button>
                     ))}
                   </div>
