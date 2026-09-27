@@ -341,8 +341,6 @@ const ballotCandidates = [
 ] as const;
 
 function playVotingSound() {
-  // O link compartilhado é uma página do MyInstants. Este é o arquivo de
-  // áudio correspondente ao som original de confirmação da urna.
   const votingAudio = new Audio(
     "https://www.myinstants.com/media/sounds/urna-eletronica-confirma.mp3",
   );
@@ -569,9 +567,18 @@ function ModernJornalVozPatriota() {
           </div>
 
           <DialogFooter className="flex-col items-stretch gap-3 border-t border-border/70 pt-4 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-xs text-muted-foreground">
-              Simulação meramente ilustrativa.
-            </p>
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+              <p className="text-xs text-muted-foreground">
+                Simulação meramente ilustrativa.
+              </p>
+              <iframe
+                width="110"
+                height="200"
+                src="https://www.myinstants.com/instant/urna-eletronica-confirma/embed/"
+                title="Som de confirmação da urna eletrônica"
+                className="h-16 w-[110px] rounded-md border border-border bg-background"
+              />
+            </div>
             <Button
             type="button"
             className="border-2 border-black/60 bg-ballot-confirm text-white shadow-[0_4px_0_oklch(0.08_0.012_90),inset_0_1px_0_oklch(1_0_0_/_0.3),inset_0_-3px_6px_oklch(0_0_0_/_0.45)] hover:brightness-110 active:translate-y-1 active:shadow-[inset_0_2px_5px_oklch(0_0_0_/_0.55)]"
