@@ -954,7 +954,6 @@ function ModernJornalVozPatriota() {
                 size="lg"
                 variant="outline"
                 className="rounded-full border-foreground/30 bg-background/35 px-7 backdrop-blur transition-transform hover:-translate-y-0.5"
-                onClick={openBallot}
               >
                 Conhecer o jornal
               </Button>
