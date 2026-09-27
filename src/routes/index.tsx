@@ -528,7 +528,7 @@ function ModernJornalVozPatriota() {
       </Dialog>
 
       <section id="inicio" className="relative isolate min-h-[680px] overflow-hidden border-b border-border">
-        <div className="absolute inset-0 -z-20 bg-[url('https://images.pexels.com/photos/33625260/pexels-photo-33625260.jpeg?auto=compress&cs=tinysrgb&w=1600')] bg-cover bg-center" />
+        <div className="absolute inset-0 -z-20 bg-[url('https://images.pexels.com/photos/14357047/pexels-photo-14357047.jpeg?auto=compress&cs=tinysrgb&w=1600')] bg-cover bg-center" />
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,color-mix(in_oklch,var(--background)_97%,transparent)_0%,color-mix(in_oklch,var(--background)_86%,transparent)_46%,color-mix(in_oklch,var(--background)_45%,transparent)_100%),linear-gradient(0deg,var(--background),transparent_65%)]" />
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-24 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8 lg:py-32">
           <div>
@@ -590,6 +590,64 @@ function ModernJornalVozPatriota() {
               title="Acesso independente"
               text="Apoie uma redação que não quer pedir permissão para informar o que importa."
             />
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y border-border bg-background">
+        <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-sm font-black uppercase tracking-[0.2em] text-secondary">
+              Quem já acompanha o jornal
+            </p>
+            <h2 className="mt-3 text-4xl sm:text-5xl">
+              Informação para quem cansou de ouvir um lado só
+            </h2>
+            <p className="mx-auto mt-5 max-w-2xl leading-7 text-muted-foreground">
+              Leitores que escolheram buscar contexto, opinião e notícias sem depender da narrativa
+              dominante.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-5 md:grid-cols-3">
+            <article className="rounded-2xl border border-border bg-surface p-6 shadow-[var(--shadow-hard)]">
+              <div className="flex gap-1 text-secondary" aria-label="5 estrelas">
+                {"★★★★★"}
+              </div>
+              <blockquote className="mt-5 text-lg leading-8">
+                “Finalmente encontrei um jornal que apresenta os fatos de forma direta e não trata o
+                leitor como alguém incapaz de pensar.”
+              </blockquote>
+              <p className="mt-6 text-sm font-black uppercase tracking-wider text-primary">
+                Marcelo R. — leitor assinante
+              </p>
+            </article>
+
+            <article className="rounded-2xl border border-border bg-surface p-6 shadow-[var(--shadow-hard)]">
+              <div className="flex gap-1 text-secondary" aria-label="5 estrelas">
+                {"★★★★★"}
+              </div>
+              <blockquote className="mt-5 text-lg leading-8">
+                “Passei a acompanhar o Brasil e o mundo com muito mais contexto. A leitura é rápida,
+                clara e alinhada aos valores da minha família.”
+              </blockquote>
+              <p className="mt-6 text-sm font-black uppercase tracking-wider text-primary">
+                Patrícia A. — leitora assinante
+              </p>
+            </article>
+
+            <article className="rounded-2xl border border-border bg-surface p-6 shadow-[var(--shadow-hard)]">
+              <div className="flex gap-1 text-secondary" aria-label="5 estrelas">
+                {"★★★★★"}
+              </div>
+              <blockquote className="mt-5 text-lg leading-8">
+                “Assinar foi uma forma de apoiar um jornalismo independente e continuar informado
+                sobre o que realmente importa.”
+              </blockquote>
+              <p className="mt-6 text-sm font-black uppercase tracking-wider text-primary">
+                Eduardo M. — leitor assinante
+              </p>
+            </article>
           </div>
         </div>
       </section>
@@ -672,7 +730,7 @@ function ModernJornalVozPatriota() {
             </div>
             <p className="mt-1">Informação, opinião e liberdade.</p>
             <p className="mt-3 text-xs">
-              Imagens: Pexels — fotógrafos Marcela Bezerra, Rodolfo Quirós e Marcello Sokal.
+              Imagens: Pexels — Joel Santos e Waldir Évora.
             </p>
           </div>
           <p>© 2026 Jornal Voz Patriota. Todos os direitos reservados.</p>
