@@ -3,7 +3,7 @@ import { ArrowRight, Check, CheckCircle2, Globe2, Megaphone, ShieldAlert, Star }
 import { createFileRoute } from "@tanstack/react-router";
 import ruasImage from "@/assets/uploads/3675.jpeg";
 import economiaImage from "@/assets/uploads/3676.png";
-import urnaBotoesImage from "@/assets/uploads/3678.png";
+
 
 import { Button } from "@/components/ui/button";
 import {
@@ -514,14 +514,7 @@ function ModernJornalVozPatriota() {
                 </div>
               </div>
 
-              <div
-                className="mx-auto grid w-full max-w-[280px] grid-cols-3 gap-2 rounded-lg bg-ballot-keypad/90 p-2"
-                style={{
-                  backgroundImage: `linear-gradient(oklch(0.16 0.012 90 / 0.72), oklch(0.16 0.012 90 / 0.72)), url(${urnaBotoesImage})`,
-                  backgroundPosition: "center",
-                  backgroundSize: "cover",
-                }}
-              >
+              <div className="mx-auto grid w-full max-w-[280px] grid-cols-3 gap-2 rounded-lg bg-ballot-keypad/90 p-2">
                 {["1", "2", "3", "4", "5", "6", "7", "8", "9"].map((number) => (
                   <button
                     key={number}
