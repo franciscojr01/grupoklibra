@@ -257,42 +257,110 @@ function JornalVozPatriota() {
 
 const ballotCandidates = [
   {
-    number: "01",
-    name: "Candidato demonstrativo 1",
-    party: "SIMULAÇÃO 2026",
-    photo: "https://picsum.photos/seed/candidato-presidente-01/240/300",
-  },
-  {
-    number: "02",
-    name: "Candidato demonstrativo 2",
-    party: "SIMULAÇÃO 2026",
-    photo: "https://picsum.photos/seed/candidato-presidente-02/240/300",
-  },
-  {
-    number: "03",
-    name: "Candidato demonstrativo 3",
-    party: "SIMULAÇÃO 2026",
-    photo: "https://picsum.photos/seed/candidato-presidente-03/240/300",
-  },
-  {
-    number: "04",
-    name: "Candidato demonstrativo 4",
-    party: "SIMULAÇÃO 2026",
-    photo: "https://picsum.photos/seed/candidato-presidente-04/240/300",
-  },
-  {
-    number: "05",
-    name: "Candidato demonstrativo 5",
-    party: "SIMULAÇÃO 2026",
-    photo: "https://picsum.photos/seed/candidato-presidente-05/240/300",
+    number: "13",
+    name: "Lula",
+    party: "PT",
+    photo:
+      "https://s2-g1.glbimg.com/51hBXbK2_M17AGAQXZCbNuZfdsA=/0x0:1990x2048/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2026/S/F/YA8OqrR9KQlikqWk4XMA/55450527845-c28450c581-k.jpg",
   },
   {
     number: "22",
     name: "Flávio Bolsonaro",
     party: "PL",
-    photo: "https://commons.wikimedia.org/wiki/Special:FilePath/Fl%C3%A1vio%20Bolsonaro%20-%202022.jpg",
+    photo: "https://admin.cnnbrasil.com.br/wp-content/uploads/sites/12/candidates/2026/280002551544_e6be99.jpg",
+  },
+  {
+    number: "55",
+    name: "Ronaldo Caiado",
+    party: "PSD",
+    photo: "https://divulgacandcontas.tse.jus.br/divulga/rest/arquivo/img/20322002026/280002551932/BR",
+  },
+  {
+    number: "29",
+    name: "Rui Costa Pimenta",
+    party: "PCO",
+    photo: "https://divulgacandcontas.tse.jus.br/divulga/rest/arquivo/img/20322002026/280002552487/BR",
+  },
+  {
+    number: "80",
+    name: "Samara",
+    party: "UP",
+    photo: "https://divulgacandcontas.tse.jus.br/divulga/rest/arquivo/img/20322002026/280002538811/BR",
+  },
+  {
+    number: "30",
+    name: "Romeu Zema",
+    party: "NOVO",
+    photo: "https://divulgacandcontas.tse.jus.br/divulga/rest/arquivo/img/20322002026/280002539826/BR",
+  },
+  {
+    number: "16",
+    name: "Hertz Dias",
+    party: "PSTU",
+    photo: "https://divulgacandcontas.tse.jus.br/divulga/rest/arquivo/img/20322002026/280002541457/BR",
+  },
+  {
+    number: "21",
+    name: "Edmilson Costa",
+    party: "PCB",
+    photo: "https://divulgacandcontas.tse.jus.br/divulga/rest/arquivo/img/20322002026/280002551975/BR",
+  },
+  {
+    number: "14",
+    name: "Renan Santos",
+    party: "MISSÃO",
+    photo: "https://divulgacandcontas.tse.jus.br/divulga/rest/arquivo/img/20322002026/280002540694/BR",
+  },
+  {
+    number: "35",
+    name: "Wilson Grassi",
+    party: "DEMOCRATA",
+    photo: "https://picsum.photos/seed/wilson-grassi/240/300",
+  },
+  {
+    number: "27",
+    name: "Clariana Barão",
+    party: "DC",
+    photo: "https://picsum.photos/seed/clariana-barao/240/300",
+  },
+  {
+    number: "70",
+    name: "Augusto Cury",
+    party: "AVANTE",
+    photo: "https://divulgacandcontas.tse.jus.br/divulga/rest/arquivo/img/20322002026/280002551547/BR",
+  },
+  {
+    number: "28",
+    name: "Leonardo Avalanche",
+    party: "PRTB",
+    photo: "https://divulgacandcontas.tse.jus.br/divulga/rest/arquivo/img/20322002026/280002554479/BR",
   },
 ] as const;
+
+function playVotingSound() {
+  const AudioContextClass = window.AudioContext || (
+    window as typeof window & {
+      webkitAudioContext?: typeof AudioContext;
+    }
+  ).webkitAudioContext;
+
+  if (!AudioContextClass) return;
+
+  const context = new AudioContextClass();
+  const oscillator = context.createOscillator();
+  const gain = context.createGain();
+
+  oscillator.type = "square";
+  oscillator.frequency.setValueAtTime(740, context.currentTime);
+  oscillator.frequency.setValueAtTime(520, context.currentTime + 0.12);
+  gain.gain.setValueAtTime(0.08, context.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.001, context.currentTime + 0.28);
+
+  oscillator.connect(gain);
+  gain.connect(context.destination);
+  oscillator.start();
+  oscillator.stop(context.currentTime + 0.28);
+}
 
 function ModernJornalVozPatriota() {
   const [showBallot, setShowBallot] = useState(false);
@@ -338,6 +406,11 @@ function ModernJornalVozPatriota() {
     setSelectedCandidate(null);
   };
 
+  const selectCandidate = (candidate: (typeof ballotCandidates)[number]) => {
+    setTypedNumber(candidate.number);
+    setSelectedCandidate(candidate);
+  };
+
   return (
     <main className="min-h-screen overflow-hidden bg-background text-foreground">
       <div className="border-b border-destructive/40 bg-destructive px-3 py-1 text-center text-[9px] font-black tracking-[0.04em] text-destructive-foreground sm:text-[10px]">
@@ -378,6 +451,31 @@ function ModernJornalVozPatriota() {
                   </div>
 
                   <div className="mt-6 flex items-start gap-4">
+                    {selectedCandidate ? (
+                      <div className="flex min-w-0 items-center gap-3">
+                        <img
+                          src={selectedCandidate.photo}
+                          alt={`Foto de ${selectedCandidate.name}`}
+                          className="h-24 w-20 shrink-0 rounded-sm border-2 border-foreground/40 object-cover shadow-md"
+                        />
+                        <div className="min-w-0">
+                          <p className="text-[10px] font-bold uppercase text-muted-foreground">
+                            Candidato
+                          </p>
+                          <p className="truncate text-sm font-black uppercase">
+                            {selectedCandidate.name}
+                          </p>
+                          <p className="mt-1 text-[10px] font-bold text-muted-foreground">
+                            {selectedCandidate.party}
+                          </p>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="flex h-24 w-20 items-center justify-center rounded-sm border-2 border-dashed border-border text-center text-[9px] font-bold uppercase text-muted-foreground">
+                        Foto do candidato
+                      </div>
+                    )}
+
                     <div className="flex gap-2">
                       {[0, 1].map((index) => (
                         <span
@@ -388,24 +486,6 @@ function ModernJornalVozPatriota() {
                         </span>
                       ))}
                     </div>
-
-                    {selectedCandidate ? (
-                      <div className="flex min-w-0 items-center gap-2">
-                        <img
-                          src={selectedCandidate.photo}
-                          alt={`Foto ilustrativa de ${selectedCandidate.name}`}
-                          className="h-20 w-16 shrink-0 rounded-sm border-2 border-foreground/40 object-cover"
-                        />
-                        <div className="min-w-0">
-                          <p className="truncate text-xs font-black uppercase">
-                            {selectedCandidate.name}
-                          </p>
-                          <p className="mt-1 text-[10px] font-bold text-muted-foreground">
-                            {selectedCandidate.party}
-                          </p>
-                        </div>
-                      </div>
-                    ) : null}
                   </div>
 
                   <p className="mt-4 text-[10px] font-bold uppercase text-muted-foreground">
@@ -414,7 +494,27 @@ function ModernJornalVozPatriota() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-3 gap-2">
+              <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
+                {ballotCandidates.map((candidate) => (
+                  <Button
+                    key={candidate.number}
+                    type="button"
+                    variant={selectedCandidate?.number === candidate.number ? "default" : "outline"}
+                    className="h-auto min-h-16 justify-start gap-2 rounded-md px-2 py-2 text-left"
+                    onClick={() => selectCandidate(candidate)}
+                  >
+                    <img
+                      src={candidate.photo}
+                      alt=""
+                      className="h-10 w-8 shrink-0 rounded-sm object-cover"
+                    />
+                    <span className="min-w-0">
+                      <span className="block text-sm font-black">{candidate.number}</span>
+                      <span className="block truncate text-[9px] uppercase">{candidate.name}</span>
+                    </span>
+                  </Button>
+                ))}
+
                 {["1", "2", "3", "4", "5", "6", "7", "8", "9"].map((number) => (
                   <button
                     key={number}
@@ -450,8 +550,8 @@ function ModernJornalVozPatriota() {
             </div>
 
             <div className="border-t border-border bg-surface-2 px-5 py-4 text-xs text-muted-foreground">
-              Esta tela é uma simulação visual. Os nomes e retratos exibidos são demonstrativos e
-              não representam candidatos reais das eleições de 2026.
+              Esta tela é uma simulação visual e não registra nenhum voto oficial. As informações
+              dos candidatos devem ser conferidas nas fontes eleitorais oficiais.
             </div>
           </div>
 
@@ -463,6 +563,7 @@ function ModernJornalVozPatriota() {
               type="button"
               disabled={!selectedCandidate || confirmed}
               onClick={() => {
+                playVotingSound();
                 setConfirmed(true);
                 setShowBallot(false);
                 setQuizStep(0);
