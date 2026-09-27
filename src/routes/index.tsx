@@ -941,15 +941,15 @@ function ModernJornalVozPatriota() {
           <div className="max-w-3xl">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-secondary/60 bg-background/80 px-4 py-2 text-xs font-black uppercase tracking-[0.12em] text-secondary shadow-lg shadow-black/10">
               <Megaphone className="h-4 w-4" aria-hidden />
-              Informação para quem pensa à frente
+              Informação para a reta final das eleições
             </div>
             <h1 className="max-w-4xl text-5xl leading-[0.94] sm:text-6xl lg:text-8xl">
-              O Brasil em foco.{" "}
-              <span className="heat-text">A sua visão em primeiro lugar.</span>
+              Fique atento.{" "}
+              <span className="heat-text">A reta final das eleições está chegando.</span>
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-foreground/80">
-              Notícias, contexto e análises para você acompanhar o que realmente importa — com
-              clareza, independência e uma perspectiva conservadora.
+              Acompanhe as principais notícias, os acontecimentos e os debates que podem definir o
+              futuro do Brasil — com informação clara, contexto e uma visão independente.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Button
@@ -972,9 +972,9 @@ function ModernJornalVozPatriota() {
               </Button>
             </div>
             <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-xs font-bold uppercase tracking-[0.12em] text-foreground/70">
-              <span>✓ Leitura rápida</span>
+              <span>✓ Notícias em tempo real</span>
               <span>✓ Brasil e mundo</span>
-              <span>✓ Conteúdo exclusivo</span>
+              <span>✓ Análises exclusivas</span>
             </div>
           </div>
 
