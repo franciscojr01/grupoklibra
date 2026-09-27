@@ -1,10 +1,11 @@
-import { ArrowRight, Check, Globe2, Megaphone, ShieldAlert, Star } from "lucide-react";
+import { useState } from "react";
+import { ArrowRight, Check, CheckCircle2, Globe2, Megaphone, ShieldAlert, Star } from "lucide-react";
 import { createFileRoute } from "@tanstack/react-router";
 
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({
-  component: JornalVozPatriota,
+  component: ModernJornalVozPatriota,
 });
 
 const plans = [
@@ -240,6 +241,308 @@ function JornalVozPatriota() {
               VOZ <span className="text-primary">PATRIOTA</span>
             </div>
             <p className="mt-1">Informação, opinião e liberdade.</p>
+          </div>
+          <p>© 2026 Jornal Voz Patriota. Todos os direitos reservados.</p>
+        </div>
+      </footer>
+    </main>
+  );
+}
+
+function ModernJornalVozPatriota() {
+  const [answer, setAnswer] = useState<number | null>(null);
+
+  const quizOptions = [
+    "Foi eleito presidente do Brasil em 2018",
+    "Foi eleito presidente em 2002",
+    "Nunca ocupou um cargo eletivo",
+  ];
+
+  return (
+    <main className="min-h-screen overflow-hidden bg-background text-foreground">
+      <div className="border-b border-secondary/40 bg-primary px-4 py-3 text-center text-xs font-bold uppercase tracking-[0.12em] text-primary-foreground md:text-sm">
+        <div className="mx-auto flex max-w-7xl items-center justify-center gap-2">
+          <ShieldAlert className="hidden h-4 w-4 shrink-0 md:block" aria-hidden />
+          <span>
+            Tentam calar o jornalismo conservador. A sua assinatura mantém a informação livre.
+          </span>
+        </div>
+      </div>
+
+      <header className="sticky top-0 z-20 border-b border-border/80 bg-background/95 backdrop-blur">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
+          <a href="#inicio" className="font-display text-xl font-black italic tracking-tight">
+            VOZ <span className="text-secondary">PATRIOTA</span>
+          </a>
+          <nav className="hidden items-center gap-7 text-sm font-semibold text-muted-foreground md:flex">
+            <a className="transition-colors hover:text-secondary" href="#beneficios">
+              Por que assinar
+            </a>
+            <a className="transition-colors hover:text-secondary" href="#planos">
+              Planos
+            </a>
+            <a className="transition-colors hover:text-secondary" href="#quiz">
+              Quiz
+            </a>
+          </nav>
+          <Button asChild size="sm">
+            <a href="#planos">Quero assinar</a>
+          </Button>
+        </div>
+      </header>
+
+      <section id="inicio" className="relative isolate border-b border-border">
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_80%_15%,color-mix(in_oklch,var(--accent)_24%,transparent),transparent_28%),radial-gradient(circle_at_10%_80%,color-mix(in_oklch,var(--primary)_18%,transparent),transparent_32%)]" />
+        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8 lg:py-24">
+          <div>
+            <div className="mb-6 inline-flex items-center gap-2 border border-secondary/60 bg-secondary/10 px-3 py-2 text-xs font-black uppercase tracking-[0.18em] text-secondary">
+              <Megaphone className="h-4 w-4" aria-hidden />
+              A notícia antes da narrativa
+            </div>
+            <h1 className="max-w-4xl text-5xl leading-[0.94] sm:text-6xl lg:text-8xl">
+              Veja notícias de direita.{" "}
+              <span className="heat-text">Pense por conta própria.</span>
+            </h1>
+            <p className="mt-7 max-w-2xl text-lg leading-8 text-muted-foreground">
+              O Jornal Voz Patriota entrega notícias, contexto e análises conservadoras para quem
+              está cansado de receber apenas um lado da história.
+            </p>
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <Button asChild size="lg" className="shadow-[var(--shadow-heat)]">
+                <a href="#planos">
+                  Quero acesso às notícias
+                  <ArrowRight className="h-5 w-5" aria-hidden />
+                </a>
+              </Button>
+              <Button asChild size="lg" variant="outline">
+                <a href="#quiz">Testar meus conhecimentos</a>
+              </Button>
+            </div>
+            <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-xs font-bold uppercase tracking-[0.12em] text-muted-foreground">
+              <span>✓ Leitura rápida</span>
+              <span>✓ Brasil e mundo</span>
+              <span>✓ Conteúdo exclusivo</span>
+            </div>
+          </div>
+
+          <div className="relative overflow-hidden border border-accent/50 bg-surface shadow-[var(--shadow-hard)]">
+            <img
+              src="https://images.pexels.com/photos/9216186/pexels-photo-9216186.jpeg?auto=compress&cs=tinysrgb&w=1600"
+              alt="Bandeira do Brasil hasteada contra o céu"
+              className="h-80 w-full object-cover opacity-75"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/45 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-7">
+              <p className="text-xs font-black uppercase tracking-[0.2em] text-secondary">
+                Jornalismo sem medo
+              </p>
+              <h2 className="mt-3 text-3xl leading-tight sm:text-4xl">
+                Informação para quem não aceita ser silenciado.
+              </h2>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="beneficios" className="border-b border-border bg-surface/50">
+        <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-sm font-black uppercase tracking-[0.2em] text-secondary">
+              Você não precisa consumir notícia no automático
+            </p>
+            <h2 className="mt-3 text-4xl sm:text-5xl">
+              Pare de depender da narrativa única.
+            </h2>
+          </div>
+          <div className="mt-12 grid gap-5 md:grid-cols-3">
+            <Feature
+              icon={<Star className="h-6 w-6" aria-hidden />}
+              title="Perspectiva conservadora"
+              text="Leia fatos e análises que levam a sério liberdade, família, responsabilidade e ordem."
+            />
+            <Feature
+              icon={<Globe2 className="h-6 w-6" aria-hidden />}
+              title="Brasil e mundo"
+              text="Acompanhe as principais pautas e lideranças da direita brasileira e internacional."
+            />
+            <Feature
+              icon={<ShieldAlert className="h-6 w-6" aria-hidden />}
+              title="Acesso independente"
+              text="Apoie uma redação que não quer pedir permissão para informar o que importa."
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto grid max-w-7xl gap-6 px-5 py-20 lg:grid-cols-2 lg:px-8">
+        <div className="overflow-hidden border border-border bg-surface">
+          <img
+            src="https://images.pexels.com/photos/15869991/pexels-photo-15869991.jpeg?auto=compress&cs=tinysrgb&w=1600"
+            alt="Pessoas reunidas em uma manifestação usando bandeiras brasileiras"
+            className="h-72 w-full object-cover"
+          />
+          <div className="p-7">
+            <p className="text-xs font-black uppercase tracking-[0.18em] text-secondary">
+              A voz das ruas
+            </p>
+            <h2 className="mt-3 text-3xl">Quem não se informa, deixa outros decidirem por ele.</h2>
+          </div>
+        </div>
+        <div className="overflow-hidden border border-border bg-surface">
+          <img
+            src="https://images.pexels.com/photos/8849332/pexels-photo-8849332.jpeg?auto=compress&cs=tinysrgb&w=1600"
+            alt="Letras formando a palavra voto sobre uma folha"
+            className="h-72 w-full object-cover"
+          />
+          <div className="p-7">
+            <p className="text-xs font-black uppercase tracking-[0.18em] text-accent">
+              Consciência política
+            </p>
+            <h2 className="mt-3 text-3xl">Entenda o jogo antes de escolher o seu lado.</h2>
+          </div>
+        </div>
+      </section>
+
+      <section id="quiz" className="border-y border-border bg-accent/10">
+        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-20 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:px-8">
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.2em] text-secondary">
+              Quiz Voz Patriota
+            </p>
+            <h2 className="mt-3 text-4xl sm:text-5xl">Você conhece a trajetória de Bolsonaro?</h2>
+            <p className="mt-5 leading-7 text-muted-foreground">
+              Teste seus conhecimentos e descubra por que acompanhar política com contexto faz
+              toda a diferença.
+            </p>
+          </div>
+          <div className="border border-accent/50 bg-background p-7 sm:p-9">
+            <p className="text-lg font-bold">
+              Em que ano Jair Bolsonaro foi eleito presidente do Brasil?
+            </p>
+            <div className="mt-6 grid gap-3">
+              {quizOptions.map((option, index) => (
+                <button
+                  key={option}
+                  type="button"
+                  onClick={() => setAnswer(index)}
+                  className={`flex items-center gap-3 border p-4 text-left text-sm font-semibold transition-colors ${
+                    answer === index
+                      ? index === 0
+                        ? "border-primary bg-primary/15 text-primary"
+                        : "border-destructive bg-destructive/10 text-destructive"
+                      : "border-border bg-surface hover:border-secondary hover:bg-secondary/10"
+                  }`}
+                >
+                  {answer === index && index === 0 ? (
+                    <CheckCircle2 className="h-5 w-5 shrink-0" aria-hidden />
+                  ) : null}
+                  {option}
+                </button>
+              ))}
+            </div>
+            {answer !== null ? (
+              <p className="mt-5 text-sm font-semibold text-muted-foreground">
+                {answer === 0
+                  ? "Acertou. Informação com contexto deixa você mais preparado."
+                  : "Não foi dessa vez. Continue acompanhando política com fontes independentes."}
+              </p>
+            ) : null}
+          </div>
+        </div>
+      </section>
+
+      <section id="planos" className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-sm font-black uppercase tracking-[0.2em] text-secondary">
+            Escolha seu acesso
+          </p>
+          <h2 className="mt-3 text-4xl sm:text-5xl">
+            Assine hoje. Leia mais. Dependa menos dos outros.
+          </h2>
+          <p className="mt-5 text-muted-foreground">
+            Duas formas de fortalecer o jornalismo de direita e receber informação alinhada aos
+            valores que você defende.
+          </p>
+        </div>
+
+        <div className="mx-auto mt-12 grid max-w-5xl gap-6 lg:grid-cols-2">
+          {plans.map((plan) => (
+            <article
+              key={plan.name}
+              className={`relative border p-7 sm:p-9 ${
+                plan.featured
+                  ? "border-secondary bg-secondary/10 shadow-[var(--shadow-heat)]"
+                  : "border-border bg-surface"
+              }`}
+            >
+              {plan.featured ? (
+                <div className="absolute right-6 top-0 -translate-y-1/2 bg-secondary px-3 py-1 text-xs font-black uppercase tracking-wider text-secondary-foreground">
+                  Mais escolhido
+                </div>
+              ) : null}
+              <h3 className="text-2xl">{plan.name}</h3>
+              <p className="mt-3 min-h-14 text-sm leading-6 text-muted-foreground">
+                {plan.description}
+              </p>
+              <div className="mt-7 flex items-end gap-1 border-b border-border pb-7">
+                <span className="text-sm text-muted-foreground">R$</span>
+                <span className="text-5xl font-black">{plan.price}</span>
+                <span className="mb-1 text-sm text-muted-foreground">/mês</span>
+              </div>
+              <ul className="mt-7 space-y-4">
+                {plan.features.map((feature) => (
+                  <li key={feature} className="flex gap-3 text-sm leading-6">
+                    <Check className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              <Button
+                asChild
+                size="lg"
+                className="mt-8 w-full"
+                variant={plan.featured ? "default" : "outline"}
+              >
+                <a href="#assinar">Assinar {plan.name}</a>
+              </Button>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-primary px-5 py-16 text-primary-foreground lg:px-8">
+        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+          <div className="max-w-3xl">
+            <p className="text-sm font-black uppercase tracking-[0.2em] text-primary-foreground/75">
+              O jornal precisa de você
+            </p>
+            <h2 className="mt-3 text-4xl sm:text-5xl">
+              Se você não apoia a informação que quer ler, alguém escolherá por você.
+            </h2>
+            <p className="mt-4 max-w-2xl leading-7 text-primary-foreground/80">
+              Assine o Voz Patriota e tenha acesso a notícias de direita, análises e cobertura
+              internacional sem depender da velha narrativa.
+            </p>
+          </div>
+          <Button asChild size="lg" variant="secondary" className="shrink-0">
+            <a id="assinar" href="#planos">
+              Quero fazer parte
+              <ArrowRight className="h-5 w-5" aria-hidden />
+            </a>
+          </Button>
+        </div>
+      </section>
+
+      <footer className="border-t border-border bg-background">
+        <div className="mx-auto flex max-w-7xl flex-col gap-5 px-5 py-8 text-sm text-muted-foreground md:flex-row md:items-end md:justify-between lg:px-8">
+          <div>
+            <div className="font-display text-lg font-black italic text-foreground">
+              VOZ <span className="text-secondary">PATRIOTA</span>
+            </div>
+            <p className="mt-1">Informação, opinião e liberdade.</p>
+            <p className="mt-3 text-xs">
+              Imagens: Pexels — fotógrafos Waldir Évora e Marcello Sokal.
+            </p>
           </div>
           <p>© 2026 Jornal Voz Patriota. Todos os direitos reservados.</p>
         </div>
