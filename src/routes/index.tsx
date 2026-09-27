@@ -24,20 +24,8 @@ export const Route = createFileRoute("/")({
 
 const plans = [
   {
-    name: "Plano Básico",
-    price: "19,90",
-    description: "Notícias e conteúdos exclusivos sobre Flávio Bolsonaro.",
-    featured: false,
-    features: [
-      "Notícias sobre o Flávio Bolsonaro",
-      "Notícias da direita no Brasil",
-      "Acesso a conteúdos exclusivos",
-      "Resumo das principais decisões políticas",
-    ],
-  },
-  {
     name: "Plano Patriota",
-    price: "29,90",
+    price: "19,90",
     description: "Acompanhe as principais notícias da direita brasileira e mundial.",
     featured: true,
     features: [
@@ -45,6 +33,18 @@ const plans = [
       "Notícias da direita no Brasil",
       "Cobertura de líderes conservadores internacionais",
       "Notícias sobre Donald Trump e outros líderes mundiais",
+    ],
+  },
+  {
+    name: "Plano Básico",
+    price: "9,90",
+    description: "Notícias e conteúdos exclusivos sobre Flávio Bolsonaro.",
+    featured: false,
+    features: [
+      "Notícias sobre o Flávio Bolsonaro",
+      "Notícias da direita no Brasil",
+      "Acesso a conteúdos exclusivos",
+      "Resumo das principais decisões políticas",
     ],
   },
 ];
