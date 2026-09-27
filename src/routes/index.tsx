@@ -118,7 +118,7 @@ function JornalVozPatriota() {
   }
 
   return (
-    <main className="min-h-screen overflow-hidden bg-background text-foreground">
+    <main className="min-h-screen bg-background text-foreground">
       <div className="border-b border-primary/30 bg-primary px-4 py-3 text-center text-xs font-bold uppercase tracking-[0.12em] text-primary-foreground md:text-sm">
         <div className="mx-auto flex max-w-7xl items-center justify-center gap-2">
           <ShieldAlert className="hidden h-4 w-4 shrink-0 md:block" aria-hidden />
@@ -1010,7 +1010,7 @@ function ModernJornalVozPatriota() {
         </section>
       ) : null}
 
-      <section id="inicio" className="relative isolate min-h-[680px] overflow-hidden border-b border-border">
+      <section id="inicio" className="relative isolate min-h-[680px] border-b border-border">
         <div className="absolute inset-0 -z-20 bg-[url('https://images.pexels.com/photos/14357047/pexels-photo-14357047.jpeg?auto=compress&cs=tinysrgb&w=1600')] bg-cover bg-center" />
         <div className="absolute inset-0 -z-10 bg-background/75" />
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-24 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8 lg:py-32">
@@ -1019,7 +1019,7 @@ function ModernJornalVozPatriota() {
               <Megaphone className="h-4 w-4" aria-hidden />
               Informação para a reta final das eleições
             </div>
-            <h1 className="max-w-4xl text-5xl leading-[0.94] sm:text-6xl lg:text-8xl">
+            <h1 className="max-w-4xl break-words text-4xl leading-tight sm:text-6xl lg:text-8xl">
               <span className="md:hidden">
                 A esquerda quer que você continue desinformado{" "}
                 <span className="heat-text">
@@ -1033,9 +1033,9 @@ function ModernJornalVozPatriota() {
                 </span>
               </span>
             </h1>
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-foreground/80">
-              A reta final das eleições está aí. Enquanto a esquerda e a grande mídia controlam o
-              que você pode ver, ouvir e pensar, o Voz Patriota existe para furar o bloqueio.
+            <p className="mt-7 max-w-2xl break-words text-base leading-7 text-foreground/80 sm:text-lg sm:leading-8">
+              A reta final das eleições está aí. Enquanto a esquerda e a grande mídia controlam o que
+              você pode ver, ouvir e pensar, o Voz Patriota existe para furar o bloqueio.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Button
@@ -1097,7 +1097,7 @@ function ModernJornalVozPatriota() {
             <Feature
               icon={<Star className="h-6 w-6" aria-hidden />}
               title="Eles mentem."
-              text="Eles omitem. Eles protegem os seus e destroem quem pensa diferente. Aqui você encontra o que a imprensa de esquerda esconde, distorce ou criminaliza. Sem filtro. Sem medo. Sem pedir licença."
+              text="Eles mentem. Eles omitem. Eles protegem os seus e destroem quem pensa diferente. Aqui você encontra o que a imprensa de esquerda esconde, distorce ou criminaliza. Sem filtro. Sem medo. Sem pedir licença."
             />
             <Feature
               icon={<Globe2 className="h-6 w-6" aria-hidden />}
@@ -1145,7 +1145,7 @@ function ModernJornalVozPatriota() {
               <div className="mt-5 flex gap-1 text-secondary" aria-label="5 estrelas">
                 {"★★★★★"}
               </div>
-              <blockquote className="mt-5 text-lg leading-8">
+              <blockquote className="mt-5 break-words text-lg leading-8">
                 “Finalmente um jornal que fala direto e não trata o leitor como incapaz de pensar.”
               </blockquote>
               <p className="mt-6 text-sm font-black uppercase tracking-wider text-primary">
@@ -1168,7 +1168,7 @@ function ModernJornalVozPatriota() {
               <div className="mt-5 flex gap-1 text-secondary" aria-label="5 estrelas">
                 {"★★★★★"}
               </div>
-              <blockquote className="mt-5 text-lg leading-8">
+              <blockquote className="mt-5 break-words text-lg leading-8">
                 “Passei a acompanhar o Brasil com contexto de verdade. Leitura clara e alinhada com
                 os valores da minha família.”
               </blockquote>
@@ -1192,7 +1192,7 @@ function ModernJornalVozPatriota() {
               <div className="mt-5 flex gap-1 text-secondary" aria-label="5 estrelas">
                 {"★★★★★"}
               </div>
-              <blockquote className="mt-5 text-lg leading-8">
+              <blockquote className="mt-5 break-words text-lg leading-8">
                 “Assinar foi a forma de apoiar um jornalismo que não se ajoelha. Continuo informado
                 sobre o que realmente importa.”
               </blockquote>
@@ -1280,7 +1280,7 @@ function ModernJornalVozPatriota() {
               de esquerda.
             </p>
           </div>
-          <Button asChild size="lg" variant="secondary" className="shrink-0">
+          <Button asChild size="lg" variant="secondary" className="shrink-0 whitespace-normal">
             <a id="assinar" href="#planos">
               Quero fazer parte agora — antes que tentem derrubar
               <ArrowRight className="h-5 w-5" aria-hidden />
