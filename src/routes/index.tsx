@@ -637,7 +637,7 @@ function ModernJornalVozPatriota() {
       </Dialog>
 
       <Dialog open={showQuiz} onOpenChange={setShowQuiz}>
-        <DialogContent className="overflow-hidden rounded-[2rem] border-secondary/50 bg-surface p-0 shadow-2xl sm:max-w-lg">
+        <DialogContent className="max-h-[calc(100dvh-1rem)] w-[calc(100%-1rem)] overflow-y-auto rounded-[2rem] border-secondary/50 bg-surface p-0 shadow-2xl sm:max-w-lg">
           <div className="bg-gradient-to-br from-primary/15 via-surface to-secondary/10 px-6 pb-6 pt-7 sm:px-8">
             <DialogHeader>
               <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-3xl border border-secondary/30 bg-secondary/15 text-3xl shadow-lg">
@@ -656,52 +656,92 @@ function ModernJornalVozPatriota() {
             const questions = [
               {
                 emoji: "🇧🇷",
-                question: "O que significa patriotismo para você?",
+                question: "O que patriotismo significa na prática?",
                 answers: [
-                  "Cuidar do Brasil e defender sua liberdade.",
+                  "Cuidar do Brasil, defender sua liberdade e assumir responsabilidades.",
                   "Respeitar a história, os símbolos e as pessoas do país.",
-                  "Não me interesso pelo futuro do Brasil.",
+                  "Usar a palavra patriotismo apenas como uma identidade.",
                 ],
               },
               {
                 emoji: "🦅",
-                question: "Qual valor deve guiar o futuro do Brasil?",
-                answers: ["🕊️ Liberdade", "👨‍👩‍👧 Família", "Nenhum valor deve orientar o país"],
-              },
-              {
-                emoji: "🗳️",
-                question: "Como você acompanha as decisões políticas?",
+                question: "Qual valor deve orientar as decisões sobre o futuro do Brasil?",
                 answers: [
-                  "Busco diferentes fontes antes de formar opinião.",
-                  "Acompanho notícias e debates diariamente.",
-                  "Prefiro não saber o que acontece no país.",
+                  "Liberdade, responsabilidade e respeito às leis.",
+                  "Família, trabalho e compromisso com a comunidade.",
+                  "Nenhum valor deve orientar as decisões do país.",
                 ],
               },
               {
-                emoji: "💪",
-                question: "O que mais ajuda a fortalecer o país?",
+                emoji: "🗳️",
+                question: "Como você forma sua opinião política?",
                 answers: [
-                  "Educação e trabalho.",
-                  "Segurança e respeito às leis.",
-                  "Nada depende da participação dos cidadãos.",
+                  "Comparo fontes, verifico informações e penso de forma independente.",
+                  "Acompanho notícias e debates com frequência.",
+                  "Repito o que vejo sem verificar os fatos.",
+                ],
+              },
+              {
+                emoji: "⚖️",
+                question: "O que deve acontecer quando uma autoridade desrespeita a lei?",
+                answers: [
+                  "Deve responder pelos seus atos dentro das instituições.",
+                  "A sociedade deve cobrar explicações e transparência.",
+                  "Autoridades devem estar acima das regras comuns.",
                 ],
               },
               {
                 emoji: "📰",
-                question: "Você acredita que a imprensa deve ser livre?",
+                question: "Por que a liberdade de imprensa é importante?",
                 answers: [
-                  "Sim. Informação livre é essencial para a democracia.",
-                  "Sim, desde que exista responsabilidade com os fatos.",
-                  "Não. As pessoas não precisam conhecer diferentes perspectivas.",
+                  "Porque permite fiscalizar o poder e conhecer diferentes fatos e opiniões.",
+                  "Porque ajuda as pessoas a acompanhar os acontecimentos.",
+                  "Porque qualquer informação deve ser aceita sem responsabilidade.",
+                ],
+              },
+              {
+                emoji: "🤝",
+                question: "Como um patriota deve tratar quem pensa diferente?",
+                answers: [
+                  "Com respeito, diálogo e disposição para defender suas ideias com argumentos.",
+                  "Com tolerância, desde que as regras democráticas sejam respeitadas.",
+                  "Como um inimigo que não merece ser ouvido.",
+                ],
+              },
+              {
+                emoji: "💪",
+                question: "O que mais contribui para um país forte?",
+                answers: [
+                  "Educação, trabalho, segurança e responsabilidade dos cidadãos.",
+                  "Participação social e respeito às instituições.",
+                  "Esperar que outras pessoas resolvam todos os problemas.",
+                ],
+              },
+              {
+                emoji: "🌎",
+                question: "Qual deve ser a postura do Brasil diante do mundo?",
+                answers: [
+                  "Defender seus interesses, sua soberania e cooperar quando for necessário.",
+                  "Construir relações respeitosas com outros países.",
+                  "Aceitar qualquer decisão externa sem questionar.",
+                ],
+              },
+              {
+                emoji: "🔎",
+                question: "O que você faz ao encontrar uma notícia que confirma sua opinião?",
+                answers: [
+                  "Verifico a origem, o contexto e procuro outras fontes.",
+                  "Leio a matéria completa antes de compartilhar.",
+                  "Compartilho imediatamente porque concordo com ela.",
                 ],
               },
               {
                 emoji: "🌟",
-                question: "O que você deseja para o Brasil?",
+                question: "O que você deseja para o futuro do Brasil?",
                 answers: [
-                  "Um país mais livre, seguro e próspero.",
+                  "Um país livre, seguro, próspero e responsável com seu povo.",
                   "Um país forte, unido e respeitado.",
-                  "Não tenho nenhum desejo ou compromisso com o futuro do país.",
+                  "Não tenho nenhum compromisso com o futuro do país.",
                 ],
               },
             ];
@@ -778,9 +818,17 @@ function ModernJornalVozPatriota() {
                     className="w-full rounded-full px-6 sm:w-auto"
                     disabled={!currentAnswer}
                     onClick={() => {
+                      const finalScore = nextAnswers.reduce((score, selectedAnswer, index) => {
+                        if (!selectedAnswer) return score;
+                        const selectedIndex = questions[index].answers.indexOf(selectedAnswer);
+                        return score + (selectedIndex === 0 ? 2 : selectedIndex === 1 ? 1 : 0);
+                      }, 0);
+
+                      setQuizScore(finalScore);
+
                       if (quizStep < questions.length - 1) {
                         setQuizStep((step) => step + 1);
-                      } else if (quizScore >= 8) {
+                      } else if (finalScore >= 16) {
                         setShowQuiz(false);
                         setShowPlans(true);
                       } else {
