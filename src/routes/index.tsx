@@ -5,6 +5,7 @@ import ruasImage from "@/assets/uploads/3675.jpeg";
 import economiaImage from "@/assets/uploads/3676.png";
 import logoImage from "@/assets/uploads/3681.png";
 import wilsonGrassiPhoto from "@/assets/uploads/3682.jpg";
+import candidata27Photo from "@/assets/uploads/3683.png";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -324,7 +325,7 @@ const ballotCandidates = [
     number: "27",
     name: "Clariana Barão",
     party: "DC",
-    photo: "https://picsum.photos/seed/clariana-barao/240/300",
+    photo: candidata27Photo,
   },
   {
     number: "70",
