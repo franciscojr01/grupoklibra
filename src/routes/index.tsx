@@ -423,7 +423,9 @@ function playVotingSound() {
   votingAudio.pause();
   votingAudio.currentTime = 0;
 
-  void votingAudio.play().catch((error) => {
+  const playback = votingAudio.play();
+
+  playback.catch((error) => {
     console.error("Não foi possível reproduzir o som da urna:", error);
   });
 }
