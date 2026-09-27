@@ -215,4 +215,9 @@
     text-overflow: clip;
     white-space: normal;
   }
+
+  .hero-title {
+    overflow-wrap: normal;
+    word-break: normal;
+  }
 }
