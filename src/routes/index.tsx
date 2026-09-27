@@ -644,11 +644,8 @@ function ModernJornalVozPatriota() {
         <DialogContent className="h-[calc(100dvh-1rem)] max-h-[calc(100dvh-1rem)] w-[calc(100%-1rem)] overflow-y-auto overscroll-contain rounded-[2rem] border-secondary/50 bg-surface p-0 shadow-2xl sm:h-auto sm:max-h-[min(860px,calc(100dvh-2rem))] sm:max-w-lg">
           <div className="bg-gradient-to-br from-primary/15 via-surface to-secondary/10 px-6 pb-6 pt-7 sm:px-8">
             <DialogHeader>
-              <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-3xl border border-secondary/30 bg-secondary/15 text-3xl shadow-lg">
-                🇧🇷
-              </div>
               <DialogTitle className="text-3xl sm:text-4xl">
-                Teste de Preferências Políticas
+                Teste Patriota
               </DialogTitle>
             </DialogHeader>
           </div>
@@ -718,7 +715,7 @@ function ModernJornalVozPatriota() {
               <div className="flex min-h-[520px] flex-col items-center justify-center px-6 py-10 text-center sm:px-8">
                 <div className="flex h-28 w-28 items-center justify-center rounded-full border-4 border-secondary bg-gradient-to-br from-accent/20 via-primary/20 to-secondary/30">
                   <span className="text-4xl" aria-hidden="true">
-                    🇧🇷
+                    ★
                   </span>
                 </div>
 
