@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ArrowRight, Check, CheckCircle2, Globe2, Megaphone, ShieldAlert, Star } from "lucide-react";
 import { createFileRoute } from "@tanstack/react-router";
-import ruasImage from "@/assets/uploads/3675.jpeg";
+import ruasImage from "@/assets/uploads/3692.png";
 import economiaImage from "@/assets/uploads/3676.png";
 import logoImage from "@/assets/uploads/3681.png";
 import wilsonGrassiPhoto from "@/assets/uploads/3682.jpg";
