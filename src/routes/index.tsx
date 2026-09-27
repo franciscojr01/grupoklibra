@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { ArrowRight, Check, CheckCircle2, Globe2, Megaphone, ShieldAlert, Star } from "lucide-react";
 import { createFileRoute } from "@tanstack/react-router";
-import ruasImage from "@/assets/uploads/3692.png";
-import economiaImage from "@/assets/uploads/3676.png";
+import ruasImage from "@/assets/uploads/3695.png";
+import economiaImage from "@/assets/uploads/3696.png";
 import logoImage from "@/assets/uploads/3681.png";
 import wilsonGrassiPhoto from "@/assets/uploads/3682.jpg";
 import candidata27Photo from "@/assets/uploads/3683.png";
@@ -1208,9 +1208,9 @@ function ModernJornalVozPatriota() {
         <div className="mt-12 grid gap-6 lg:grid-cols-2">
           <div className="overflow-hidden rounded-[2rem] border border-border/80 bg-surface shadow-[var(--shadow-hard)]">
             <img
-              src="https://images.pexels.com/photos/3866816/pexels-photo-3866816.jpeg?auto=compress&cs=tinysrgb&w=1600"
+              src={ruasImage}
               alt="Pilha de jornais dobrados sobre uma mesa de madeira"
-              className="mx-auto h-auto max-h-52 w-full object-contain object-center bg-surface-2 sm:max-h-60"
+              className="mx-auto h-auto w-full object-contain object-center bg-surface-2"
             />
             <div className="p-7">
               <p className="text-xs font-black uppercase tracking-[0.18em] text-secondary">
@@ -1222,9 +1222,9 @@ function ModernJornalVozPatriota() {
 
           <div className="overflow-hidden rounded-[2rem] border border-border/80 bg-surface shadow-[var(--shadow-hard)]">
             <img
-              src="https://images.pexels.com/photos/13081133/pexels-photo-13081133.jpeg?auto=compress&cs=tinysrgb&w=1600"
+              src={economiaImage}
               alt="Páginas de jornal com textos em destaque"
-              className="mx-auto h-auto max-h-52 w-full object-contain object-center bg-surface-2 sm:max-h-60"
+              className="mx-auto h-auto w-full object-contain object-center bg-surface-2"
             />
             <div className="p-7">
               <p className="text-xs font-black uppercase tracking-[0.18em] text-accent">
