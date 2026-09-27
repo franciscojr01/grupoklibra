@@ -1040,12 +1040,12 @@ function ModernJornalVozPatriota() {
                 <ArrowRight className="h-5 w-5" aria-hidden />
               </Button>
               <Button
-                type="button"
+                asChild
                 size="lg"
                 variant="outline"
                 className="rounded-full border-foreground/30 bg-background/35 px-7 backdrop-blur transition-transform hover:-translate-y-0.5"
               >
-                Conhecer o jornal
+                <a href="#noticias">Conhecer o jornal</a>
               </Button>
             </div>
             <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-xs font-bold uppercase tracking-[0.12em] text-foreground/70">
@@ -1196,7 +1196,7 @@ function ModernJornalVozPatriota() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 py-20 lg:px-8">
+      <section id="noticias" className="mx-auto max-w-7xl scroll-mt-6 px-5 py-20 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-sm font-black uppercase tracking-[0.2em] text-secondary">
             Informação que faz diferença
