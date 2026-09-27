@@ -375,6 +375,7 @@ function ModernJornalVozPatriota() {
   const [quizScore, setQuizScore] = useState(0);
   const [quizFailed, setQuizFailed] = useState(false);
   const [showPlans, setShowPlans] = useState(false);
+  const [quizResult, setQuizResult] = useState<{ percentage: number; label: string } | null>(null);
 
   const openBallot = () => {
     if (eliminated) {
@@ -389,6 +390,7 @@ function ModernJornalVozPatriota() {
     setQuizAnswers([]);
     setQuizScore(0);
     setQuizFailed(false);
+    setQuizResult(null);
     setShowQuiz(false);
     setShowPlans(false);
     setShowBallot(true);
@@ -645,107 +647,65 @@ function ModernJornalVozPatriota() {
                 🇧🇷
               </div>
               <DialogTitle className="text-3xl sm:text-4xl">
-                Avaliação de consciência cívica
+                Teste de Preferências Políticas
               </DialogTitle>
-              <DialogDescription className="mt-2 leading-6 text-muted-foreground">
-                Esta avaliação apresenta situações políticas difíceis e respostas sem alternativa
-                “perfeita”. O acesso depende de demonstrar coerência, responsabilidade,
-                compromisso com a verdade, respeito às instituições e capacidade de criticar
-                qualquer político — inclusive aqueles de que você gosta.
-              </DialogDescription>
             </DialogHeader>
           </div>
 
           {(() => {
             const questions = [
               {
-                emoji: "🗳️",
-                question: "Como você avalia Bolsonaro e Lula quando ambos são criticados?",
+                question: "Qual a sua opinião sobre Jair Bolsonaro?",
                 answers: [
-                  "Cobro provas, resultados e responsabilidade dos dois, sem passar pano para o político que prefiro.",
-                  "Tenho preferência por um deles, mas admito erros e acertos conforme as evidências.",
-                  "Defendo meu político automaticamente e trato toda crítica como perseguição.",
+                  "Foi o melhor presidente desde 1985",
+                  "É o único que realmente enfrentou o sistema",
+                  "Teve erros, mas defendeu o Brasil",
+                  "Foi o pior presidente da história",
                 ],
               },
               {
-                emoji: "⚖️",
-                question: "Se um presidente que você apoia for acusado de cometer um crime, qual deve ser sua postura?",
+                question: "O que você acha de Lula?",
                 answers: [
-                  "Exigir investigação independente, provas e julgamento conforme a lei, mesmo que isso prejudique meu candidato.",
-                  "Esperar o devido processo, mas acompanhar criticamente as informações disponíveis.",
-                  "Tratar a acusação como perseguição automaticamente e atacar quem questionou o presidente.",
+                  "É o maior líder popular do Brasil",
+                  "Tem méritos, mas errou muito",
+                  "É um político corrupto que prejudicou o país",
+                  "Nunca deveria ter voltado ao poder",
                 ],
               },
               {
-                emoji: "🏛️",
-                question: "Se uma decisão do STF ou do Congresso contrariar sua posição política, como você reage?",
+                question: "Você se considera de qual lado político?",
                 answers: [
-                  "Critico a decisão com argumentos e uso os meios legais, sem defender ruptura institucional ou violência.",
-                  "Procuro entender os fundamentos e apoio mudanças pelas vias democráticas quando discordo.",
-                  "Considero legítima qualquer decisão quando beneficia meu lado e ilegítima quando favorece o outro.",
+                  "De esquerda",
+                  "De centro / não me identifico com nenhum lado",
+                  "De direita",
+                  "De direita e contra a esquerda",
                 ],
               },
               {
-                emoji: "📰",
-                question: "Surge uma denúncia grave contra Bolsonaro, Lula ou um político que você apoia. O que você faz?",
+                question: "Sobre a esquerda brasileira, você pensa:",
                 answers: [
-                  "Verifico documentos, fontes independentes e o devido processo antes de concluir, mantendo a cobrança.",
-                  "Aguardo mais informações, comparo versões e evito compartilhar acusações sem confirmação.",
-                  "Rejeito a denúncia automaticamente ou espalho a acusação apenas porque favorece meu lado.",
+                  "É essencial para o progresso do país",
+                  "Tem boas intenções, mas erra na prática",
+                  "É uma corrente política autoritária, ideológica e que vive de privilégios",
+                  "É o maior câncer político do Brasil: corrupta, desonesta e inimiga da liberdade",
                 ],
               },
               {
-                emoji: "💰",
-                question: "Sobre economia, qual posição representa melhor o que você defende?",
+                question: "Em 2022, se você pudesse votar de novo, votaria em:",
                 answers: [
-                  "Responsabilidade fiscal, combate à corrupção e políticas que aumentem produtividade e oportunidades.",
-                  "Aceito maior gasto público quando houver transparência, metas e avaliação dos resultados.",
-                  "O governo deve gastar sem limites quando a causa parecer justa ou beneficiar meu grupo.",
+                  "Lula no segundo turno",
+                  "Branco/nulo",
+                  "Bolsonaro no segundo turno",
+                  "Bolsonaro desde o primeiro turno, sem dúvida",
                 ],
               },
               {
-                emoji: "🛡️",
-                question: "Como você equilibra segurança pública e direitos individuais?",
+                question: "Qual dessas afirmações mais te representa?",
                 answers: [
-                  "Defendo combate firme ao crime, mas com leis claras, fiscalização e respeito aos direitos fundamentais.",
-                  "Prioritizo a segurança, desde que abusos possam ser investigados e responsabilizados.",
-                  "Acredito que suspeitos e adversários políticos podem perder direitos em nome da ordem.",
-                ],
-              },
-              {
-                emoji: "🌎",
-                question: "Qual deve ser a relação do Brasil com outros países e organizações internacionais?",
-                answers: [
-                  "Defender a soberania e os interesses nacionais, mantendo cooperação e relações diplomáticas estratégicas.",
-                  "Cooperar quando houver benefícios concretos, sem aceitar imposições que prejudiquem o país.",
-                  "Romper ou aceitar qualquer acordo internacional apenas por alinhamento ideológico.",
-                ],
-              },
-              {
-                emoji: "🤝",
-                question: "Como você reage a alguém que votou em Lula quando você prefere Bolsonaro, ou vice-versa?",
-                answers: [
-                  "Debato ideias e cobro coerência, sem desumanizar a pessoa nem defender violência política.",
-                  "Evito discussões improdutivas, mas continuo aberto a ouvir argumentos e rever opiniões.",
-                  "Considero o outro lado inimigo do Brasil e acho que não merece ser ouvido.",
-                ],
-              },
-              {
-                emoji: "🔍",
-                question: "Se dados confiáveis contradisserem uma opinião sua sobre um político, o que você faria?",
-                answers: [
-                  "Reavaliaria minha posição e reconheceria o erro, porque o compromisso com a verdade vem antes do político.",
-                  "Buscaria mais contexto antes de mudar de opinião.",
-                  "Manteria minha versão e procuraria argumentos para desqualificar os dados.",
-                ],
-              },
-              {
-                emoji: "🇧🇷",
-                question: "O que significa ser patriota em uma democracia?",
-                answers: [
-                  "Defender o Brasil com responsabilidade, cobrar qualquer governante e respeitar leis, liberdade e oposição.",
-                  "Valorizar a história e os símbolos nacionais, participar da vida pública e cuidar da comunidade.",
-                  "Apoiar incondicionalmente o líder ou partido que afirma representar a pátria.",
+                  "Prefiro um governo de esquerda a um de direita",
+                  "Não me identifico com nenhum lado",
+                  "Prefiro a direita mesmo com defeitos",
+                  "Sou de direita e não confio na esquerda",
                 ],
               },
             ];
@@ -797,7 +757,17 @@ function ModernJornalVozPatriota() {
                           const nextScore = nextAnswers.reduce((score, selectedAnswer, index) => {
                             if (!selectedAnswer) return score;
                             const selectedIndex = questions[index].answers.indexOf(selectedAnswer);
-                            return score + (selectedIndex === 0 ? 2 : selectedIndex === 1 ? 1 : 0);
+                            const points =
+                              index === 0
+                                ? selectedIndex === 0
+                                  ? 3
+                                  : selectedIndex === 1
+                                    ? 2
+                                    : selectedIndex === 2
+                                      ? 1
+                                      : 0
+                                : selectedIndex;
+                            return score + points;
                           }, 0);
 
                           setQuizScore(nextScore);
@@ -828,7 +798,17 @@ function ModernJornalVozPatriota() {
                       const finalScore = answersForSubmission.reduce((score, selectedAnswer, index) => {
                         if (!selectedAnswer) return score;
                         const selectedIndex = questions[index].answers.indexOf(selectedAnswer);
-                        return score + (selectedIndex === 0 ? 2 : selectedIndex === 1 ? 1 : 0);
+                        const points =
+                          index === 0
+                            ? selectedIndex === 0
+                              ? 3
+                              : selectedIndex === 1
+                                ? 2
+                                : selectedIndex === 2
+                                  ? 1
+                                  : 0
+                            : selectedIndex;
+                        return score + points;
                       }, 0);
 
                       setQuizAnswers(answersForSubmission);
@@ -836,13 +816,18 @@ function ModernJornalVozPatriota() {
 
                       if (quizStep < questions.length - 1) {
                         setQuizStep((step) => step + 1);
-                      } else if (finalScore >= 16) {
-                        setShowQuiz(false);
-                        setShowPlans(true);
                       } else {
-                        setShowQuiz(false);
-                        setShowPlans(false);
-                        setQuizFailed(true);
+                        const percentage = Math.round((finalScore / 18) * 100);
+                        const label =
+                          finalScore <= 6
+                            ? "Perfil mais alinhado à esquerda"
+                            : finalScore <= 11
+                              ? "Centro ou indefinido"
+                              : finalScore <= 15
+                                ? "Direita moderada"
+                                : "Direita forte";
+
+                        setQuizResult({ percentage, label });
                       }
                     }}
                   >
