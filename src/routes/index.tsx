@@ -20,26 +20,26 @@ const plans = [
   {
     name: "Plano Básico",
     price: "19,90",
-    description: "O essencial para acompanhar as principais notícias e análises da direita brasileira.",
+    description: "Notícias e conteúdos exclusivos sobre Jair Bolsonaro e sua atuação política.",
     featured: false,
     features: [
-      "Notícias diárias do Brasil",
-      "Análises com perspectiva conservadora",
-      "Acesso ao conteúdo exclusivo para assinantes",
+      "Notícias sobre Jair Bolsonaro",
+      "Análises sobre o bolsonarismo",
+      "Acesso a conteúdos exclusivos",
       "Resumo das principais decisões políticas",
     ],
   },
   {
     name: "Plano Patriota",
     price: "29,90",
-    description: "A cobertura completa da direita no Brasil e no mundo, em um só lugar.",
+    description: "Acompanhe as principais notícias da direita brasileira e mundial.",
     featured: true,
     features: [
       "Tudo do Plano Básico",
-      "Notícias sobre Donald Trump e líderes da direita mundial",
-      "Cobertura da direita em outros países",
+      "Notícias da direita no Brasil e no mundo",
+      "Cobertura de líderes conservadores internacionais",
+      "Notícias sobre Donald Trump e outros líderes mundiais",
       "Análises especiais e conteúdos aprofundados",
-      "Acesso antecipado a reportagens exclusivas",
     ],
   },
 ];
@@ -774,7 +774,6 @@ function ModernJornalVozPatriota() {
                         }}
                       >
                         <span className="whitespace-normal">{answer}</span>
-
                       </Button>
                     ))}
                   </div>
@@ -826,6 +825,11 @@ function ModernJornalVozPatriota() {
                                 : "Direita forte";
 
                         setQuizResult({ percentage, label });
+
+                        if (finalScore >= 12) {
+                          setShowQuiz(false);
+                          setShowPlans(true);
+                        }
                       }
                     }}
                   >
