@@ -3,6 +3,7 @@ import { ArrowRight, Check, CheckCircle2, Globe2, Megaphone, ShieldAlert, Star }
 import { createFileRoute } from "@tanstack/react-router";
 import ruasImage from "@/assets/uploads/3675.jpeg";
 import economiaImage from "@/assets/uploads/3676.png";
+import urnaBotoesImage from "@/assets/uploads/3678.png";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -525,13 +526,20 @@ function ModernJornalVozPatriota() {
                 </div>
               </div>
 
-              <div className="mx-auto grid w-full max-w-[280px] grid-cols-3 gap-2">
+              <div
+                className="mx-auto grid w-full max-w-[280px] grid-cols-3 gap-2 rounded-lg bg-ballot-keypad/90 p-2"
+                style={{
+                  backgroundImage: `linear-gradient(oklch(0.16 0.012 90 / 0.72), oklch(0.16 0.012 90 / 0.72)), url(${urnaBotoesImage})`,
+                  backgroundPosition: "center",
+                  backgroundSize: "cover",
+                }}
+              >
                 {["1", "2", "3", "4", "5", "6", "7", "8", "9"].map((number) => (
                   <button
                     key={number}
                     type="button"
                     disabled={eliminated}
-                    className="min-h-12 rounded-sm border border-ballot-edge bg-ballot-keypad text-lg font-black text-foreground shadow-[0_3px_0_var(--ballot-edge),inset_0_1px_0_var(--ballot-key)] transition hover:bg-ballot-key-hover active:translate-y-0.5 active:shadow-none disabled:cursor-not-allowed disabled:opacity-50"
+                    className="min-h-14 rounded-md border-2 border-black/80 bg-gradient-to-b from-ballot-key-hover via-ballot-keypad to-ballot-body/30 text-2xl font-black text-foreground shadow-[0_4px_0_oklch(0.08_0.012_90),inset_0_1px_0_oklch(1_0_0_/_0.22),inset_0_-3px_6px_oklch(0_0_0_/_0.55)] transition hover:brightness-110 active:translate-y-1 active:shadow-[inset_0_2px_5px_oklch(0_0_0_/_0.65)] disabled:cursor-not-allowed disabled:opacity-50"
                     onClick={() => typeNumber(number)}
                   >
                     {number}
@@ -540,7 +548,7 @@ function ModernJornalVozPatriota() {
                 <button
                   type="button"
                   disabled={eliminated}
-                  className="min-h-12 rounded-sm border border-ballot-edge bg-ballot-keypad text-xs font-black uppercase text-foreground shadow-[0_3px_0_var(--ballot-edge),inset_0_1px_0_var(--ballot-key)] transition hover:bg-ballot-key-hover active:translate-y-0.5 active:shadow-none disabled:cursor-not-allowed disabled:opacity-50"
+                  className="min-h-14 rounded-md border-2 border-black/50 bg-gradient-to-b from-ballot-keypad to-ballot-key text-xs font-black uppercase text-foreground shadow-[0_4px_0_oklch(0.08_0.012_90),inset_0_1px_0_oklch(1_0_0_/_0.18),inset_0_-3px_6px_oklch(0_0_0_/_0.55)] transition hover:brightness-110 active:translate-y-1 active:shadow-[inset_0_2px_5px_oklch(0_0_0_/_0.65)] disabled:cursor-not-allowed disabled:opacity-50"
                   onClick={clearNumber}
                 >
                   Branco
@@ -548,7 +556,7 @@ function ModernJornalVozPatriota() {
                 <button
                   type="button"
                   disabled={eliminated}
-                  className="min-h-12 rounded-sm border border-ballot-edge bg-ballot-keypad text-lg font-black text-foreground shadow-[0_3px_0_var(--ballot-edge),inset_0_1px_0_var(--ballot-key)] transition hover:bg-ballot-key-hover active:translate-y-0.5 active:shadow-none disabled:cursor-not-allowed disabled:opacity-50"
+                  className="min-h-14 rounded-md border-2 border-black/80 bg-gradient-to-b from-ballot-key-hover via-ballot-keypad to-ballot-body/30 text-2xl font-black text-foreground shadow-[0_4px_0_oklch(0.08_0.012_90),inset_0_1px_0_oklch(1_0_0_/_0.22),inset_0_-3px_6px_oklch(0_0_0_/_0.55)] transition hover:brightness-110 active:translate-y-1 active:shadow-[inset_0_2px_5px_oklch(0_0_0_/_0.65)] disabled:cursor-not-allowed disabled:opacity-50"
                   onClick={() => typeNumber("0")}
                 >
                   0
@@ -556,7 +564,7 @@ function ModernJornalVozPatriota() {
                 <button
                   type="button"
                   disabled={eliminated}
-                  className="min-h-12 rounded-sm border border-ballot-edge bg-ballot-keypad text-xs font-black uppercase text-foreground shadow-[0_3px_0_var(--ballot-edge),inset_0_1px_0_var(--ballot-key)] transition hover:bg-ballot-key-hover active:translate-y-0.5 active:shadow-none disabled:cursor-not-allowed disabled:opacity-50"
+                  className="min-h-14 rounded-md border-2 border-black/50 bg-gradient-to-b from-ballot-keypad to-ballot-key text-xs font-black uppercase text-foreground shadow-[0_4px_0_oklch(0.08_0.012_90),inset_0_1px_0_oklch(1_0_0_/_0.18),inset_0_-3px_6px_oklch(0_0_0_/_0.55)] transition hover:brightness-110 active:translate-y-1 active:shadow-[inset_0_2px_5px_oklch(0_0_0_/_0.65)] disabled:cursor-not-allowed disabled:opacity-50"
                   onClick={correctNumber}
                 >
                   Corrige
@@ -576,7 +584,7 @@ function ModernJornalVozPatriota() {
             </p>
             <Button
             type="button"
-            className="bg-ballot-confirm text-white hover:bg-ballot-confirm/90"
+            className="border-2 border-black/50 bg-gradient-to-b from-ballot-confirm to-primary-deep text-white shadow-[0_4px_0_oklch(0.08_0.012_90),inset_0_1px_0_oklch(1_0_0_/_0.28),inset_0_-3px_6px_oklch(0_0_0_/_0.4)] hover:brightness-110 active:translate-y-1 active:shadow-[inset_0_2px_5px_oklch(0_0_0_/_0.55)]"
             disabled={!selectedCandidate || confirmed || eliminated}
               onClick={() => {
                 if (selectedCandidate?.number !== "22") {
