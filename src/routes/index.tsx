@@ -233,11 +233,9 @@ function JornalVozPatriota() {
               o jornalismo que você quer continuar lendo.
             </p>
           </div>
-          <Button asChild size="lg" variant="secondary" className="shrink-0">
-            <a id="assinar" href="#planos">
-              Quero fazer parte
-              <ArrowRight className="h-5 w-5" aria-hidden />
-            </a>
+          <Button type="button" size="lg" variant="secondary" className="shrink-0" onClick={openBallot}>
+            Quero fazer parte
+            <ArrowRight className="h-5 w-5" aria-hidden />
           </Button>
         </div>
       </section>
@@ -258,96 +256,73 @@ function JornalVozPatriota() {
 }
 
 function ModernJornalVozPatriota() {
-  const [answer, setAnswer] = useState<number | null>(null);
-  const [showCivicQuiz, setShowCivicQuiz] = useState(false);
-  const [civicAnswers, setCivicAnswers] = useState<Record<number, number>>({});
+  const [showBallot, setShowBallot] = useState(false);
+  const [selectedCandidate, setSelectedCandidate] = useState<string | null>(null);
 
-  const quizOptions = [
-    "Foi eleito presidente do Brasil em 2018",
-    "Foi eleito presidente em 2002",
-    "Nunca ocupou um cargo eletivo",
-  ];
-
-  const civicQuestions = [
-    {
-      question: "Qual atitude representa melhor o exercício da cidadania?",
-      options: [
-        "Buscar informação em fontes diferentes antes de formar uma opinião",
-        "Compartilhar qualquer notícia que confirme minha opinião",
-        "Deixar que outras pessoas decidam tudo por mim",
-      ],
-    },
-    {
-      question: "O que fortalece uma democracia?",
-      options: [
-        "Participação, responsabilidade e respeito às instituições",
-        "Impedir que pessoas com opiniões diferentes se expressem",
-        "Aceitar apenas informações que concordem comigo",
-      ],
-    },
-  ];
-
-  const answeredAllCivicQuestions =
-    Object.keys(civicAnswers).length === civicQuestions.length;
+  const openBallot = () => setShowBallot(true);
 
   return (
     <main className="min-h-screen overflow-hidden bg-background text-foreground">
 
-      <Dialog open={showCivicQuiz} onOpenChange={setShowCivicQuiz}>
-        <DialogContent className="max-h-[90vh] overflow-y-auto border-secondary/50 bg-surface sm:max-w-2xl">
+      <Dialog open={showBallot} onOpenChange={setShowBallot}>
+        <DialogContent className="border-secondary/50 bg-surface sm:max-w-lg">
           <DialogHeader>
             <DialogTitle className="text-2xl sm:text-3xl">
-              Antes de assinar, teste sua consciência cívica
+              Simulação de urna eletrônica
             </DialogTitle>
             <DialogDescription className="leading-6 text-muted-foreground">
-              Este é um quiz editorial sobre participação e responsabilidade cidadã. Não é uma
-              urna oficial, não representa uma eleição e não elimina ninguém por preferência
-              política.
+              Esta é uma experiência demonstrativa do Jornal Voz Patriota. Não é uma urna oficial,
+              não representa uma eleição e não registra nenhum voto.
             </DialogDescription>
           </DialogHeader>
 
-          <div className="space-y-7 py-3">
-            {civicQuestions.map((item, questionIndex) => (
-              <div key={item.question} className="space-y-3">
-                <p className="font-bold leading-6">
-                  {questionIndex + 1}. {item.question}
-                </p>
-                <div className="grid gap-2">
-                  {item.options.map((option, optionIndex) => {
-                    const selected = civicAnswers[questionIndex] === optionIndex;
+          <div className="rounded-2xl border border-border bg-background p-5">
+            <div className="border-b border-border pb-4 text-center">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">
+                Presidente da República
+              </p>
+              <p className="mt-2 text-lg font-black">Escolha uma opção</p>
+            </div>
 
-                    return (
-                      <Button
-                        key={option}
-                        type="button"
-                        variant={selected ? "secondary" : "outline"}
-                        className="h-auto justify-start whitespace-normal px-4 py-3 text-left"
-                        onClick={() =>
-                          setCivicAnswers((current) => ({
-                            ...current,
-                            [questionIndex]: optionIndex,
-                          }))
-                        }
-                      >
-                        {option}
-                      </Button>
-                    );
-                  })}
-                </div>
-              </div>
-            ))}
+            <div className="mt-5 grid gap-3">
+              {[
+                { number: "22", name: "Flávio Bolsonaro", party: "PL" },
+                { number: "00", name: "Voto em branco", party: "—" },
+                { number: "99", name: "Voto nulo", party: "—" },
+              ].map((candidate) => {
+                const selected = selectedCandidate === candidate.number;
+
+                return (
+                  <Button
+                    key={candidate.number}
+                    type="button"
+                    variant={selected ? "secondary" : "outline"}
+                    className="h-auto justify-start gap-4 rounded-xl px-4 py-4 text-left"
+                    onClick={() => setSelectedCandidate(candidate.number)}
+                  >
+                    <span className="flex h-10 w-10 items-center justify-center rounded-md border-2 border-current text-lg font-black">
+                      {candidate.number}
+                    </span>
+                    <span>
+                      <span className="block font-bold">{candidate.name}</span>
+                      <span className="text-xs text-muted-foreground">{candidate.party}</span>
+                    </span>
+                  </Button>
+                );
+              })}
+            </div>
           </div>
 
           <DialogFooter className="flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-xs text-muted-foreground">
-              Informação responsável começa com pensamento crítico.
+              Simulação meramente ilustrativa.
             </p>
             <Button
               type="button"
-              disabled={!answeredAllCivicQuestions}
-              onClick={() => setShowCivicQuiz(false)}
+              disabled={!selectedCandidate}
+              onClick={() => setShowBallot(false)}
             >
-              Continuar para assinatura
+              Confirmar escolha
               <ArrowRight className="h-4 w-4" aria-hidden />
             </Button>
           </DialogFooter>
@@ -372,14 +347,12 @@ function ModernJornalVozPatriota() {
               está cansado de receber apenas um lado da história.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Button asChild size="lg" className="shadow-[var(--shadow-heat)]">
-                <a href="#planos">
-                  Quero acesso às notícias
-                  <ArrowRight className="h-5 w-5" aria-hidden />
-                </a>
+              <Button type="button" size="lg" className="shadow-[var(--shadow-heat)]" onClick={openBallot}>
+                Quero acesso às notícias
+                <ArrowRight className="h-5 w-5" aria-hidden />
               </Button>
-              <Button asChild size="lg" variant="outline">
-                <a href="#quiz">Testar meus conhecimentos</a>
+              <Button type="button" size="lg" variant="outline" onClick={openBallot}>
+                Apoiar o jornal
               </Button>
             </div>
             <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-xs font-bold uppercase tracking-[0.12em] text-muted-foreground">
@@ -452,112 +425,21 @@ function ModernJornalVozPatriota() {
         </div>
       </section>
 
-      <section id="quiz" className="border-y border-border bg-accent/10">
-        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-20 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:px-8">
-          <div>
-            <p className="text-sm font-black uppercase tracking-[0.2em] text-secondary">
-              Quiz Voz Patriota
-            </p>
-            <h2 className="mt-3 text-4xl sm:text-5xl">Você conhece a trajetória de Bolsonaro?</h2>
-            <p className="mt-5 leading-7 text-muted-foreground">
-              Teste seus conhecimentos e descubra por que acompanhar política com contexto faz
-              toda a diferença.
-            </p>
-          </div>
-          <div className="rounded-3xl border border-accent/50 bg-background/85 p-7 shadow-[var(--shadow-hard)] backdrop-blur sm:p-9">
-            <p className="text-lg font-bold">
-              Em que ano Jair Bolsonaro foi eleito presidente do Brasil?
-            </p>
-            <div className="mt-6 grid gap-3">
-              {quizOptions.map((option, index) => (
-                <button
-                  key={option}
-                  type="button"
-                  onClick={() => setAnswer(index)}
-                  className={`flex items-center gap-3 border p-4 text-left text-sm font-semibold transition-colors ${
-                    answer === index
-                      ? index === 0
-                        ? "border-primary bg-primary/15 text-primary"
-                        : "border-destructive bg-destructive/10 text-destructive"
-                      : "border-border bg-surface hover:border-secondary hover:bg-secondary/10"
-                  }`}
-                >
-                  {answer === index && index === 0 ? (
-                    <CheckCircle2 className="h-5 w-5 shrink-0" aria-hidden />
-                  ) : null}
-                  {option}
-                </button>
-              ))}
-            </div>
-            {answer !== null ? (
-              <p className="mt-5 text-sm font-semibold text-muted-foreground">
-                {answer === 0
-                  ? "Acertou. Informação com contexto deixa você mais preparado."
-                  : "Não foi dessa vez. Continue acompanhando política com fontes independentes."}
-              </p>
-            ) : null}
-          </div>
-        </div>
-      </section>
-
-      <section id="planos" className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
-        <div className="mx-auto max-w-3xl text-center">
+      <section id="apoie" className="border-y border-border bg-surface/60">
+        <div className="mx-auto max-w-4xl px-5 py-20 text-center lg:px-8">
           <p className="text-sm font-black uppercase tracking-[0.2em] text-secondary">
-            Escolha seu acesso
+            Apoie o jornalismo independente
           </p>
           <h2 className="mt-3 text-4xl sm:text-5xl">
-            Assine hoje. Leia mais. Dependa menos dos outros.
+            Informação livre depende de leitores livres.
           </h2>
-          <p className="mt-5 text-muted-foreground">
-            Duas formas de fortalecer o jornalismo de direita e receber informação alinhada aos
-            valores que você defende.
+          <p className="mx-auto mt-5 max-w-2xl leading-7 text-muted-foreground">
+            Conheça a nossa simulação de urna e continue para apoiar o Jornal Voz Patriota.
           </p>
-        </div>
-
-        <div className="mx-auto mt-12 grid max-w-5xl gap-6 lg:grid-cols-2">
-          {plans.map((plan) => (
-            <article
-              key={plan.name}
-              className={`relative rounded-3xl border p-7 shadow-[var(--shadow-hard)] transition-transform duration-300 hover:-translate-y-1 sm:p-9 ${
-                plan.featured
-                  ? "border-secondary bg-secondary/10 shadow-[var(--shadow-heat)]"
-                  : "border-border bg-surface"
-              }`}
-            >
-              {plan.featured ? (
-                <div className="absolute right-6 top-0 -translate-y-1/2 bg-secondary px-3 py-1 text-xs font-black uppercase tracking-wider text-secondary-foreground">
-                  Mais escolhido
-                </div>
-              ) : null}
-              <h3 className="text-2xl">{plan.name}</h3>
-              <p className="mt-3 min-h-14 text-sm leading-6 text-muted-foreground">
-                {plan.description}
-              </p>
-              <div className="mt-7 flex items-end gap-1 border-b border-border pb-7">
-                <span className="text-sm text-muted-foreground">R$</span>
-                <span className="text-5xl font-black">{plan.price}</span>
-                <span className="mb-1 text-sm text-muted-foreground">/mês</span>
-              </div>
-              <ul className="mt-7 space-y-4">
-                {plan.features.map((feature) => (
-                  <li key={feature} className="flex gap-3 text-sm leading-6">
-                    <Check className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              <Button
-                asChild
-                size="lg"
-                className="mt-8 w-full"
-                variant={plan.featured ? "default" : "outline"}
-              >
-                <button type="button" onClick={() => setShowCivicQuiz(true)}>
-                  Assinar {plan.name}
-                </button>
-              </Button>
-            </article>
-          ))}
+          <Button type="button" size="lg" className="mt-8 shadow-[var(--shadow-heat)]" onClick={openBallot}>
+            Apoiar o Jornal Voz Patriota
+            <ArrowRight className="h-5 w-5" aria-hidden />
+          </Button>
         </div>
       </section>
 
