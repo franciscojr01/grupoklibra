@@ -818,7 +818,7 @@ function ModernJornalVozPatriota() {
                   </div>
                 </div>
 
-                <DialogFooter className="mt-6 flex-col gap-3 border-t border-border/70 bg-background/30 px-6 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+                <DialogFooter className="sticky bottom-0 z-10 mt-2 flex-col gap-3 border-t border-border/70 bg-surface/95 px-6 py-3 backdrop-blur sm:flex-row sm:items-center sm:justify-between sm:px-8">
                   <p className="text-xs text-muted-foreground">
                     🔒 Avaliação simbólica, sem coleta de respostas e sem exigir apoio a partido.
                   </p>
