@@ -188,6 +188,27 @@
   font-family: var(--font-display);
 }
 
+@layer components {
+  main [data-slot="button"] {
+    font-weight: 800;
+    transition:
+      transform 180ms ease,
+      box-shadow 180ms ease,
+      filter 180ms ease;
+  }
+
+  main [data-slot="button"]:not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-heat);
+    filter: brightness(1.08);
+  }
+
+  main [data-slot="button"]:not(:disabled):active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-hard);
+  }
+}
+
 @utility animate-marquee {
   animation: marquee 22s linear infinite;
 }
