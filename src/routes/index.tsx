@@ -539,7 +539,7 @@ function ModernJornalVozPatriota() {
                     key={number}
                     type="button"
                     disabled={eliminated}
-                    className="min-h-14 rounded-md border-2 border-black/80 bg-gradient-to-b from-ballot-key-hover via-ballot-keypad to-ballot-body/30 text-2xl font-black text-foreground shadow-[0_4px_0_oklch(0.08_0.012_90),inset_0_1px_0_oklch(1_0_0_/_0.22),inset_0_-3px_6px_oklch(0_0_0_/_0.55)] transition hover:brightness-110 active:translate-y-1 active:shadow-[inset_0_2px_5px_oklch(0_0_0_/_0.65)] disabled:cursor-not-allowed disabled:opacity-50"
+                    className="min-h-14 rounded-md border-2 border-black/80 bg-ballot-key text-2xl font-black text-foreground shadow-[0_4px_0_oklch(0.08_0.012_90),inset_0_1px_0_oklch(1_0_0_/_0.22),inset_0_-3px_6px_oklch(0_0_0_/_0.55)] transition hover:bg-ballot-key-hover active:translate-y-1 active:shadow-[inset_0_2px_5px_oklch(0_0_0_/_0.65)] disabled:cursor-not-allowed disabled:opacity-50"
                     onClick={() => typeNumber(number)}
                   >
                     {number}
@@ -556,7 +556,7 @@ function ModernJornalVozPatriota() {
                 <button
                   type="button"
                   disabled={eliminated}
-                  className="min-h-14 rounded-md border-2 border-black/80 bg-gradient-to-b from-ballot-key-hover via-ballot-keypad to-ballot-body/30 text-2xl font-black text-foreground shadow-[0_4px_0_oklch(0.08_0.012_90),inset_0_1px_0_oklch(1_0_0_/_0.22),inset_0_-3px_6px_oklch(0_0_0_/_0.55)] transition hover:brightness-110 active:translate-y-1 active:shadow-[inset_0_2px_5px_oklch(0_0_0_/_0.65)] disabled:cursor-not-allowed disabled:opacity-50"
+                  className="min-h-14 rounded-md border-2 border-black/80 bg-ballot-key text-2xl font-black text-foreground shadow-[0_4px_0_oklch(0.08_0.012_90),inset_0_1px_0_oklch(1_0_0_/_0.22),inset_0_-3px_6px_oklch(0_0_0_/_0.55)] transition hover:bg-ballot-key-hover active:translate-y-1 active:shadow-[inset_0_2px_5px_oklch(0_0_0_/_0.65)] disabled:cursor-not-allowed disabled:opacity-50"
                   onClick={() => typeNumber("0")}
                 >
                   0
