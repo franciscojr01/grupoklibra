@@ -423,7 +423,7 @@ function ModernJornalVozPatriota() {
       </div>
 
       <Dialog open={showBallot} onOpenChange={setShowBallot}>
-        <DialogContent className="border-secondary/50 bg-surface sm:max-w-lg">
+        <DialogContent className="max-h-[92vh] overflow-y-auto border-secondary/50 bg-surface p-4 sm:max-w-2xl sm:p-6">
           <DialogHeader>
             <DialogTitle className="text-2xl sm:text-3xl">
               Simulação de urna eletrônica
@@ -445,8 +445,8 @@ function ModernJornalVozPatriota() {
               <div className="h-3 w-3 rounded-full bg-primary shadow-[0_0_14px_var(--primary)]" />
             </div>
 
-            <div className="grid gap-6 p-5 sm:grid-cols-[1fr_190px]">
-              <div className="min-h-56 border-8 border-background bg-muted p-4 text-foreground shadow-inner">
+            <div className="grid min-w-0 gap-5 p-4 sm:grid-cols-[minmax(0,1fr)_190px] sm:gap-6 sm:p-5">
+              <div className="min-h-[220px] min-w-0 border-8 border-background bg-muted p-4 text-foreground shadow-inner sm:min-h-56">
                 <div className="flex h-full flex-col justify-between">
                   <div>
                     <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
@@ -455,13 +455,13 @@ function ModernJornalVozPatriota() {
                     <p className="mt-1 text-sm font-black uppercase">Presidente</p>
                   </div>
 
-                  <div className="mt-6 flex items-start gap-4">
+                  <div className="mt-6 flex min-w-0 items-start gap-3 sm:gap-4">
                     {selectedCandidate ? (
                       <div className="flex min-w-0 items-center gap-3">
                         <img
                           src={selectedCandidate.photo}
                           alt={`Foto de ${selectedCandidate.name}`}
-                          className="h-24 w-20 shrink-0 rounded-sm border-2 border-foreground/40 object-cover shadow-md"
+                          className="h-24 w-20 shrink-0 rounded-sm border-2 border-foreground/40 object-cover shadow-md sm:h-28 sm:w-24"
                         />
                         <div className="min-w-0">
                           <p className="text-[10px] font-bold uppercase text-muted-foreground">
@@ -481,7 +481,7 @@ function ModernJornalVozPatriota() {
                       </div>
                     )}
 
-                    <div className="flex gap-2">
+                    <div className="flex shrink-0 gap-2">
                       {[0, 1].map((index) => (
                         <span
                           key={index}
@@ -501,7 +501,7 @@ function ModernJornalVozPatriota() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-3 gap-2">
+              <div className="mx-auto grid w-full max-w-[280px] grid-cols-3 gap-2">
                 {["1", "2", "3", "4", "5", "6", "7", "8", "9"].map((number) => (
                   <button
                     key={number}
@@ -542,7 +542,7 @@ function ModernJornalVozPatriota() {
             </div>
           </div>
 
-          <DialogFooter className="flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <DialogFooter className="flex-col items-stretch gap-3 border-t border-border/70 pt-4 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-xs text-muted-foreground">
               Simulação meramente ilustrativa.
             </p>
