@@ -292,36 +292,6 @@ function ModernJornalVozPatriota() {
 
   return (
     <main className="min-h-screen overflow-hidden bg-background text-foreground">
-      <div className="border-b border-secondary/40 bg-primary px-4 py-3 text-center text-xs font-bold uppercase tracking-[0.12em] text-primary-foreground md:text-sm">
-        <div className="mx-auto flex max-w-7xl items-center justify-center gap-2">
-          <ShieldAlert className="hidden h-4 w-4 shrink-0 md:block" aria-hidden />
-          <span>
-            Tentam calar o jornalismo conservador. A sua assinatura mantém a informação livre.
-          </span>
-        </div>
-      </div>
-
-      <header className="sticky top-0 z-20 border-b border-border/80 bg-background/95 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
-          <a href="#inicio" className="font-display text-xl font-black italic tracking-tight">
-            VOZ <span className="text-secondary">PATRIOTA</span>
-          </a>
-          <nav className="hidden items-center gap-7 text-sm font-semibold text-muted-foreground md:flex">
-            <a className="transition-colors hover:text-secondary" href="#beneficios">
-              Por que assinar
-            </a>
-            <a className="transition-colors hover:text-secondary" href="#planos">
-              Planos
-            </a>
-            <a className="transition-colors hover:text-secondary" href="#quiz">
-              Quiz
-            </a>
-          </nav>
-          <Button asChild size="sm">
-            <a href="#planos">Quero assinar</a>
-          </Button>
-        </div>
-      </header>
 
       <Dialog open={showCivicQuiz} onOpenChange={setShowCivicQuiz}>
         <DialogContent className="max-h-[90vh] overflow-y-auto border-secondary/50 bg-surface sm:max-w-2xl">
@@ -384,11 +354,12 @@ function ModernJornalVozPatriota() {
         </DialogContent>
       </Dialog>
 
-      <section id="inicio" className="relative isolate border-b border-border">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_80%_15%,color-mix(in_oklch,var(--accent)_24%,transparent),transparent_28%),radial-gradient(circle_at_10%_80%,color-mix(in_oklch,var(--primary)_18%,transparent),transparent_32%)]" />
-        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8 lg:py-24">
+      <section id="inicio" className="relative isolate min-h-[680px] overflow-hidden border-b border-border">
+        <div className="absolute inset-0 -z-20 bg-[url('https://images.pexels.com/photos/33625260/pexels-photo-33625260.jpeg?auto=compress&cs=tinysrgb&w=1600')] bg-cover bg-center" />
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,color-mix(in_oklch,var(--background)_97%,transparent)_0%,color-mix(in_oklch,var(--background)_86%,transparent)_46%,color-mix(in_oklch,var(--background)_45%,transparent)_100%),linear-gradient(0deg,var(--background),transparent_65%)]" />
+        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-24 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8 lg:py-32">
           <div>
-            <div className="mb-6 inline-flex items-center gap-2 border border-secondary/60 bg-secondary/10 px-3 py-2 text-xs font-black uppercase tracking-[0.18em] text-secondary">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-secondary/60 bg-background/60 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-secondary backdrop-blur">
               <Megaphone className="h-4 w-4" aria-hidden />
               A notícia antes da narrativa
             </div>
@@ -418,22 +389,7 @@ function ModernJornalVozPatriota() {
             </div>
           </div>
 
-          <div className="relative overflow-hidden border border-accent/50 bg-surface shadow-[var(--shadow-hard)]">
-            <img
-              src="https://images.pexels.com/photos/9216186/pexels-photo-9216186.jpeg?auto=compress&cs=tinysrgb&w=1600"
-              alt="Bandeira do Brasil hasteada contra o céu"
-              className="h-80 w-full object-cover opacity-75"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/45 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-7">
-              <p className="text-xs font-black uppercase tracking-[0.2em] text-secondary">
-                Jornalismo sem medo
-              </p>
-              <h2 className="mt-3 text-3xl leading-tight sm:text-4xl">
-                Informação para quem não aceita ser silenciado.
-              </h2>
-            </div>
-          </div>
+          <div className="hidden lg:block" aria-hidden="true" />
         </div>
       </section>
 
@@ -468,7 +424,7 @@ function ModernJornalVozPatriota() {
       </section>
 
       <section className="mx-auto grid max-w-7xl gap-6 px-5 py-20 lg:grid-cols-2 lg:px-8">
-        <div className="overflow-hidden border border-border bg-surface">
+        <div className="overflow-hidden rounded-3xl border border-border bg-surface shadow-[var(--shadow-hard)]">
           <img
             src="https://images.pexels.com/photos/15869991/pexels-photo-15869991.jpeg?auto=compress&cs=tinysrgb&w=1600"
             alt="Pessoas reunidas em uma manifestação usando bandeiras brasileiras"
@@ -481,7 +437,7 @@ function ModernJornalVozPatriota() {
             <h2 className="mt-3 text-3xl">Quem não se informa, deixa outros decidirem por ele.</h2>
           </div>
         </div>
-        <div className="overflow-hidden border border-border bg-surface">
+        <div className="overflow-hidden rounded-3xl border border-border bg-surface shadow-[var(--shadow-hard)]">
           <img
             src="https://images.pexels.com/photos/8849332/pexels-photo-8849332.jpeg?auto=compress&cs=tinysrgb&w=1600"
             alt="Letras formando a palavra voto sobre uma folha"
@@ -508,7 +464,7 @@ function ModernJornalVozPatriota() {
               toda a diferença.
             </p>
           </div>
-          <div className="border border-accent/50 bg-background p-7 sm:p-9">
+          <div className="rounded-3xl border border-accent/50 bg-background/85 p-7 shadow-[var(--shadow-hard)] backdrop-blur sm:p-9">
             <p className="text-lg font-bold">
               Em que ano Jair Bolsonaro foi eleito presidente do Brasil?
             </p>
@@ -562,7 +518,7 @@ function ModernJornalVozPatriota() {
           {plans.map((plan) => (
             <article
               key={plan.name}
-              className={`relative border p-7 sm:p-9 ${
+              className={`relative rounded-3xl border p-7 shadow-[var(--shadow-hard)] transition-transform duration-300 hover:-translate-y-1 sm:p-9 ${
                 plan.featured
                   ? "border-secondary bg-secondary/10 shadow-[var(--shadow-heat)]"
                   : "border-border bg-surface"
@@ -636,7 +592,7 @@ function ModernJornalVozPatriota() {
             </div>
             <p className="mt-1">Informação, opinião e liberdade.</p>
             <p className="mt-3 text-xs">
-              Imagens: Pexels — fotógrafos Waldir Évora e Marcello Sokal.
+              Imagens: Pexels — fotógrafos Marcela Bezerra, Rodolfo Quirós e Marcello Sokal.
             </p>
           </div>
           <p>© 2026 Jornal Voz Patriota. Todos os direitos reservados.</p>
@@ -656,7 +612,7 @@ function Feature({
   text: string;
 }) {
   return (
-    <div className="border border-border bg-background p-6">
+    <div className="rounded-2xl border border-border bg-background/80 p-6 shadow-[var(--shadow-hard)] transition-transform duration-300 hover:-translate-y-1">
       <div className="mb-5 flex h-12 w-12 items-center justify-center bg-primary/15 text-primary">{icon}</div>
       <h3 className="text-xl">{title}</h3>
       <p className="mt-3 text-sm leading-7 text-muted-foreground">{text}</p>

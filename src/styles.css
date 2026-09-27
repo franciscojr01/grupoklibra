@@ -57,29 +57,29 @@
   --radius: 0.25rem;
 
   /* Paleta escura inspirada na bandeira do Brasil */
-  --background: oklch(0.12 0.02 155);
+  --background: oklch(0.08 0.01 155);
   --foreground: oklch(0.98 0.01 95);
-  --surface: oklch(0.17 0.025 155);
-  --surface-2: oklch(0.22 0.035 155);
-  --card: oklch(0.17 0.025 155);
+  --surface: oklch(0.13 0.02 155);
+  --surface-2: oklch(0.18 0.03 155);
+  --card: oklch(0.13 0.02 155);
   --card-foreground: oklch(0.98 0.01 95);
-  --popover: oklch(0.17 0.025 155);
+  --popover: oklch(0.13 0.02 155);
   --popover-foreground: oklch(0.98 0.01 95);
-  --primary: oklch(0.72 0.17 145);
-  --primary-foreground: oklch(0.13 0.03 150);
-  --primary-deep: oklch(0.48 0.13 145);
-  --primary-light: oklch(0.82 0.15 145);
-  --secondary: oklch(0.76 0.16 88);
-  --secondary-foreground: oklch(0.16 0.03 150);
-  --muted: oklch(0.22 0.035 155);
-  --muted-foreground: oklch(0.76 0.025 155);
-  --accent: oklch(0.72 0.15 245);
+  --primary: oklch(0.72 0.19 145);
+  --primary-foreground: oklch(0.1 0.02 150);
+  --primary-deep: oklch(0.46 0.14 145);
+  --primary-light: oklch(0.84 0.17 145);
+  --secondary: oklch(0.82 0.18 88);
+  --secondary-foreground: oklch(0.14 0.03 150);
+  --muted: oklch(0.18 0.03 155);
+  --muted-foreground: oklch(0.78 0.025 155);
+  --accent: oklch(0.68 0.17 245);
   --accent-foreground: oklch(0.98 0.01 95);
   --destructive: oklch(0.62 0.2 25);
   --destructive-foreground: oklch(0.98 0.01 95);
-  --border: oklch(0.32 0.045 155);
-  --input: oklch(0.32 0.045 155);
-  --ring: oklch(0.72 0.17 145);
+  --border: oklch(0.28 0.045 155);
+  --input: oklch(0.28 0.045 155);
+  --ring: oklch(0.72 0.19 145);
 
   --gradient-heat: linear-gradient(
     100deg,
