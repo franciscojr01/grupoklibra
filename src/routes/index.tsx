@@ -24,10 +24,10 @@ const plans = [
   {
     name: "Plano Básico",
     price: "19,90",
-    description: "Notícias e conteúdos exclusivos sobre Jair Bolsonaro e sua atuação política.",
+    description: "Notícias e conteúdos exclusivos sobre Flávio Bolsonaro.",
     featured: false,
     features: [
-      "Notícias sobre Flávio Bolsonaro",
+      "Notícias sobre o Flávio Bolsonaro",
       "Notícias da direita no Brasil",
       "Acesso a conteúdos exclusivos",
       "Resumo das principais decisões políticas",
