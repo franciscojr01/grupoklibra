@@ -168,7 +168,7 @@ function JornalVozPatriota() {
               conservadora. Entenda o Brasil, acompanhe a política e forme sua própria opinião
               longe da narrativa única.
             </p>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <Button asChild size="lg" className="shadow-[var(--shadow-heat)]">
                 <a href="#planos">
                   Quero ver notícias de direita
@@ -1010,16 +1010,16 @@ function ModernJornalVozPatriota() {
         </section>
       ) : null}
 
-      <section id="inicio" className="relative isolate min-h-[680px] border-b border-border">
+      <section id="inicio" className="relative isolate min-h-[560px] border-b border-border lg:min-h-[600px]">
         <div className="absolute inset-0 -z-20 bg-[url('https://images.pexels.com/photos/14357047/pexels-photo-14357047.jpeg?auto=compress&cs=tinysrgb&w=1600')] bg-cover bg-center" />
         <div className="absolute inset-0 -z-10 bg-background/75" />
-        <div className="mx-auto grid min-w-0 max-w-7xl gap-10 px-5 py-24 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8 lg:py-32">
+        <div className="mx-auto grid min-w-0 max-w-7xl gap-8 px-5 py-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-10 lg:px-8 lg:py-16">
           <div className="min-w-0 max-w-3xl">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-secondary/60 bg-background/80 px-4 py-2 text-xs font-black uppercase tracking-[0.12em] text-secondary shadow-lg shadow-black/10">
               <Megaphone className="h-4 w-4" aria-hidden />
               Informação para a reta final das eleições
             </div>
-            <h1 className="hero-title max-w-full break-normal whitespace-normal text-3xl leading-[1.08] sm:max-w-4xl sm:text-5xl sm:leading-tight lg:text-8xl">
+            <h1 className="hero-title max-w-full break-normal whitespace-normal text-3xl leading-[1.08] sm:max-w-4xl sm:text-5xl sm:leading-tight lg:max-w-4xl lg:text-7xl">
               <span className="md:hidden">
                 A esquerda quer que você continue desinformado{" "}
                 <span className="heat-text">
@@ -1033,7 +1033,7 @@ function ModernJornalVozPatriota() {
                 </span>
               </span>
             </h1>
-            <p className="mt-7 max-w-full break-words whitespace-normal text-sm leading-6 text-foreground/80 sm:max-w-2xl sm:text-base sm:leading-7 lg:text-lg lg:leading-8">
+            <p className="mt-5 max-w-full break-words whitespace-normal text-sm leading-6 text-foreground/80 sm:max-w-2xl sm:text-base sm:leading-7 lg:mt-6 lg:text-lg lg:leading-8">
               A reta final das eleições está aí. Enquanto a esquerda e a grande mídia controlam o que
               você pode ver, ouvir e pensar, o Voz Patriota existe para furar o bloqueio.
             </p>
