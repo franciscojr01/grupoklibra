@@ -637,7 +637,7 @@ function ModernJornalVozPatriota() {
       </Dialog>
 
       <Dialog open={showQuiz} onOpenChange={setShowQuiz}>
-        <DialogContent className="max-h-[calc(100dvh-1rem)] w-[calc(100%-1rem)] overflow-y-auto rounded-[2rem] border-secondary/50 bg-surface p-0 shadow-2xl sm:max-w-lg">
+        <DialogContent className="h-[calc(100dvh-1rem)] max-h-[calc(100dvh-1rem)] w-[calc(100%-1rem)] overflow-y-auto overscroll-contain rounded-[2rem] border-secondary/50 bg-surface p-0 shadow-2xl sm:h-auto sm:max-h-[min(860px,calc(100dvh-2rem))] sm:max-w-lg">
           <div className="bg-gradient-to-br from-primary/15 via-surface to-secondary/10 px-6 pb-6 pt-7 sm:px-8">
             <DialogHeader>
               <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-3xl border border-secondary/30 bg-secondary/15 text-3xl shadow-lg">
@@ -655,93 +655,93 @@ function ModernJornalVozPatriota() {
           {(() => {
             const questions = [
               {
-                emoji: "🇧🇷",
-                question: "O que patriotismo significa na prática?",
-                answers: [
-                  "Cuidar do Brasil, defender sua liberdade e assumir responsabilidades.",
-                  "Respeitar a história, os símbolos e as pessoas do país.",
-                  "Usar a palavra patriotismo apenas como uma identidade.",
-                ],
-              },
-              {
-                emoji: "🦅",
-                question: "Qual valor deve orientar as decisões sobre o futuro do Brasil?",
-                answers: [
-                  "Liberdade, responsabilidade e respeito às leis.",
-                  "Família, trabalho e compromisso com a comunidade.",
-                  "Nenhum valor deve orientar as decisões do país.",
-                ],
-              },
-              {
                 emoji: "🗳️",
-                question: "Como você forma sua opinião política?",
+                question: "Como você avalia Jair Bolsonaro e Luiz Inácio Lula da Silva?",
                 answers: [
-                  "Comparo fontes, verifico informações e penso de forma independente.",
-                  "Acompanho notícias e debates com frequência.",
-                  "Repito o que vejo sem verificar os fatos.",
+                  "Analiso propostas, resultados e denúncias de ambos sem transformar nenhum deles em ídolo.",
+                  "Tenho preferência por um dos dois, mas reconheço erros e acertos do meu lado.",
+                  "Defendo ou rejeito qualquer um deles sem precisar verificar os fatos.",
                 ],
               },
               {
                 emoji: "⚖️",
-                question: "O que deve acontecer quando uma autoridade desrespeita a lei?",
+                question: "Se um presidente que você apoia for acusado de cometer um crime, qual deve ser sua postura?",
                 answers: [
-                  "Deve responder pelos seus atos dentro das instituições.",
-                  "A sociedade deve cobrar explicações e transparência.",
-                  "Autoridades devem estar acima das regras comuns.",
+                  "Exigir investigação independente, provas e julgamento conforme a lei, mesmo que isso prejudique meu candidato.",
+                  "Esperar o devido processo, mas acompanhar criticamente as informações disponíveis.",
+                  "Tratar a acusação como perseguição automaticamente e atacar quem questionou o presidente.",
+                ],
+              },
+              {
+                emoji: "🏛️",
+                question: "Você concorda com decisões de qualquer Poder quando elas favorecem sua posição política?",
+                answers: [
+                  "Não. Executivo, Legislativo e Judiciário devem respeitar a Constituição, inclusive quando decidem contra meu lado.",
+                  "Concordo com decisões que considero corretas, mas aceito contestá-las pelos meios institucionais.",
+                  "Sim. Se a decisão favorece meu grupo, ela deve ser defendida sem questionamentos.",
                 ],
               },
               {
                 emoji: "📰",
-                question: "Por que a liberdade de imprensa é importante?",
+                question: "Uma notícia negativa sobre Bolsonaro ou Lula aparece em uma fonte que você não gosta. O que você faz?",
                 answers: [
-                  "Porque permite fiscalizar o poder e conhecer diferentes fatos e opiniões.",
-                  "Porque ajuda as pessoas a acompanhar os acontecimentos.",
-                  "Porque qualquer informação deve ser aceita sem responsabilidade.",
+                  "Verifico documentos, contexto, autoria e outras fontes antes de formar uma conclusão.",
+                  "Leio a matéria completa e comparo com veículos de perspectivas diferentes.",
+                  "Descarto a informação imediatamente porque a fonte é ideologicamente contrária.",
                 ],
               },
               {
-                emoji: "🤝",
-                question: "Como um patriota deve tratar quem pensa diferente?",
+                emoji: "💰",
+                question: "Sobre economia, qual posição representa melhor o que você defende?",
                 answers: [
-                  "Com respeito, diálogo e disposição para defender suas ideias com argumentos.",
-                  "Com tolerância, desde que as regras democráticas sejam respeitadas.",
-                  "Como um inimigo que não merece ser ouvido.",
+                  "Responsabilidade fiscal, combate à corrupção e políticas que aumentem produtividade e oportunidades.",
+                  "Aceito maior gasto público quando houver transparência, metas e avaliação dos resultados.",
+                  "O governo deve gastar sem limites quando a causa parecer justa ou beneficiar meu grupo.",
                 ],
               },
               {
-                emoji: "💪",
-                question: "O que mais contribui para um país forte?",
+                emoji: "🛡️",
+                question: "Como você equilibra segurança pública e direitos individuais?",
                 answers: [
-                  "Educação, trabalho, segurança e responsabilidade dos cidadãos.",
-                  "Participação social e respeito às instituições.",
-                  "Esperar que outras pessoas resolvam todos os problemas.",
+                  "Defendo combate firme ao crime, mas com leis claras, fiscalização e respeito aos direitos fundamentais.",
+                  "Prioritizo a segurança, desde que abusos possam ser investigados e responsabilizados.",
+                  "Acredito que suspeitos e adversários políticos podem perder direitos em nome da ordem.",
                 ],
               },
               {
                 emoji: "🌎",
-                question: "Qual deve ser a postura do Brasil diante do mundo?",
+                question: "Qual deve ser a relação do Brasil com outros países e organizações internacionais?",
                 answers: [
-                  "Defender seus interesses, sua soberania e cooperar quando for necessário.",
-                  "Construir relações respeitosas com outros países.",
-                  "Aceitar qualquer decisão externa sem questionar.",
+                  "Defender a soberania e os interesses nacionais, mantendo cooperação e relações diplomáticas estratégicas.",
+                  "Cooperar quando houver benefícios concretos, sem aceitar imposições que prejudiquem o país.",
+                  "Romper ou aceitar qualquer acordo internacional apenas por alinhamento ideológico.",
                 ],
               },
               {
-                emoji: "🔎",
-                question: "O que você faz ao encontrar uma notícia que confirma sua opinião?",
+                emoji: "🤝",
+                question: "Como você reage a alguém que votou em Lula quando você prefere Bolsonaro, ou vice-versa?",
                 answers: [
-                  "Verifico a origem, o contexto e procuro outras fontes.",
-                  "Leio a matéria completa antes de compartilhar.",
-                  "Compartilho imediatamente porque concordo com ela.",
+                  "Debato ideias e cobro coerência, sem desumanizar a pessoa nem defender violência política.",
+                  "Evito discussões improdutivas, mas continuo aberto a ouvir argumentos e rever opiniões.",
+                  "Considero o outro lado inimigo do Brasil e acho que não merece ser ouvido.",
                 ],
               },
               {
-                emoji: "🌟",
-                question: "O que você deseja para o futuro do Brasil?",
+                emoji: "🔍",
+                question: "Se dados confiáveis contradisserem uma opinião sua sobre um político, o que você faria?",
                 answers: [
-                  "Um país livre, seguro, próspero e responsável com seu povo.",
-                  "Um país forte, unido e respeitado.",
-                  "Não tenho nenhum compromisso com o futuro do país.",
+                  "Reavaliaria minha posição e reconheceria o erro, porque o compromisso com a verdade vem antes do político.",
+                  "Buscaria mais contexto antes de mudar de opinião.",
+                  "Manteria minha versão e procuraria argumentos para desqualificar os dados.",
+                ],
+              },
+              {
+                emoji: "🇧🇷",
+                question: "O que significa ser patriota em uma democracia?",
+                answers: [
+                  "Defender o Brasil com responsabilidade, cobrar qualquer governante e respeitar leis, liberdade e oposição.",
+                  "Valorizar a história e os símbolos nacionais, participar da vida pública e cuidar da comunidade.",
+                  "Apoiar incondicionalmente o líder ou partido que afirma representar a pátria.",
                 ],
               },
             ];
@@ -818,12 +818,16 @@ function ModernJornalVozPatriota() {
                     className="w-full rounded-full px-6 sm:w-auto"
                     disabled={!currentAnswer}
                     onClick={() => {
-                      const finalScore = nextAnswers.reduce((score, selectedAnswer, index) => {
+                      const answersForSubmission = [...quizAnswers];
+                      answersForSubmission[quizStep] = currentAnswer;
+
+                      const finalScore = answersForSubmission.reduce((score, selectedAnswer, index) => {
                         if (!selectedAnswer) return score;
                         const selectedIndex = questions[index].answers.indexOf(selectedAnswer);
                         return score + (selectedIndex === 0 ? 2 : selectedIndex === 1 ? 1 : 0);
                       }, 0);
 
+                      setQuizAnswers(answersForSubmission);
                       setQuizScore(finalScore);
 
                       if (quizStep < questions.length - 1) {
