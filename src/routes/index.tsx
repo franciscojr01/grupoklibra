@@ -1020,14 +1020,27 @@ function ModernJornalVozPatriota() {
               Informação para a reta final das eleições
             </div>
             <h1 className="max-w-4xl text-5xl leading-[0.94] sm:text-6xl lg:text-8xl">
-              A esquerda quer que você continue desinformado{" "}
-              <span className="heat-text">
-                Nós não vamos <span className="text-primary">deixar.</span>
+              <span className="md:hidden">
+                Informação sem filtro.{" "}
+                <span className="heat-text">
+                  Nós não vamos <span className="text-primary">deixar.</span>
+                </span>
+              </span>
+              <span className="hidden md:inline">
+                A esquerda quer que você continue desinformado{" "}
+                <span className="heat-text">
+                  Nós não vamos <span className="text-primary">deixar.</span>
+                </span>
               </span>
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-foreground/80">
-              A reta final das eleições está aí. Enquanto a esquerda e a grande mídia controlam o
-              que você pode ver, ouvir e pensar, o Voz Patriota existe para furar o bloqueio.
+              <span className="md:hidden">
+                Notícias, fatos e análises para você não depender da narrativa única.
+              </span>
+              <span className="hidden md:inline">
+                A reta final das eleições está aí. Enquanto a esquerda e a grande mídia controlam o
+                que você pode ver, ouvir e pensar, o Voz Patriota existe para furar o bloqueio.
+              </span>
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Button
@@ -1036,7 +1049,10 @@ function ModernJornalVozPatriota() {
                 className="rounded-full bg-primary px-7 text-primary-foreground shadow-[var(--shadow-hard)] transition-transform hover:-translate-y-0.5 hover:bg-primary-deep"
                 onClick={openBallot}
               >
-                Assine agora. Antes que tentem calar a gente.
+                <span className="md:hidden">Assine agora</span>
+                <span className="hidden md:inline">
+                  Assine agora. Antes que tentem calar a gente.
+                </span>
                 <ArrowRight className="h-5 w-5" aria-hidden />
               </Button>
               <Button
