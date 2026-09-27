@@ -3,6 +3,14 @@ import { ArrowRight, Check, CheckCircle2, Globe2, Megaphone, ShieldAlert, Star }
 import { createFileRoute } from "@tanstack/react-router";
 
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 export const Route = createFileRoute("/")({
   component: ModernJornalVozPatriota,
@@ -251,12 +259,36 @@ function JornalVozPatriota() {
 
 function ModernJornalVozPatriota() {
   const [answer, setAnswer] = useState<number | null>(null);
+  const [showCivicQuiz, setShowCivicQuiz] = useState(false);
+  const [civicAnswers, setCivicAnswers] = useState<Record<number, number>>({});
 
   const quizOptions = [
     "Foi eleito presidente do Brasil em 2018",
     "Foi eleito presidente em 2002",
     "Nunca ocupou um cargo eletivo",
   ];
+
+  const civicQuestions = [
+    {
+      question: "Qual atitude representa melhor o exercício da cidadania?",
+      options: [
+        "Buscar informação em fontes diferentes antes de formar uma opinião",
+        "Compartilhar qualquer notícia que confirme minha opinião",
+        "Deixar que outras pessoas decidam tudo por mim",
+      ],
+    },
+    {
+      question: "O que fortalece uma democracia?",
+      options: [
+        "Participação, responsabilidade e respeito às instituições",
+        "Impedir que pessoas com opiniões diferentes se expressem",
+        "Aceitar apenas informações que concordem comigo",
+      ],
+    },
+  ];
+
+  const answeredAllCivicQuestions =
+    Object.keys(civicAnswers).length === civicQuestions.length;
 
   return (
     <main className="min-h-screen overflow-hidden bg-background text-foreground">
@@ -290,6 +322,67 @@ function ModernJornalVozPatriota() {
           </Button>
         </div>
       </header>
+
+      <Dialog open={showCivicQuiz} onOpenChange={setShowCivicQuiz}>
+        <DialogContent className="max-h-[90vh] overflow-y-auto border-secondary/50 bg-surface sm:max-w-2xl">
+          <DialogHeader>
+            <DialogTitle className="text-2xl sm:text-3xl">
+              Antes de assinar, teste sua consciência cívica
+            </DialogTitle>
+            <DialogDescription className="leading-6 text-muted-foreground">
+              Este é um quiz editorial sobre participação e responsabilidade cidadã. Não é uma
+              urna oficial, não representa uma eleição e não elimina ninguém por preferência
+              política.
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="space-y-7 py-3">
+            {civicQuestions.map((item, questionIndex) => (
+              <div key={item.question} className="space-y-3">
+                <p className="font-bold leading-6">
+                  {questionIndex + 1}. {item.question}
+                </p>
+                <div className="grid gap-2">
+                  {item.options.map((option, optionIndex) => {
+                    const selected = civicAnswers[questionIndex] === optionIndex;
+
+                    return (
+                      <Button
+                        key={option}
+                        type="button"
+                        variant={selected ? "secondary" : "outline"}
+                        className="h-auto justify-start whitespace-normal px-4 py-3 text-left"
+                        onClick={() =>
+                          setCivicAnswers((current) => ({
+                            ...current,
+                            [questionIndex]: optionIndex,
+                          }))
+                        }
+                      >
+                        {option}
+                      </Button>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <DialogFooter className="flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-xs text-muted-foreground">
+              Informação responsável começa com pensamento crítico.
+            </p>
+            <Button
+              type="button"
+              disabled={!answeredAllCivicQuestions}
+              onClick={() => setShowCivicQuiz(false)}
+            >
+              Continuar para assinatura
+              <ArrowRight className="h-4 w-4" aria-hidden />
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
 
       <section id="inicio" className="relative isolate border-b border-border">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_80%_15%,color-mix(in_oklch,var(--accent)_24%,transparent),transparent_28%),radial-gradient(circle_at_10%_80%,color-mix(in_oklch,var(--primary)_18%,transparent),transparent_32%)]" />
@@ -503,7 +596,9 @@ function ModernJornalVozPatriota() {
                 className="mt-8 w-full"
                 variant={plan.featured ? "default" : "outline"}
               >
-                <a href="#assinar">Assinar {plan.name}</a>
+                <button type="button" onClick={() => setShowCivicQuiz(true)}>
+                  Assinar {plan.name}
+                </button>
               </Button>
             </article>
           ))}
