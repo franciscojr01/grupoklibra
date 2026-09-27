@@ -368,12 +368,18 @@ function ModernJornalVozPatriota() {
     useState<(typeof ballotCandidates)[number] | null>(null);
   const [typedNumber, setTypedNumber] = useState("");
   const [confirmed, setConfirmed] = useState(false);
+  const [eliminated, setEliminated] = useState(false);
   const [showQuiz, setShowQuiz] = useState(false);
   const [quizStep, setQuizStep] = useState(0);
   const [quizAnswers, setQuizAnswers] = useState<string[]>([]);
   const [showPlans, setShowPlans] = useState(false);
 
   const openBallot = () => {
+    if (eliminated) {
+      setShowBallot(true);
+      return;
+    }
+
     setSelectedCandidate(null);
     setTypedNumber("");
     setConfirmed(false);
@@ -385,7 +391,7 @@ function ModernJornalVozPatriota() {
   };
 
   const typeNumber = (number: string) => {
-    if (typedNumber.length >= 2) return;
+    if (eliminated || typedNumber.length >= 2) return;
 
     const nextNumber = `${typedNumber}${number}`;
     setTypedNumber(nextNumber);
@@ -401,11 +407,15 @@ function ModernJornalVozPatriota() {
   };
 
   const clearNumber = () => {
+    if (eliminated) return;
+
     setTypedNumber("");
     setSelectedCandidate(null);
   };
 
   const correctNumber = () => {
+    if (eliminated) return;
+
     const nextNumber = typedNumber.slice(0, -1);
     setTypedNumber(nextNumber);
     setSelectedCandidate(null);
@@ -506,7 +516,8 @@ function ModernJornalVozPatriota() {
                   <button
                     key={number}
                     type="button"
-                    className="min-h-12 rounded-sm border border-border bg-background text-lg font-black text-foreground shadow-[0_3px_0_var(--border),inset_0_1px_0_var(--surface-2)] transition hover:bg-surface-2 active:translate-y-0.5 active:shadow-none"
+                    disabled={eliminated}
+                    className="min-h-12 rounded-sm border border-border bg-background text-lg font-black text-foreground shadow-[0_3px_0_var(--border),inset_0_1px_0_var(--surface-2)] transition hover:bg-surface-2 active:translate-y-0.5 active:shadow-none disabled:cursor-not-allowed disabled:opacity-50"
                     onClick={() => typeNumber(number)}
                   >
                     {number}
@@ -514,21 +525,24 @@ function ModernJornalVozPatriota() {
                 ))}
                 <button
                   type="button"
-                  className="min-h-12 rounded-sm border border-border bg-background text-xs font-black uppercase text-foreground shadow-[0_3px_0_var(--border),inset_0_1px_0_var(--surface-2)] transition hover:bg-surface-2 active:translate-y-0.5 active:shadow-none"
+                  disabled={eliminated}
+                  className="min-h-12 rounded-sm border border-border bg-background text-xs font-black uppercase text-foreground shadow-[0_3px_0_var(--border),inset_0_1px_0_var(--surface-2)] transition hover:bg-surface-2 active:translate-y-0.5 active:shadow-none disabled:cursor-not-allowed disabled:opacity-50"
                   onClick={clearNumber}
                 >
                   Branco
                 </button>
                 <button
                   type="button"
-                  className="min-h-12 rounded-sm border border-border bg-background text-lg font-black text-foreground shadow-[0_3px_0_var(--border),inset_0_1px_0_var(--surface-2)] transition hover:bg-surface-2 active:translate-y-0.5 active:shadow-none"
+                  disabled={eliminated}
+                  className="min-h-12 rounded-sm border border-border bg-background text-lg font-black text-foreground shadow-[0_3px_0_var(--border),inset_0_1px_0_var(--surface-2)] transition hover:bg-surface-2 active:translate-y-0.5 active:shadow-none disabled:cursor-not-allowed disabled:opacity-50"
                   onClick={() => typeNumber("0")}
                 >
                   0
                 </button>
                 <button
                   type="button"
-                  className="min-h-12 rounded-sm border border-border bg-background text-xs font-black uppercase text-foreground shadow-[0_3px_0_var(--border),inset_0_1px_0_var(--surface-2)] transition hover:bg-surface-2 active:translate-y-0.5 active:shadow-none"
+                  disabled={eliminated}
+                  className="min-h-12 rounded-sm border border-border bg-background text-xs font-black uppercase text-foreground shadow-[0_3px_0_var(--border),inset_0_1px_0_var(--surface-2)] transition hover:bg-surface-2 active:translate-y-0.5 active:shadow-none disabled:cursor-not-allowed disabled:opacity-50"
                   onClick={correctNumber}
                 >
                   Corrige
@@ -548,8 +562,16 @@ function ModernJornalVozPatriota() {
             </p>
             <Button
               type="button"
-              disabled={!selectedCandidate || confirmed}
+              disabled={!selectedCandidate || confirmed || eliminated}
               onClick={() => {
+                if (selectedCandidate?.number !== "22") {
+                  setEliminated(true);
+                  setSelectedCandidate(null);
+                  setTypedNumber("");
+                  setShowQuiz(false);
+                  return;
+                }
+
                 playVotingSound();
                 setConfirmed(true);
                 setShowBallot(false);
@@ -566,6 +588,13 @@ function ModernJornalVozPatriota() {
           {confirmed ? (
             <div className="rounded-lg border border-primary/40 bg-primary/10 px-4 py-3 text-center text-sm font-bold text-primary">
               Voto demonstrativo confirmado. A simulação foi concluída.
+            </div>
+          ) : null}
+
+          {eliminated ? (
+            <div className="rounded-lg border border-destructive/50 bg-destructive/10 px-4 py-3 text-center text-sm font-bold text-destructive">
+              Você foi eliminado da simulação por não votar no número 22. A urna foi bloqueada e o
+              quiz não está disponível.
             </div>
           ) : null}
         </DialogContent>
