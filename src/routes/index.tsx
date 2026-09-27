@@ -4,6 +4,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import ruasImage from "@/assets/uploads/3675.jpeg";
 import economiaImage from "@/assets/uploads/3676.png";
 import logoImage from "@/assets/uploads/3681.png";
+import wilsonGrassiPhoto from "@/assets/uploads/3682.jpg";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -317,7 +318,7 @@ const ballotCandidates = [
     number: "35",
     name: "Wilson Grassi",
     party: "DEMOCRATA",
-    photo: "https://picsum.photos/seed/wilson-grassi/240/300",
+    photo: wilsonGrassiPhoto,
   },
   {
     number: "27",
