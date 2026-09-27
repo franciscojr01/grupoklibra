@@ -408,8 +408,7 @@ const ballotCandidates = [
   },
 ] as const;
 
-const votingAudioUrl =
-  "https://www.myinstants.com/media/sounds/urna-eletronica-confirma.mp3";
+const votingAudioUrl = "/urna-eletronica.mp3";
 
 let votingAudio: HTMLAudioElement | null = null;
 
