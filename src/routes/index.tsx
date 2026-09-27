@@ -1124,7 +1124,7 @@ function ModernJornalVozPatriota() {
       <section className="mx-auto grid max-w-7xl gap-6 px-5 py-20 lg:grid-cols-2 lg:px-8">
         <div className="overflow-hidden rounded-[2rem] border border-border/80 bg-surface shadow-[var(--shadow-hard)]">
           <img
-            src="https://images.pexels.com/photos/15869991/pexels-photo-15869991.jpeg?auto=compress&cs=tinysrgb&w=1600"
+            src="https://ibb.co/XrBg33cf"
             alt="Multidão reunida em uma manifestação patriótica com bandeiras do Brasil"
             className="h-72 w-full object-cover"
           />
