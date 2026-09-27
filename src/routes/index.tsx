@@ -341,48 +341,48 @@ const ballotCandidates = [
 ] as const;
 
 function playVotingSound() {
-  const votingAudio = new Audio(
-    "https://www.myinstants.com/media/sounds/urna-eletronica-confirma.mp3",
-  );
+  // O endereço compartilhado é uma página do MyInstants, não um arquivo de
+  // áudio direto. Reproduzimos o padrão curto "pi-li-li" diretamente no
+  // navegador para manter o som de confirmação funcionando após o clique.
+  const AudioContextClass =
+    window.AudioContext ||
+    (
+      window as typeof window & {
+        webkitAudioContext?: typeof AudioContext;
+      }
+    ).webkitAudioContext;
 
-  votingAudio.volume = 1;
-  votingAudio.currentTime = 0;
+  if (!AudioContextClass) return;
 
-  void votingAudio.play().catch(() => {
-    // Mantém um som de confirmação como alternativa caso o navegador bloqueie
-    // o áudio externo ou o arquivo esteja indisponível.
-    const AudioContextClass =
-      window.AudioContext ||
-      (
-        window as typeof window & {
-          webkitAudioContext?: typeof AudioContext;
-        }
-      ).webkitAudioContext;
+  const context = new AudioContextClass();
+  const startTime = context.currentTime;
 
-    if (!AudioContextClass) return;
-
-    const context = new AudioContextClass();
-    const startTime = context.currentTime;
+  const playBeep = (frequency: number, offset: number, duration: number) => {
     const oscillator = context.createOscillator();
     const gain = context.createGain();
 
-    oscillator.type = "square";
-    oscillator.frequency.setValueAtTime(740, startTime);
-    oscillator.frequency.setValueAtTime(520, startTime + 0.16);
+    oscillator.type = "sine";
+    oscillator.frequency.setValueAtTime(frequency, startTime + offset);
 
-    gain.gain.setValueAtTime(0.001, startTime);
-    gain.gain.exponentialRampToValueAtTime(0.11, startTime + 0.01);
-    gain.gain.exponentialRampToValueAtTime(0.001, startTime + 0.4);
+    gain.gain.setValueAtTime(0.001, startTime + offset);
+    gain.gain.exponentialRampToValueAtTime(0.22, startTime + offset + 0.008);
+    gain.gain.setValueAtTime(0.22, startTime + offset + duration - 0.025);
+    gain.gain.exponentialRampToValueAtTime(0.001, startTime + offset + duration);
 
     oscillator.connect(gain);
     gain.connect(context.destination);
-    oscillator.start(startTime);
-    oscillator.stop(startTime + 0.4);
+    oscillator.start(startTime + offset);
+    oscillator.stop(startTime + offset + duration);
+  };
 
-    window.setTimeout(() => {
-      void context.close();
-    }, 500);
-  });
+  // Três tons rápidos e ascendentes, imitando o "pi-li-li" da urna.
+  playBeep(620, 0, 0.13);
+  playBeep(880, 0.16, 0.11);
+  playBeep(1040, 0.29, 0.28);
+
+  window.setTimeout(() => {
+    void context.close();
+  }, 700);
 }
 
 function ModernJornalVozPatriota() {
