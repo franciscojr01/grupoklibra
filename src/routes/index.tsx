@@ -1071,7 +1071,7 @@ function ModernJornalVozPatriota() {
             <article className="rounded-2xl border border-border bg-surface p-6 shadow-[var(--shadow-hard)]">
               <div className="flex items-center gap-3">
                 <img
-                  src="https://ibb.co/W4HWFFhD"
+                  src="https://picsum.photos/seed/dona-terezinha/160/160"
                   alt="Foto de perfil de Dona Terezinha"
                   className="h-12 w-12 rounded-full border-2 border-primary/50 object-cover"
                 />
