@@ -557,11 +557,18 @@ function ModernJornalVozPatriota() {
                   <div className="mt-6 flex min-w-0 items-start gap-3 sm:gap-4">
                     {selectedCandidate ? (
                       <div className="flex min-w-0 items-center gap-3">
-                        <img
-                          src={selectedCandidate.photo}
-                          alt={`Foto de ${selectedCandidate.name}`}
-                          className="h-24 w-20 shrink-0 rounded-sm border-2 border-foreground/40 object-cover shadow-md sm:h-28 sm:w-24"
-                        />
+                        <div className="relative h-24 w-20 shrink-0 sm:h-28 sm:w-24">
+                          <img
+                            src={selectedCandidate.photo}
+                            alt={`Foto de ${selectedCandidate.name}`}
+                            className="h-full w-full rounded-sm border-2 border-foreground/40 object-cover shadow-md"
+                          />
+                          {confirmed ? (
+                            <div className="absolute inset-0 flex items-center justify-center bg-ballot-screen/85 p-1 text-center text-[9px] font-black uppercase leading-tight text-ballot-foreground">
+                              Voto confirmado
+                            </div>
+                          ) : null}
+                        </div>
                         <div className="min-w-0">
                           <p className="text-[10px] font-bold uppercase text-muted-foreground">
                             Candidato
@@ -631,22 +638,24 @@ function ModernJornalVozPatriota() {
                 <button
                   type="button"
                   className="relative min-h-14 overflow-hidden rounded-md border-2 border-black/80 bg-ballot-confirm px-1 text-[9px] font-black uppercase leading-none tracking-[-0.03em] text-ballot-foreground shadow-[0_4px_0_oklch(0.08_0.012_90),inset_0_1px_0_oklch(1_0_0_/_0.3),inset_0_-3px_6px_oklch(0_0_0_/_0.45)] transition hover:brightness-105 active:translate-y-1 active:shadow-[inset_0_2px_5px_oklch(0_0_0_/_0.6)] disabled:cursor-not-allowed disabled:opacity-50"
-                  disabled={eliminated || !selectedCandidate}
+                  disabled={eliminated || !selectedCandidate || confirmed}
                   onClick={() => {
                     playVotingSound();
                     setConfirmed(true);
 
-                    if (selectedCandidate?.number === "22") {
-                      setShowBallot(false);
-                      setQuizStep(0);
-                      setQuizAnswers([]);
-                      setQuizScore(0);
-                      setQuizFailed(false);
-                      setQuizResult(null);
-                      setShowQuiz(true);
-                    } else {
-                      setEliminated(true);
-                    }
+                    window.setTimeout(() => {
+                      if (selectedCandidate?.number === "22") {
+                        setShowBallot(false);
+                        setQuizStep(0);
+                        setQuizAnswers([]);
+                        setQuizScore(0);
+                        setQuizFailed(false);
+                        setQuizResult(null);
+                        setShowQuiz(true);
+                      } else {
+                        setEliminated(true);
+                      }
+                    }, 3000);
                   }}
                 >
                   Confirmar
