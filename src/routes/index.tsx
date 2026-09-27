@@ -1072,7 +1072,7 @@ function ModernJornalVozPatriota() {
               <div className="flex items-center gap-3">
                 <img
                   src="https://ibb.co/W4HWFFhD"
-                  alt="Foto de perfil de Terezinha"
+                  alt="Foto de perfil de Dona Terezinha"
                   className="h-12 w-12 rounded-full border-2 border-primary/50 object-cover"
                 />
                 <div>
