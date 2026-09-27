@@ -647,7 +647,9 @@ function ModernJornalVozPatriota() {
                 Quiz patriota
               </DialogTitle>
               <DialogDescription className="mt-2 leading-6 text-muted-foreground">
-                Responda a 6 perguntas rápidas e mostre o que o Brasil representa para você.
+                Responda a perguntas sobre líderes, economia, instituições e liberdade. O resultado
+                valoriza coerência, responsabilidade e compromisso com o Brasil — não lealdade cega
+                a um partido.
               </DialogDescription>
             </DialogHeader>
           </div>
@@ -656,11 +658,11 @@ function ModernJornalVozPatriota() {
             const questions = [
               {
                 emoji: "🗳️",
-                question: "Como você avalia Jair Bolsonaro e Luiz Inácio Lula da Silva?",
+                question: "Como você avalia Bolsonaro e Lula quando ambos são criticados?",
                 answers: [
-                  "Analiso propostas, resultados e denúncias de ambos sem transformar nenhum deles em ídolo.",
-                  "Tenho preferência por um dos dois, mas reconheço erros e acertos do meu lado.",
-                  "Defendo ou rejeito qualquer um deles sem precisar verificar os fatos.",
+                  "Cobro provas, resultados e responsabilidade dos dois, sem passar pano para o político que prefiro.",
+                  "Tenho preferência por um deles, mas admito erros e acertos conforme as evidências.",
+                  "Defendo meu político automaticamente e trato toda crítica como perseguição.",
                 ],
               },
               {
@@ -674,20 +676,20 @@ function ModernJornalVozPatriota() {
               },
               {
                 emoji: "🏛️",
-                question: "Você concorda com decisões de qualquer Poder quando elas favorecem sua posição política?",
+                question: "Se uma decisão do STF ou do Congresso contrariar sua posição política, como você reage?",
                 answers: [
-                  "Não. Executivo, Legislativo e Judiciário devem respeitar a Constituição, inclusive quando decidem contra meu lado.",
-                  "Concordo com decisões que considero corretas, mas aceito contestá-las pelos meios institucionais.",
-                  "Sim. Se a decisão favorece meu grupo, ela deve ser defendida sem questionamentos.",
+                  "Critico a decisão com argumentos e uso os meios legais, sem defender ruptura institucional ou violência.",
+                  "Procuro entender os fundamentos e apoio mudanças pelas vias democráticas quando discordo.",
+                  "Considero legítima qualquer decisão quando beneficia meu lado e ilegítima quando favorece o outro.",
                 ],
               },
               {
                 emoji: "📰",
-                question: "Uma notícia negativa sobre Bolsonaro ou Lula aparece em uma fonte que você não gosta. O que você faz?",
+                question: "Surge uma denúncia grave contra Bolsonaro, Lula ou um político que você apoia. O que você faz?",
                 answers: [
-                  "Verifico documentos, contexto, autoria e outras fontes antes de formar uma conclusão.",
-                  "Leio a matéria completa e comparo com veículos de perspectivas diferentes.",
-                  "Descarto a informação imediatamente porque a fonte é ideologicamente contrária.",
+                  "Verifico documentos, fontes independentes e o devido processo antes de concluir, mantendo a cobrança.",
+                  "Aguardo mais informações, comparo versões e evito compartilhar acusações sem confirmação.",
+                  "Rejeito a denúncia automaticamente ou espalho a acusação apenas porque favorece meu lado.",
                 ],
               },
               {
