@@ -946,7 +946,7 @@ function ModernJornalVozPatriota() {
                 className="rounded-full bg-primary px-7 text-primary-foreground shadow-[var(--shadow-hard)] transition-transform hover:-translate-y-0.5 hover:bg-primary-deep"
                 onClick={openBallot}
               >
-                Quero acompanhar de perto
+                Quero assinar o jornal
                 <ArrowRight className="h-5 w-5" aria-hidden />
               </Button>
               <Button
