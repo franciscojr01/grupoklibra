@@ -1041,10 +1041,10 @@ function ModernJornalVozPatriota() {
               <Button
                 type="button"
                 size="lg"
-                className="rounded-full bg-primary px-7 text-xs leading-tight text-primary-foreground shadow-[var(--shadow-hard)] transition-transform hover:-translate-y-0.5 hover:bg-primary-deep sm:text-sm"
+                className="rounded-full border-2 border-primary-light bg-primary px-8 py-6 text-base font-black text-primary-foreground shadow-[var(--shadow-heat)] transition-transform hover:-translate-y-1 hover:bg-primary-deep hover:shadow-[0_0_28px_var(--primary)] sm:px-10 sm:text-lg"
                 onClick={openBallot}
               >
-                Assine agora. Antes que tentem calar a gente.
+                Assine agora
                 <ArrowRight className="h-5 w-5" aria-hidden />
               </Button>
               <Button
