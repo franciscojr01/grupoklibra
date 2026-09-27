@@ -340,8 +340,8 @@ function ModernJornalVozPatriota() {
 
   return (
     <main className="min-h-screen overflow-hidden bg-background text-foreground">
-      <div className="border-b border-destructive/40 bg-destructive px-3 py-1 text-center text-[9px] font-black uppercase tracking-[0.06em] text-destructive-foreground sm:text-[10px]">
-        Jornal está correndo risco de ser censurado por políticos de esquerdas.
+      <div className="border-b border-destructive/40 bg-destructive px-3 py-1 text-center text-[9px] font-black tracking-[0.04em] text-destructive-foreground sm:text-[10px]">
+        Jornal sob risco de censura por políticos de esquerda.
       </div>
 
       <Dialog open={showBallot} onOpenChange={setShowBallot}>
@@ -615,7 +615,7 @@ function ModernJornalVozPatriota() {
               {plans.map((plan) => (
                 <article
                   key={plan.name}
-                  className={`relative border p-7 sm:p-9 ${
+                  className={`relative rounded-3xl border p-7 sm:p-9 ${
                     plan.featured
                       ? "border-primary bg-primary/10 shadow-[var(--shadow-heat)]"
                       : "border-border bg-background"
@@ -665,11 +665,11 @@ function ModernJornalVozPatriota() {
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,color-mix(in_oklch,var(--background)_97%,transparent)_0%,color-mix(in_oklch,var(--background)_86%,transparent)_46%,color-mix(in_oklch,var(--background)_45%,transparent)_100%),linear-gradient(0deg,var(--background),transparent_65%)]" />
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-24 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8 lg:py-32">
           <div>
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-secondary/60 bg-background/60 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-secondary backdrop-blur">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-secondary/60 bg-background/60 px-4 py-2 text-xs font-black tracking-[0.12em] text-secondary shadow-lg shadow-black/10 backdrop-blur">
               <Megaphone className="h-4 w-4" aria-hidden />
               A notícia antes da narrativa
             </div>
-            <h1 className="max-w-4xl text-5xl leading-[0.94] sm:text-6xl lg:text-8xl">
+            <h1 className="max-w-4xl text-5xl leading-[0.98] sm:text-6xl lg:text-8xl">
               Veja notícias de direita.{" "}
               <span className="heat-text">Pense por conta própria.</span>
             </h1>
@@ -678,11 +678,11 @@ function ModernJornalVozPatriota() {
               está cansado de receber apenas um lado da história.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Button type="button" size="lg" className="shadow-[var(--shadow-heat)]" onClick={openBallot}>
+              <Button type="button" size="lg" className="rounded-full px-7 shadow-[var(--shadow-heat)]" onClick={openBallot}>
                 Quero acesso às notícias
                 <ArrowRight className="h-5 w-5" aria-hidden />
               </Button>
-              <Button type="button" size="lg" variant="outline" onClick={openBallot}>
+              <Button type="button" size="lg" variant="outline" className="rounded-full px-7" onClick={openBallot}>
                 Apoiar o jornal
               </Button>
             </div>
@@ -743,7 +743,7 @@ function ModernJornalVozPatriota() {
           </div>
 
           <div className="mt-12 grid gap-5 md:grid-cols-3">
-            <article className="rounded-2xl border border-border bg-surface p-6 shadow-[var(--shadow-hard)]">
+            <article className="rounded-3xl border border-border/80 bg-surface/90 p-6 shadow-[var(--shadow-hard)]">
               <div className="flex items-center gap-3">
                 <img
                   src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=1600"
@@ -819,7 +819,7 @@ function ModernJornalVozPatriota() {
       </section>
 
       <section className="mx-auto grid max-w-7xl gap-6 px-5 py-20 lg:grid-cols-2 lg:px-8">
-        <div className="overflow-hidden rounded-3xl border border-border bg-surface shadow-[var(--shadow-hard)]">
+        <div className="overflow-hidden rounded-[2rem] border border-border/80 bg-surface shadow-[var(--shadow-hard)]">
           <img
             src="https://images.pexels.com/photos/15869991/pexels-photo-15869991.jpeg?auto=compress&cs=tinysrgb&w=1600"
             alt="Pessoas reunidas em uma manifestação usando bandeiras brasileiras"
@@ -832,7 +832,7 @@ function ModernJornalVozPatriota() {
             <h2 className="mt-3 text-3xl">Quem não se informa, deixa outros decidirem por ele.</h2>
           </div>
         </div>
-        <div className="overflow-hidden rounded-3xl border border-border bg-surface shadow-[var(--shadow-hard)]">
+        <div className="overflow-hidden rounded-[2rem] border border-border/80 bg-surface shadow-[var(--shadow-hard)]">
           <img
             src="https://images.pexels.com/photos/8849332/pexels-photo-8849332.jpeg?auto=compress&cs=tinysrgb&w=1600"
             alt="Letras formando a palavra voto sobre uma folha"
@@ -858,7 +858,7 @@ function ModernJornalVozPatriota() {
           <p className="mx-auto mt-5 max-w-2xl leading-7 text-muted-foreground">
             Conheça a nossa simulação de urna e continue para apoiar o Jornal Voz Patriota.
           </p>
-          <Button type="button" size="lg" className="mt-8 shadow-[var(--shadow-heat)]" onClick={openBallot}>
+          <Button type="button" size="lg" className="mt-8 rounded-full px-7 shadow-[var(--shadow-heat)]" onClick={openBallot}>
             Apoiar o Jornal Voz Patriota
             <ArrowRight className="h-5 w-5" aria-hidden />
           </Button>
@@ -916,8 +916,8 @@ function Feature({
   text: string;
 }) {
   return (
-    <div className="rounded-2xl border border-border bg-background/80 p-6 shadow-[var(--shadow-hard)] transition-transform duration-300 hover:-translate-y-1">
-      <div className="mb-5 flex h-12 w-12 items-center justify-center bg-primary/15 text-primary">{icon}</div>
+    <div className="rounded-3xl border border-border/80 bg-background/70 p-6 shadow-[var(--shadow-hard)] transition-transform duration-300 hover:-translate-y-1">
+      <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/15 text-primary">{icon}</div>
       <h3 className="text-xl">{title}</h3>
       <p className="mt-3 text-sm leading-7 text-muted-foreground">{text}</p>
     </div>
