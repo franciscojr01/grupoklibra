@@ -465,7 +465,7 @@ function ModernJornalVozPatriota() {
             </DialogDescription>
           </DialogHeader>
 
-          <div className="overflow-hidden rounded-xl border border-border bg-muted text-foreground shadow-2xl">
+          <div className="overflow-hidden rounded-xl border border-border bg-surface-2 text-foreground shadow-2xl">
             <div className="flex items-center justify-between border-b border-border bg-surface-2 px-5 py-4">
               <div>
                 <p className="text-xs font-black uppercase tracking-[0.2em] text-muted-foreground">
