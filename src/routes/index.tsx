@@ -26,8 +26,8 @@ const plans = [
     description: "Notícias e conteúdos exclusivos sobre Jair Bolsonaro e sua atuação política.",
     featured: false,
     features: [
-      "Notícias sobre Jair Bolsonaro",
-      "Análises sobre o bolsonarismo",
+      "Notícias sobre Flávio Bolsonaro",
+      "Notícias da direita no Brasil",
       "Acesso a conteúdos exclusivos",
       "Resumo das principais decisões políticas",
     ],
@@ -42,7 +42,6 @@ const plans = [
       "Notícias da direita no Brasil e no mundo",
       "Cobertura de líderes conservadores internacionais",
       "Notícias sobre Donald Trump e outros líderes mundiais",
-      "Análises especiais e conteúdos aprofundados",
     ],
   },
 ];
