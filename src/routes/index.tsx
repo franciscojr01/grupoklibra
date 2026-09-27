@@ -6,6 +6,7 @@ import economiaImage from "@/assets/uploads/3696.png";
 import logoImage from "@/assets/uploads/3681.png";
 import wilsonGrassiPhoto from "@/assets/uploads/3682.jpg";
 import candidata27Photo from "@/assets/uploads/3683.png";
+import donaTerezinhaPhoto from "@/assets/uploads/3697.png";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -1147,8 +1148,8 @@ function ModernJornalVozPatriota() {
             <article className="rounded-2xl border border-border bg-surface p-6 shadow-[var(--shadow-hard)]">
               <div className="flex items-center gap-3">
                 <img
-                  src="https://images.pexels.com/photos/15869991/pexels-photo-15869991.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                  alt="Pessoas patriotas reunidas com bandeiras do Brasil"
+                  src={donaTerezinhaPhoto}
+                  alt="Foto de perfil de Terezinha"
                   className="h-12 w-12 rounded-full border-2 border-primary/50 object-cover"
                 />
                 <div>
@@ -1285,9 +1286,7 @@ function ModernJornalVozPatriota() {
               alt="Jornal Voz Patriota"
               className="mx-auto h-auto w-52 object-contain"
             />
-            <p className="mt-3 text-xs text-muted-foreground">
-              Imagens: Ylanite Koppens e Suzy Hazelwood via Pexels.
-            </p>
+
           </div>
           <p>© 2026 Jornal Voz Patriota. Todos os direitos reservados.</p>
         </div>
