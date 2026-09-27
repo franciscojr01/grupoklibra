@@ -259,37 +259,32 @@ const ballotCandidates = [
   {
     number: "01",
     name: "Candidato demonstrativo 1",
-    party: "SIMULAÇÃO",
-    photo:
-      "https://images.pexels.com/photos/14059672/pexels-photo-14059672.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    party: "SIMULAÇÃO 2026",
+    photo: "https://picsum.photos/seed/candidato-presidente-01/240/300",
   },
   {
     number: "02",
     name: "Candidato demonstrativo 2",
-    party: "SIMULAÇÃO",
-    photo:
-      "https://images.pexels.com/photos/5926268/pexels-photo-5926268.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    party: "SIMULAÇÃO 2026",
+    photo: "https://picsum.photos/seed/candidato-presidente-02/240/300",
   },
   {
     number: "03",
     name: "Candidato demonstrativo 3",
-    party: "SIMULAÇÃO",
-    photo:
-      "https://images.pexels.com/photos/5926271/pexels-photo-5926271.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    party: "SIMULAÇÃO 2026",
+    photo: "https://picsum.photos/seed/candidato-presidente-03/240/300",
   },
   {
     number: "04",
     name: "Candidato demonstrativo 4",
-    party: "SIMULAÇÃO",
-    photo:
-      "https://images.pexels.com/photos/7103107/pexels-photo-7103107.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    party: "SIMULAÇÃO 2026",
+    photo: "https://picsum.photos/seed/candidato-presidente-04/240/300",
   },
   {
     number: "05",
     name: "Candidato demonstrativo 5",
-    party: "SIMULAÇÃO",
-    photo:
-      "https://images.pexels.com/photos/30464453/pexels-photo-30464453.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    party: "SIMULAÇÃO 2026",
+    photo: "https://picsum.photos/seed/candidato-presidente-05/240/300",
   },
 ] as const;
 
@@ -298,10 +293,12 @@ function ModernJornalVozPatriota() {
   const [selectedCandidate, setSelectedCandidate] =
     useState<(typeof ballotCandidates)[number] | null>(null);
   const [typedNumber, setTypedNumber] = useState("");
+  const [confirmed, setConfirmed] = useState(false);
 
   const openBallot = () => {
     setSelectedCandidate(null);
     setTypedNumber("");
+    setConfirmed(false);
     setShowBallot(true);
   };
 
@@ -337,8 +334,8 @@ function ModernJornalVozPatriota() {
               Simulação de urna eletrônica
             </DialogTitle>
             <DialogDescription className="leading-6 text-muted-foreground">
-              Esta é uma experiência demonstrativa do Jornal Voz Patriota. Não é uma urna oficial,
-              não representa uma eleição e não registra nenhum voto.
+              Escolha um candidato demonstrativo para testar o funcionamento da urna. Esta
+              experiência não representa uma eleição real nem registra nenhum voto.
             </DialogDescription>
           </DialogHeader>
 
@@ -379,8 +376,8 @@ function ModernJornalVozPatriota() {
                       <div className="flex min-w-0 items-center gap-2">
                         <img
                           src={selectedCandidate.photo}
-                          alt={`Foto de ${selectedCandidate.name}`}
-                          className="h-14 w-12 shrink-0 rounded-sm border border-foreground/30 object-cover"
+                          alt={`Foto ilustrativa de ${selectedCandidate.name}`}
+                          className="h-20 w-16 shrink-0 rounded-sm border-2 border-foreground/40 object-cover"
                         />
                         <div className="min-w-0">
                           <p className="truncate text-xs font-black uppercase">
@@ -436,8 +433,8 @@ function ModernJornalVozPatriota() {
             </div>
 
             <div className="border-t border-border bg-surface-2 px-5 py-4 text-xs text-muted-foreground">
-              Esta tela é uma simulação visual e não é uma urna oficial. Os candidatos exibidos
-              são fictícios e não representam uma eleição real.
+              Esta tela é uma simulação visual. Os nomes e retratos exibidos são demonstrativos e
+              não representam candidatos reais das eleições de 2026.
             </div>
           </div>
 
@@ -447,12 +444,24 @@ function ModernJornalVozPatriota() {
             </p>
             <Button
               type="button"
-              disabled={!selectedCandidate}
-              onClick={() => setShowBallot(false)}
+              disabled={!selectedCandidate || confirmed}
+              onClick={() => setConfirmed(true)}
             >
-              CONFIRMA
-              <ArrowRight className="h-4 w-4" aria-hidden />
+              {confirmed ? "VOTO CONFIRMADO" : "CONFIRMA"}
+              {!confirmed ? <ArrowRight className="h-4 w-4" aria-hidden /> : null}
             </Button>
+          {confirmed ? (
+            <div className="rounded-lg border border-primary/40 bg-primary/10 px-4 py-3 text-center text-sm font-bold text-primary">
+              Voto demonstrativo confirmado. A simulação foi concluída.
+            </div>
+          ) : null}
+
+          <DialogFooter>
+            {confirmed ? (
+              <Button type="button" variant="outline" onClick={() => setShowBallot(false)}>
+                Fechar simulação
+              </Button>
+            ) : null}
           </DialogFooter>
         </DialogContent>
       </Dialog>
