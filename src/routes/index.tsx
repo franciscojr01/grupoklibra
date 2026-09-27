@@ -918,7 +918,7 @@ function ModernJornalVozPatriota() {
       ) : null}
 
       <section id="inicio" className="relative isolate min-h-[680px] overflow-hidden border-b border-border">
-        <div className="absolute inset-0 -z-20 bg-[url('https://picsum.photos/seed/manifestacao-patriota-brasil/1800/1200')] bg-cover bg-center" />
+        <div className="absolute inset-0 -z-20 bg-[url('https://images.pexels.com/photos/14357047/pexels-photo-14357047.jpeg?auto=compress&cs=tinysrgb&w=1600')] bg-cover bg-center" />
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,color-mix(in_oklch,var(--background)_97%,transparent)_0%,color-mix(in_oklch,var(--background)_86%,transparent)_46%,color-mix(in_oklch,var(--background)_45%,transparent)_100%),linear-gradient(0deg,var(--background),transparent_65%)]" />
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-24 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8 lg:py-32">
           <div>
