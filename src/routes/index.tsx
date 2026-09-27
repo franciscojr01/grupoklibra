@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ArrowRight, Check, CheckCircle2, Globe2, Megaphone, ShieldAlert, Star } from "lucide-react";
 import { createFileRoute } from "@tanstack/react-router";
 import ruasImage from "@/assets/uploads/3675.jpeg";
+import economiaImage from "@/assets/uploads/3676.png";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -1138,8 +1139,8 @@ function ModernJornalVozPatriota() {
         </div>
         <div className="overflow-hidden rounded-[2rem] border border-border/80 bg-surface shadow-[var(--shadow-hard)]">
           <img
-            src="https://images.pexels.com/photos/8849332/pexels-photo-8849332.jpeg?auto=compress&cs=tinysrgb&w=1600"
-            alt="Letras formando a palavra voto sobre uma folha"
+            src={economiaImage}
+            alt="Notícia sobre o aumento da dívida pública e a economia brasileira"
             className="h-72 w-full object-cover"
           />
           <div className="p-7">
