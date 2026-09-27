@@ -510,7 +510,7 @@ function ModernJornalVozPatriota() {
   };
 
   return (
-    <main className="min-h-screen overflow-hidden bg-background text-foreground">
+    <main className="min-h-screen bg-background text-foreground">
       <div
         className="overflow-hidden border-b border-destructive/50 bg-destructive px-3 py-1 text-[9px] font-black tracking-[0.04em] text-destructive-foreground sm:text-[10px]"
         role="status"
@@ -1019,7 +1019,7 @@ function ModernJornalVozPatriota() {
               <Megaphone className="h-4 w-4" aria-hidden />
               Informação para a reta final das eleições
             </div>
-            <h1 className="max-w-4xl whitespace-normal text-3xl leading-[1.08] sm:text-5xl sm:leading-tight lg:text-8xl">
+            <h1 className="max-w-full break-words whitespace-normal text-3xl leading-[1.08] sm:max-w-4xl sm:text-5xl sm:leading-tight lg:text-8xl">
               <span className="md:hidden">
                 A esquerda quer que você continue desinformado{" "}
                 <span className="heat-text">
@@ -1033,7 +1033,7 @@ function ModernJornalVozPatriota() {
                 </span>
               </span>
             </h1>
-            <p className="mt-7 max-w-2xl whitespace-normal text-sm leading-6 text-foreground/80 sm:text-base sm:leading-7 lg:text-lg lg:leading-8">
+            <p className="mt-7 max-w-full break-words whitespace-normal text-sm leading-6 text-foreground/80 sm:max-w-2xl sm:text-base sm:leading-7 lg:text-lg lg:leading-8">
               A reta final das eleições está aí. Enquanto a esquerda e a grande mídia controlam o que
               você pode ver, ouvir e pensar, o Voz Patriota existe para furar o bloqueio.
             </p>
