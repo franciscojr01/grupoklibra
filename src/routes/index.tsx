@@ -1021,7 +1021,7 @@ function ModernJornalVozPatriota() {
             </div>
             <h1 className="max-w-4xl text-5xl leading-[0.94] sm:text-6xl lg:text-8xl">
               <span className="md:hidden">
-                Informação sem filtro.{" "}
+                A esquerda quer que você continue desinformado{" "}
                 <span className="heat-text">
                   Nós não vamos <span className="text-primary">deixar.</span>
                 </span>
@@ -1034,13 +1034,8 @@ function ModernJornalVozPatriota() {
               </span>
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-foreground/80">
-              <span className="md:hidden">
-                Notícias, fatos e análises para você não depender da narrativa única.
-              </span>
-              <span className="hidden md:inline">
-                A reta final das eleições está aí. Enquanto a esquerda e a grande mídia controlam o
-                que você pode ver, ouvir e pensar, o Voz Patriota existe para furar o bloqueio.
-              </span>
+              A reta final das eleições está aí. Enquanto a esquerda e a grande mídia controlam o
+              que você pode ver, ouvir e pensar, o Voz Patriota existe para furar o bloqueio.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Button
@@ -1049,10 +1044,7 @@ function ModernJornalVozPatriota() {
                 className="rounded-full bg-primary px-7 text-primary-foreground shadow-[var(--shadow-hard)] transition-transform hover:-translate-y-0.5 hover:bg-primary-deep"
                 onClick={openBallot}
               >
-                <span className="md:hidden">Assine agora</span>
-                <span className="hidden md:inline">
-                  Assine agora. Antes que tentem calar a gente.
-                </span>
+                Assine agora. Antes que tentem calar a gente.
                 <ArrowRight className="h-5 w-5" aria-hidden />
               </Button>
               <Button
