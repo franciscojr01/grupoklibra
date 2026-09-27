@@ -341,28 +341,43 @@ const ballotCandidates = [
 ] as const;
 
 function playVotingSound() {
-  const AudioContextClass = window.AudioContext || (
-    window as typeof window & {
-      webkitAudioContext?: typeof AudioContext;
-    }
-  ).webkitAudioContext;
+  const AudioContextClass =
+    window.AudioContext ||
+    (
+      window as typeof window & {
+        webkitAudioContext?: typeof AudioContext;
+      }
+    ).webkitAudioContext;
 
   if (!AudioContextClass) return;
 
   const context = new AudioContextClass();
-  const oscillator = context.createOscillator();
-  const gain = context.createGain();
+  const startTime = context.currentTime;
 
-  oscillator.type = "square";
-  oscillator.frequency.setValueAtTime(740, context.currentTime);
-  oscillator.frequency.setValueAtTime(520, context.currentTime + 0.12);
-  gain.gain.setValueAtTime(0.08, context.currentTime);
-  gain.gain.exponentialRampToValueAtTime(0.001, context.currentTime + 0.28);
+  const playTone = (frequency: number, offset: number, duration: number) => {
+    const oscillator = context.createOscillator();
+    const gain = context.createGain();
 
-  oscillator.connect(gain);
-  gain.connect(context.destination);
-  oscillator.start();
-  oscillator.stop(context.currentTime + 0.28);
+    oscillator.type = "square";
+    oscillator.frequency.setValueAtTime(frequency, startTime + offset);
+
+    gain.gain.setValueAtTime(0.001, startTime + offset);
+    gain.gain.exponentialRampToValueAtTime(0.11, startTime + offset + 0.01);
+    gain.gain.exponentialRampToValueAtTime(0.001, startTime + offset + duration);
+
+    oscillator.connect(gain);
+    gain.connect(context.destination);
+    oscillator.start(startTime + offset);
+    oscillator.stop(startTime + offset + duration);
+  };
+
+  // Dois tons curtos, semelhantes ao som de confirmação de uma urna.
+  playTone(740, 0, 0.14);
+  playTone(520, 0.16, 0.24);
+
+  window.setTimeout(() => {
+    void context.close();
+  }, 500);
 }
 
 function ModernJornalVozPatriota() {
