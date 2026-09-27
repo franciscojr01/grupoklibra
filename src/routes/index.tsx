@@ -341,7 +341,11 @@ const ballotCandidates = [
 ] as const;
 
 function playVotingSound() {
-  const votingAudio = new Audio("/confirma-urna.mp3");
+  // O link compartilhado é uma página do MyInstants. Este é o arquivo de
+  // áudio correspondente ao som original de confirmação da urna.
+  const votingAudio = new Audio(
+    "https://www.myinstants.com/media/sounds/urna-eletronica-confirma.mp3",
+  );
 
   votingAudio.volume = 1;
   votingAudio.currentTime = 0;
