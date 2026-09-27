@@ -51,6 +51,15 @@
   --color-ring-offset-background: var(--background);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
+  --color-ballot-body: var(--ballot-body);
+  --color-ballot-foreground: var(--ballot-foreground);
+  --color-ballot-screen: var(--ballot-screen);
+  --color-ballot-keypad: var(--ballot-keypad);
+  --color-ballot-key: var(--ballot-key);
+  --color-ballot-key-hover: var(--ballot-key-hover);
+  --color-ballot-edge: var(--ballot-edge);
+  --color-ballot-confirm: var(--ballot-confirm);
+  --color-ballot-correct: var(--ballot-correct);
 }
 
 :root {
@@ -95,6 +104,17 @@
   );
   --shadow-heat: 0 18px 44px -18px oklch(0.72 0.15 245 / 0.55);
   --shadow-hard: 0 24px 60px -30px oklch(0 0 0 / 0.95);
+
+  /* Cores da urna eletrônica brasileira */
+  --ballot-body: oklch(0.72 0.012 90);
+  --ballot-foreground: oklch(0.16 0.012 90);
+  --ballot-screen: oklch(0.12 0.012 90);
+  --ballot-keypad: oklch(0.2 0.012 90);
+  --ballot-key: oklch(0.3 0.012 90);
+  --ballot-key-hover: oklch(0.38 0.012 90);
+  --ballot-edge: oklch(0.48 0.012 90);
+  --ballot-confirm: oklch(0.48 0.14 145);
+  --ballot-correct: oklch(0.62 0.16 78);
 }
 
 @layer base {

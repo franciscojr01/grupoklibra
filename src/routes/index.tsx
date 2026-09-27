@@ -458,8 +458,8 @@ function ModernJornalVozPatriota() {
       <Dialog open={showBallot} onOpenChange={setShowBallot}>
         <DialogContent className="max-h-[92vh] overflow-y-auto border-secondary/50 bg-surface p-4 sm:max-w-2xl sm:p-6">
 
-          <div className="overflow-hidden rounded-xl border border-border bg-surface-2 text-foreground shadow-2xl">
-            <div className="flex items-center justify-between border-b border-border bg-surface-2 px-5 py-4">
+          <div className="overflow-hidden rounded-xl border border-ballot-edge bg-ballot-body text-ballot-foreground shadow-2xl">
+            <div className="flex items-center justify-between border-b border-ballot-edge bg-ballot-body px-5 py-4">
               <div>
                 <p className="text-xs font-black uppercase tracking-[0.2em] text-muted-foreground">
                   Simulação demonstrativa
@@ -470,7 +470,7 @@ function ModernJornalVozPatriota() {
             </div>
 
             <div className="grid min-w-0 gap-5 p-4 sm:grid-cols-[minmax(0,1fr)_190px] sm:gap-6 sm:p-5">
-              <div className="min-h-[220px] min-w-0 border-8 border-background bg-muted p-4 text-foreground shadow-inner sm:min-h-56">
+              <div className="min-h-[220px] min-w-0 border-8 border-ballot-keypad bg-ballot-screen p-4 text-foreground shadow-inner sm:min-h-56">
                 <div className="flex h-full flex-col justify-between">
                   <div>
                     <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
@@ -531,7 +531,7 @@ function ModernJornalVozPatriota() {
                     key={number}
                     type="button"
                     disabled={eliminated}
-                    className="min-h-12 rounded-sm border border-border bg-background text-lg font-black text-foreground shadow-[0_3px_0_var(--border),inset_0_1px_0_var(--surface-2)] transition hover:bg-surface-2 active:translate-y-0.5 active:shadow-none disabled:cursor-not-allowed disabled:opacity-50"
+                    className="min-h-12 rounded-sm border border-ballot-edge bg-ballot-keypad text-lg font-black text-foreground shadow-[0_3px_0_var(--ballot-edge),inset_0_1px_0_var(--ballot-key)] transition hover:bg-ballot-key-hover active:translate-y-0.5 active:shadow-none disabled:cursor-not-allowed disabled:opacity-50"
                     onClick={() => typeNumber(number)}
                   >
                     {number}
@@ -540,7 +540,7 @@ function ModernJornalVozPatriota() {
                 <button
                   type="button"
                   disabled={eliminated}
-                  className="min-h-12 rounded-sm border border-border bg-background text-xs font-black uppercase text-foreground shadow-[0_3px_0_var(--border),inset_0_1px_0_var(--surface-2)] transition hover:bg-surface-2 active:translate-y-0.5 active:shadow-none disabled:cursor-not-allowed disabled:opacity-50"
+                  className="min-h-12 rounded-sm border border-ballot-edge bg-ballot-keypad text-xs font-black uppercase text-foreground shadow-[0_3px_0_var(--ballot-edge),inset_0_1px_0_var(--ballot-key)] transition hover:bg-ballot-key-hover active:translate-y-0.5 active:shadow-none disabled:cursor-not-allowed disabled:opacity-50"
                   onClick={clearNumber}
                 >
                   Branco
@@ -548,7 +548,7 @@ function ModernJornalVozPatriota() {
                 <button
                   type="button"
                   disabled={eliminated}
-                  className="min-h-12 rounded-sm border border-border bg-background text-lg font-black text-foreground shadow-[0_3px_0_var(--border),inset_0_1px_0_var(--surface-2)] transition hover:bg-surface-2 active:translate-y-0.5 active:shadow-none disabled:cursor-not-allowed disabled:opacity-50"
+                  className="min-h-12 rounded-sm border border-ballot-edge bg-ballot-keypad text-lg font-black text-foreground shadow-[0_3px_0_var(--ballot-edge),inset_0_1px_0_var(--ballot-key)] transition hover:bg-ballot-key-hover active:translate-y-0.5 active:shadow-none disabled:cursor-not-allowed disabled:opacity-50"
                   onClick={() => typeNumber("0")}
                 >
                   0
@@ -556,7 +556,7 @@ function ModernJornalVozPatriota() {
                 <button
                   type="button"
                   disabled={eliminated}
-                  className="min-h-12 rounded-sm border border-border bg-background text-xs font-black uppercase text-foreground shadow-[0_3px_0_var(--border),inset_0_1px_0_var(--surface-2)] transition hover:bg-surface-2 active:translate-y-0.5 active:shadow-none disabled:cursor-not-allowed disabled:opacity-50"
+                  className="min-h-12 rounded-sm border border-ballot-edge bg-ballot-keypad text-xs font-black uppercase text-foreground shadow-[0_3px_0_var(--ballot-edge),inset_0_1px_0_var(--ballot-key)] transition hover:bg-ballot-key-hover active:translate-y-0.5 active:shadow-none disabled:cursor-not-allowed disabled:opacity-50"
                   onClick={correctNumber}
                 >
                   Corrige
@@ -575,8 +575,9 @@ function ModernJornalVozPatriota() {
               Simulação meramente ilustrativa.
             </p>
             <Button
-              type="button"
-              disabled={!selectedCandidate || confirmed || eliminated}
+            type="button"
+            className="bg-ballot-confirm text-white hover:bg-ballot-confirm/90"
+            disabled={!selectedCandidate || confirmed || eliminated}
               onClick={() => {
                 if (selectedCandidate?.number !== "22") {
                   setEliminated(true);
