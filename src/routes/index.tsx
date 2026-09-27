@@ -390,9 +390,14 @@ function ModernJornalVozPatriota() {
     const nextNumber = `${typedNumber}${number}`;
     setTypedNumber(nextNumber);
 
-    const candidate = ballotCandidates.find((item) => item.number === nextNumber);
-
-    setSelectedCandidate(candidate ?? null);
+    // A foto só aparece quando os dois dígitos correspondem exatamente
+    // ao número de um candidato.
+    if (nextNumber.length === 2) {
+      const candidate = ballotCandidates.find((item) => item.number === nextNumber);
+      setSelectedCandidate(candidate ?? null);
+    } else {
+      setSelectedCandidate(null);
+    }
   };
 
   const clearNumber = () => {
@@ -489,32 +494,14 @@ function ModernJornalVozPatriota() {
                   </div>
 
                   <p className="mt-4 text-[10px] font-bold uppercase text-muted-foreground">
-                    Digite o número do candidato
+                    {selectedCandidate
+                      ? "Confira os dados e confirme seu voto"
+                      : "Digite o número exato do candidato"}
                   </p>
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
-                {ballotCandidates.map((candidate) => (
-                  <Button
-                    key={candidate.number}
-                    type="button"
-                    variant={selectedCandidate?.number === candidate.number ? "default" : "outline"}
-                    className="h-auto min-h-16 justify-start gap-2 rounded-md px-2 py-2 text-left"
-                    onClick={() => selectCandidate(candidate)}
-                  >
-                    <img
-                      src={candidate.photo}
-                      alt=""
-                      className="h-10 w-8 shrink-0 rounded-sm object-cover"
-                    />
-                    <span className="min-w-0">
-                      <span className="block text-sm font-black">{candidate.number}</span>
-                      <span className="block truncate text-[9px] uppercase">{candidate.name}</span>
-                    </span>
-                  </Button>
-                ))}
-
+              <div className="grid grid-cols-3 gap-2">
                 {["1", "2", "3", "4", "5", "6", "7", "8", "9"].map((number) => (
                   <button
                     key={number}
