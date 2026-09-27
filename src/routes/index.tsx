@@ -1196,9 +1196,7 @@ function ModernJornalVozPatriota() {
               VOZ <span className="text-secondary">PATRIOTA</span>
             </div>
             <p className="mt-1">Informação, opinião e liberdade.</p>
-            <p className="mt-3 text-xs">
-              Imagens de manifestações patrióticas: Pexels — Joel Santos e Waldir Évora.
-            </p>
+
           </div>
           <p>© 2026 Jornal Voz Patriota. Todos os direitos reservados.</p>
         </div>
