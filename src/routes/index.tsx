@@ -1258,9 +1258,14 @@ function ModernJornalVozPatriota() {
             derrubado existe. Por isso cada assinatura importa. Quanto mais leitores pagantes, mais
             difícil é nos silenciar.
           </p>
-          <Button type="button" size="lg" className="mt-8 rounded-full px-7 shadow-[var(--shadow-heat)]" onClick={openBallot}>
-            Quero fazer parte agora — antes que tentem derrubar
-            <ArrowRight className="h-5 w-5" aria-hidden />
+          <Button
+            type="button"
+            size="lg"
+            className="mt-8 rounded-full px-7 text-center break-normal whitespace-normal shadow-[var(--shadow-heat)]"
+            onClick={openBallot}
+          >
+            <span>Quero fazer parte agora — antes que tentem derrubar</span>
+            <ArrowRight className="h-5 w-5 shrink-0" aria-hidden />
           </Button>
         </div>
       </section>
@@ -1280,10 +1285,15 @@ function ModernJornalVozPatriota() {
               de esquerda.
             </p>
           </div>
-          <Button asChild size="lg" variant="secondary" className="shrink-0 whitespace-normal">
+          <Button
+            asChild
+            size="lg"
+            variant="secondary"
+            className="shrink-0 break-normal whitespace-normal text-center"
+          >
             <a id="assinar" href="#planos">
-              Quero fazer parte agora — antes que tentem derrubar
-              <ArrowRight className="h-5 w-5" aria-hidden />
+              <span>Quero fazer parte agora — antes que tentem derrubar</span>
+              <ArrowRight className="h-5 w-5 shrink-0" aria-hidden />
             </a>
           </Button>
         </div>
