@@ -3,7 +3,7 @@ import { ArrowRight, Check, CheckCircle2, Globe2, Megaphone, ShieldAlert, Star }
 import { createFileRoute } from "@tanstack/react-router";
 import ruasImage from "@/assets/uploads/3675.jpeg";
 import economiaImage from "@/assets/uploads/3676.png";
-
+import logoImage from "@/assets/uploads/3681.png";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -1180,10 +1180,11 @@ function ModernJornalVozPatriota() {
       <footer className="border-t border-border bg-background">
         <div className="mx-auto flex max-w-7xl flex-col gap-5 px-5 py-8 text-sm text-muted-foreground md:flex-row md:items-end md:justify-between lg:px-8">
           <div>
-            <div className="font-display text-lg font-black italic text-foreground">
-              VOZ <span className="text-secondary">PATRIOTA</span>
-            </div>
-            <p className="mt-1">Informação, opinião e liberdade.</p>
+            <img
+              src={logoImage}
+              alt="Jornal Voz Patriota"
+              className="h-auto w-52 object-contain"
+            />
 
           </div>
           <p>© 2026 Jornal Voz Patriota. Todos os direitos reservados.</p>
