@@ -1211,7 +1211,7 @@ function ModernJornalVozPatriota() {
             <img
               src={ruasImage}
               alt="Pilha de jornais dobrados sobre uma mesa de madeira"
-              className="mx-auto h-auto w-full object-contain object-center bg-surface-2 md:h-64 md:w-auto md:max-w-full"
+              className="mx-auto block h-auto w-full object-contain object-center"
             />
             <div className="p-7">
               <p className="text-xs font-black uppercase tracking-[0.18em] text-secondary">
@@ -1225,7 +1225,7 @@ function ModernJornalVozPatriota() {
             <img
               src={economiaImage}
               alt="Páginas de jornal com textos em destaque"
-              className="mx-auto h-auto w-full object-contain object-center bg-surface-2 md:h-64 md:w-auto md:max-w-full"
+              className="mx-auto block h-auto w-full object-contain object-center"
             />
             <div className="p-7">
               <p className="text-xs font-black uppercase tracking-[0.18em] text-accent">
