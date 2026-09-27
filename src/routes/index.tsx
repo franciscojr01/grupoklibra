@@ -936,10 +936,10 @@ function ModernJornalVozPatriota() {
 
       <section id="inicio" className="relative isolate min-h-[680px] overflow-hidden border-b border-border">
         <div className="absolute inset-0 -z-20 bg-[url('https://images.pexels.com/photos/7135024/pexels-photo-7135024.jpeg?auto=compress&cs=tinysrgb&w=1600')] bg-cover bg-center" />
-        <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,color-mix(in_oklch,var(--background)_94%,transparent)_0%,color-mix(in_oklch,var(--background)_78%,transparent)_48%,color-mix(in_oklch,var(--background)_32%,transparent)_100%),linear-gradient(0deg,var(--background),transparent_68%)]" />
+        <div className="absolute inset-0 -z-10 bg-background/75" />
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-24 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8 lg:py-32">
           <div className="max-w-3xl">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/50 bg-background/55 px-4 py-2 text-xs font-black uppercase tracking-[0.12em] text-primary-light shadow-lg shadow-black/10 backdrop-blur">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-secondary/60 bg-background/80 px-4 py-2 text-xs font-black uppercase tracking-[0.12em] text-secondary shadow-lg shadow-black/10">
               <Megaphone className="h-4 w-4" aria-hidden />
               Informação para quem pensa à frente
             </div>
@@ -955,7 +955,7 @@ function ModernJornalVozPatriota() {
               <Button
                 type="button"
                 size="lg"
-                className="rounded-full bg-gradient-to-r from-accent via-primary to-secondary px-7 text-primary-foreground shadow-[var(--shadow-heat)] transition-transform hover:-translate-y-0.5"
+                className="rounded-full bg-primary px-7 text-primary-foreground shadow-[var(--shadow-hard)] transition-transform hover:-translate-y-0.5 hover:bg-primary-deep"
                 onClick={openBallot}
               >
                 Quero acompanhar de perto
@@ -984,12 +984,12 @@ function ModernJornalVozPatriota() {
                 <span className="text-xs font-black uppercase tracking-[0.18em] text-secondary">
                   Em perspectiva
                 </span>
-                <span className="h-2.5 w-2.5 rounded-full bg-primary shadow-[0_0_16px_var(--primary)]" />
+                <span className="h-2.5 w-2.5 rounded-full bg-secondary shadow-[0_0_16px_var(--secondary)]" />
               </div>
               <p className="text-2xl font-black leading-tight">
                 Informação clara para decisões mais conscientes.
               </p>
-              <div className="mt-8 h-1 rounded-full bg-gradient-to-r from-accent via-primary to-secondary" />
+              <div className="mt-8 h-1 rounded-full bg-secondary" />
               <p className="mt-4 text-sm leading-6 text-foreground/70">
                 Brasil, mundo e política em uma leitura objetiva.
               </p>

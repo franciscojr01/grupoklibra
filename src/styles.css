@@ -131,10 +131,7 @@
 }
 
 @utility heat-text {
-  background: var(--gradient-heat);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--secondary);
 }
 
 @utility angular-clip {
