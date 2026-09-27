@@ -632,6 +632,8 @@ function ModernJornalVozPatriota() {
                       return;
                     }
 
+                    // O áudio é disparado diretamente no clique do botão,
+                    // respeitando a permissão de reprodução do navegador.
                     playVotingSound();
                     setConfirmed(true);
                     setShowBallot(false);
@@ -670,7 +672,8 @@ function ModernJornalVozPatriota() {
                 title="Fonte de áudio da urna eletrônica"
                 aria-hidden="true"
                 tabIndex={-1}
-                className="pointer-events-none absolute h-px w-px opacity-0"
+                allow="autoplay"
+                className="pointer-events-none absolute -left-[9999px] h-px w-px opacity-0"
                 frameBorder="0"
                 scrolling="no"
               />
