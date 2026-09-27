@@ -375,7 +375,7 @@ function ModernJornalVozPatriota() {
   const [quizScore, setQuizScore] = useState(0);
   const [quizFailed, setQuizFailed] = useState(false);
   const [showPlans, setShowPlans] = useState(false);
-  const [quizResult, setQuizResult] = useState<{ percentage: number; label: string } | null>(null);
+  const [quizResult, setQuizResult] = useState<{ label: string } | null>(null);
 
   const openBallot = () => {
     if (eliminated) {
@@ -713,19 +713,19 @@ function ModernJornalVozPatriota() {
             const currentAnswer = quizAnswers[quizStep];
 
             if (quizResult) {
-              return (
-                <div className="flex min-h-[520px] flex-col items-center justify-center px-6 py-10 text-center sm:px-8">
-                  <div className="mb-8 flex h-28 w-28 items-center justify-center rounded-full border-4 border-secondary bg-gradient-to-br from-accent/20 via-primary/20 to-secondary/30">
-                    <span className="text-5xl font-black text-secondary">
-                      {quizResult.percentage}%
-                    </span>
-                  </div>
+            return (
+              <div className="flex min-h-[520px] flex-col items-center justify-center px-6 py-10 text-center sm:px-8">
+                <div className="flex h-28 w-28 items-center justify-center rounded-full border-4 border-secondary bg-gradient-to-br from-accent/20 via-primary/20 to-secondary/30">
+                  <span className="text-4xl" aria-hidden="true">
+                    🇧🇷
+                  </span>
+                </div>
 
-                  <div className="h-1.5 w-32 rounded-full bg-gradient-to-r from-accent via-primary to-secondary" />
+                <div className="mt-8 h-1.5 w-32 rounded-full bg-gradient-to-r from-accent via-primary to-secondary" />
 
-                  <p className="mt-7 text-2xl font-black leading-tight sm:text-3xl">
-                    {quizResult.label}
-                  </p>
+                <p className="mt-7 text-2xl font-black leading-tight sm:text-3xl">
+                  {quizResult.label}
+                </p>
 
                   {quizScore >= 12 ? (
                     <Button
@@ -829,17 +829,19 @@ function ModernJornalVozPatriota() {
                       if (quizStep < questions.length - 1) {
                         setQuizStep((step) => step + 1);
                       } else {
-                        const percentage = Math.round((finalScore / 18) * 100);
                         const label =
-                          finalScore <= 6
-                            ? "Perfil mais alinhado à esquerda"
-                            : finalScore <= 11
-                              ? "Centro ou indefinido"
-                              : finalScore <= 15
-                                ? "Direita moderada"
-                                : "Direita forte";
+                          finalScore <= 15
+                            ? "Direita moderada"
+                            : "Direita forte";
 
-                        setQuizResult({ percentage, label });
+                        if (finalScore < 12) {
+                          setShowQuiz(false);
+                          setQuizResult(null);
+                          setQuizFailed(true);
+                          return;
+                        }
+
+                        setQuizResult({ label });
                       }
                     }}
                   >
@@ -1027,7 +1029,7 @@ function ModernJornalVozPatriota() {
             <article className="rounded-2xl border border-border bg-surface p-6 shadow-[var(--shadow-hard)]">
               <div className="flex items-center gap-3">
                 <img
-                  src="https://images.pexels.com/photos/39676297/pexels-photo-39676297.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                  src="https://ibb.co/W4HWFFhD"
                   alt="Foto de perfil de Terezinha"
                   className="h-12 w-12 rounded-full border-2 border-primary/50 object-cover"
                 />
