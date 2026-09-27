@@ -1013,13 +1013,13 @@ function ModernJornalVozPatriota() {
       <section id="inicio" className="relative isolate min-h-[680px] border-b border-border">
         <div className="absolute inset-0 -z-20 bg-[url('https://images.pexels.com/photos/14357047/pexels-photo-14357047.jpeg?auto=compress&cs=tinysrgb&w=1600')] bg-cover bg-center" />
         <div className="absolute inset-0 -z-10 bg-background/75" />
-        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-24 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8 lg:py-32">
-          <div className="max-w-3xl">
+        <div className="mx-auto grid min-w-0 max-w-7xl gap-10 px-5 py-24 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8 lg:py-32">
+          <div className="min-w-0 max-w-3xl">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-secondary/60 bg-background/80 px-4 py-2 text-xs font-black uppercase tracking-[0.12em] text-secondary shadow-lg shadow-black/10">
               <Megaphone className="h-4 w-4" aria-hidden />
               Informação para a reta final das eleições
             </div>
-            <h1 className="max-w-full break-words whitespace-normal text-3xl leading-[1.08] sm:max-w-4xl sm:text-5xl sm:leading-tight lg:text-8xl">
+            <h1 className="max-w-full break-all whitespace-normal text-3xl leading-[1.08] sm:max-w-4xl sm:text-5xl sm:leading-tight lg:text-8xl">
               <span className="md:hidden">
                 A esquerda quer que você continue desinformado{" "}
                 <span className="heat-text">
