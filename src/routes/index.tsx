@@ -286,6 +286,12 @@ const ballotCandidates = [
     party: "SIMULAÇÃO 2026",
     photo: "https://picsum.photos/seed/candidato-presidente-05/240/300",
   },
+  {
+    number: "22",
+    name: "Flávio Bolsonaro",
+    party: "PL",
+    photo: "https://commons.wikimedia.org/wiki/Special:FilePath/Fl%C3%A1vio%20Bolsonaro%20-%202022.jpg",
+  },
 ] as const;
 
 function ModernJornalVozPatriota() {
@@ -295,14 +301,18 @@ function ModernJornalVozPatriota() {
   const [typedNumber, setTypedNumber] = useState("");
   const [confirmed, setConfirmed] = useState(false);
   const [showQuiz, setShowQuiz] = useState(false);
-  const [quizAnswer, setQuizAnswer] = useState<string | null>(null);
+  const [quizStep, setQuizStep] = useState(0);
+  const [quizAnswers, setQuizAnswers] = useState<string[]>([]);
+  const [showPlans, setShowPlans] = useState(false);
 
   const openBallot = () => {
     setSelectedCandidate(null);
     setTypedNumber("");
     setConfirmed(false);
-    setQuizAnswer(null);
+    setQuizStep(0);
+    setQuizAnswers([]);
     setShowQuiz(false);
+    setShowPlans(false);
     setShowBallot(true);
   };
 
@@ -331,7 +341,7 @@ function ModernJornalVozPatriota() {
   return (
     <main className="min-h-screen overflow-hidden bg-background text-foreground">
       <div className="border-b border-destructive/40 bg-destructive px-3 py-1 text-center text-[9px] font-black uppercase tracking-[0.06em] text-destructive-foreground sm:text-[10px]">
-        Jornal perseguido por políticos de esquerda.
+        Jornal está correndo risco de ser censurado por políticos de esquerdas.
       </div>
 
       <Dialog open={showBallot} onOpenChange={setShowBallot}>
@@ -455,11 +465,12 @@ function ModernJornalVozPatriota() {
               onClick={() => {
                 setConfirmed(true);
                 setShowBallot(false);
-                setQuizAnswer(null);
+                setQuizStep(0);
+                setQuizAnswers([]);
                 setShowQuiz(true);
               }}
             >
-              {confirmed ? "VOTO CONFIRMADO" : "CONFIRMA"}
+              {confirmed ? "VOTO REALIZADO" : "CONFIRMA"}
               {!confirmed ? <ArrowRight className="h-4 w-4" aria-hidden /> : null}
             </Button>
           </DialogFooter>
@@ -476,59 +487,178 @@ function ModernJornalVozPatriota() {
         <DialogContent className="border-secondary/50 bg-surface sm:max-w-lg">
           <DialogHeader>
             <DialogTitle className="text-2xl sm:text-3xl">
-              Você é um patriota?
+              Quiz patriota
             </DialogTitle>
             <DialogDescription className="leading-6 text-muted-foreground">
-              Responda a esta pergunta rápida depois da simulação. Não existe resposta certa ou
-              errada — o objetivo é conhecer a sua visão sobre o Brasil.
+              Responda a 6 perguntas rápidas depois de realizar seu voto demonstrativo.
             </DialogDescription>
           </DialogHeader>
 
-          <div className="space-y-3">
-            <p className="font-bold">
-              O que mais representa a sua relação com o Brasil?
-            </p>
+          {(() => {
+            const questions = [
+              {
+                question: "O que significa patriotismo para você?",
+                answers: [
+                  "Cuidar do Brasil e defender sua liberdade.",
+                  "Respeitar a história, os símbolos e as pessoas do país.",
+                  "Participar das decisões que definem o futuro da nação.",
+                ],
+              },
+              {
+                question: "Qual valor deve guiar o futuro do Brasil?",
+                answers: ["Liberdade", "Família", "Responsabilidade"],
+              },
+              {
+                question: "Como você acompanha as decisões políticas?",
+                answers: [
+                  "Busco diferentes fontes antes de formar opinião.",
+                  "Acompanho notícias e debates diariamente.",
+                  "Converso com outras pessoas e participo quando posso.",
+                ],
+              },
+              {
+                question: "O que mais ajuda a fortalecer o país?",
+                answers: [
+                  "Educação e trabalho.",
+                  "Segurança e respeito às leis.",
+                  "União e participação dos cidadãos.",
+                ],
+              },
+              {
+                question: "Você acredita que a imprensa deve ser livre?",
+                answers: [
+                  "Sim. Informação livre é essencial para a democracia.",
+                  "Sim, desde que exista responsabilidade com os fatos.",
+                  "Sim. O leitor deve poder conhecer diferentes perspectivas.",
+                ],
+              },
+              {
+                question: "O que você deseja para o Brasil?",
+                answers: [
+                  "Um país mais livre, seguro e próspero.",
+                  "Um país forte, unido e respeitado.",
+                  "Um país com mais oportunidades para todos.",
+                ],
+              },
+            ];
+            const currentQuestion = questions[quizStep];
+            const currentAnswer = quizAnswers[quizStep];
 
-            {[
-              "Quero ver o Brasil mais livre, seguro e próspero.",
-              "Acredito que participar e acompanhar a política é importante.",
-              "Ainda estou formando minha opinião, mas quero entender mais.",
-            ].map((answer) => (
-              <Button
-                key={answer}
-                type="button"
-                variant={quizAnswer === answer ? "default" : "outline"}
-                className="h-auto min-h-12 w-full justify-start whitespace-normal px-4 py-3 text-left"
-                onClick={() => setQuizAnswer(answer)}
-              >
-                {answer}
-              </Button>
-            ))}
-          </div>
+            return (
+              <>
+                <div className="mb-2 flex items-center justify-between text-xs font-black uppercase tracking-wider text-muted-foreground">
+                  <span>Pergunta {quizStep + 1} de {questions.length}</span>
+                  <span>{Math.round(((quizStep + 1) / questions.length) * 100)}%</span>
+                </div>
 
-          {quizAnswer ? (
-            <div className="rounded-lg border border-primary/40 bg-primary/10 px-4 py-3 text-sm leading-6 text-primary">
-              <strong>Resultado:</strong> sua participação demonstra interesse pelo futuro do
-              Brasil. Ser patriota também é buscar informação, participar do debate e exercer a
-              cidadania com responsabilidade.
-            </div>
-          ) : null}
+                <div className="space-y-3">
+                  <p className="font-bold">{currentQuestion.question}</p>
+                  {currentQuestion.answers.map((answer) => (
+                    <Button
+                      key={answer}
+                      type="button"
+                      variant={currentAnswer === answer ? "default" : "outline"}
+                      className="h-auto min-h-12 w-full justify-start whitespace-normal px-4 py-3 text-left"
+                      onClick={() => {
+                        const nextAnswers = [...quizAnswers];
+                        nextAnswers[quizStep] = answer;
+                        setQuizAnswers(nextAnswers);
+                      }}
+                    >
+                      {answer}
+                    </Button>
+                  ))}
+                </div>
 
-          <DialogFooter className="flex-col gap-3 sm:flex-row sm:justify-between">
-            <p className="text-xs text-muted-foreground">
-              Quiz simbólico e sem coleta de respostas.
-            </p>
-            <Button
-              type="button"
-              disabled={!quizAnswer}
-              onClick={() => setShowQuiz(false)}
-            >
-              Concluir
-              <ArrowRight className="h-4 w-4" aria-hidden />
-            </Button>
-          </DialogFooter>
+                <DialogFooter className="flex-col gap-3 sm:flex-row sm:justify-between">
+                  <p className="text-xs text-muted-foreground">
+                    Quiz simbólico e sem coleta de respostas.
+                  </p>
+                  <Button
+                    type="button"
+                    disabled={!currentAnswer}
+                    onClick={() => {
+                      if (quizStep < questions.length - 1) {
+                        setQuizStep((step) => step + 1);
+                      } else {
+                        setShowQuiz(false);
+                        setShowPlans(true);
+                      }
+                    }}
+                  >
+                    {quizStep < questions.length - 1 ? "Próxima pergunta" : "Ver planos"}
+                    <ArrowRight className="h-4 w-4" aria-hidden />
+                  </Button>
+                </DialogFooter>
+              </>
+            );
+          })()}
         </DialogContent>
       </Dialog>
+
+      {showPlans ? (
+        <section className="border-y border-primary/30 bg-surface px-5 py-16 lg:px-8">
+          <div className="mx-auto max-w-6xl">
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="text-sm font-black uppercase tracking-[0.2em] text-secondary">
+                Você concluiu a experiência
+              </p>
+              <h2 className="mt-3 text-4xl sm:text-5xl">
+                Escolha como apoiar o Jornal Voz Patriota
+              </h2>
+              <p className="mt-5 text-muted-foreground">
+                Tenha acesso a notícias, análises e conteúdos exclusivos da direita no Brasil e no mundo.
+              </p>
+            </div>
+
+            <div className="mx-auto mt-10 grid max-w-5xl gap-6 lg:grid-cols-2">
+              {plans.map((plan) => (
+                <article
+                  key={plan.name}
+                  className={`relative border p-7 sm:p-9 ${
+                    plan.featured
+                      ? "border-primary bg-primary/10 shadow-[var(--shadow-heat)]"
+                      : "border-border bg-background"
+                  }`}
+                >
+                  {plan.featured ? (
+                    <div className="absolute right-6 top-0 -translate-y-1/2 bg-primary px-3 py-1 text-xs font-black uppercase tracking-wider text-primary-foreground">
+                      Mais completo
+                    </div>
+                  ) : null}
+                  <h3 className="text-2xl">{plan.name}</h3>
+                  <p className="mt-3 min-h-14 text-sm leading-6 text-muted-foreground">
+                    {plan.description}
+                  </p>
+                  <div className="mt-7 flex items-end gap-1 border-b border-border pb-7">
+                    <span className="text-sm text-muted-foreground">R$</span>
+                    <span className="text-5xl font-black">{plan.price}</span>
+                    <span className="mb-1 text-sm text-muted-foreground">/mês</span>
+                  </div>
+                  <ul className="mt-7 space-y-4">
+                    {plan.features.map((feature) => (
+                      <li key={feature} className="flex gap-3 text-sm leading-6">
+                        <Check className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Button
+                    type="button"
+                    size="lg"
+                    className="mt-8 w-full"
+                    variant={plan.featured ? "default" : "outline"}
+                    onClick={() => setShowPlans(false)}
+                  >
+                    Assinar {plan.name}
+                    <ArrowRight className="h-5 w-5" aria-hidden />
+                  </Button>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <section id="inicio" className="relative isolate min-h-[680px] overflow-hidden border-b border-border">
         <div className="absolute inset-0 -z-20 bg-[url('https://picsum.photos/seed/manifestacao-patriota-brasil/1800/1200')] bg-cover bg-center" />
