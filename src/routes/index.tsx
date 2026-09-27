@@ -1027,7 +1027,7 @@ function ModernJornalVozPatriota() {
             <article className="rounded-2xl border border-border bg-surface p-6 shadow-[var(--shadow-hard)]">
               <div className="flex items-center gap-3">
                 <img
-                  src="https://images.pexels.com/photos/32288633/pexels-photo-32288633.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                  src="https://candidate-photo.vercel.app/_next/image?url…pg&w=64&q=75&dpl=dpl_5KiSMZ9Js5hNRJVKUP79GwjgRT8E"
                   alt="Foto de perfil de Patrícia Alves"
                   className="h-12 w-12 rounded-full border-2 border-primary/50 object-cover"
                 />
