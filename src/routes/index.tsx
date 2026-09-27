@@ -49,6 +49,73 @@ const plans = [
 ];
 
 function JornalVozPatriota() {
+  if (showPlans) {
+    return (
+      <main className="min-h-screen bg-background px-5 py-12 text-foreground sm:px-8 lg:px-12 lg:py-20">
+        <section className="mx-auto flex min-h-[calc(100vh-6rem)] max-w-6xl flex-col justify-center">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-sm font-black uppercase tracking-[0.2em] text-secondary">
+              Você concluiu a avaliação
+            </p>
+            <h1 className="mt-3 text-4xl sm:text-5xl lg:text-6xl">
+              Escolha como apoiar o Jornal Voz Patriota
+            </h1>
+            <p className="mt-5 text-muted-foreground">
+              Tenha acesso a notícias, análises e conteúdos exclusivos da direita no Brasil e no
+              mundo.
+            </p>
+          </div>
+
+          <div className="mx-auto mt-10 grid w-full max-w-5xl gap-6 lg:grid-cols-2">
+            {plans.map((plan) => (
+              <article
+                key={plan.name}
+                className={`relative rounded-3xl border p-7 sm:p-9 ${
+                  plan.featured
+                    ? "border-primary bg-primary/10 shadow-[var(--shadow-heat)]"
+                    : "border-border bg-surface"
+                }`}
+              >
+                {plan.featured ? (
+                  <div className="absolute right-6 top-0 -translate-y-1/2 bg-primary px-3 py-1 text-xs font-black uppercase tracking-wider text-primary-foreground">
+                    Mais completo
+                  </div>
+                ) : null}
+                <h2 className="text-2xl">{plan.name}</h2>
+                <p className="mt-3 min-h-14 text-sm leading-6 text-muted-foreground">
+                  {plan.description}
+                </p>
+                <div className="mt-7 flex items-end gap-1 border-b border-border pb-7">
+                  <span className="text-sm text-muted-foreground">R$</span>
+                  <span className="text-5xl font-black">{plan.price}</span>
+                  <span className="mb-1 text-sm text-muted-foreground">/mês</span>
+                </div>
+                <ul className="mt-7 space-y-4">
+                  {plan.features.map((feature) => (
+                    <li key={feature} className="flex gap-3 text-sm leading-6">
+                      <Check className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Button
+                  type="button"
+                  size="lg"
+                  className="mt-8 w-full"
+                  variant={plan.featured ? "default" : "outline"}
+                  onClick={() => setShowPlans(false)}
+                >
+                  Assinar {plan.name}
+                  <ArrowRight className="h-5 w-5" aria-hidden />
+                </Button>
+              </article>
+            ))}
+          </div>
+        </section>
+      </main>
+    );
+  }
+
   return (
     <main className="min-h-screen overflow-hidden bg-background text-foreground">
       <div className="border-b border-primary/30 bg-primary px-4 py-3 text-center text-xs font-bold uppercase tracking-[0.12em] text-primary-foreground md:text-sm">
@@ -818,7 +885,7 @@ function ModernJornalVozPatriota() {
                   </div>
                 </div>
 
-                <DialogFooter className="sticky bottom-0 z-10 mt-2 flex-col gap-3 border-t border-border/70 bg-surface/95 px-6 py-3 backdrop-blur sm:flex-row sm:items-center sm:justify-between sm:px-8">
+                <DialogFooter className="sticky bottom-4 z-20 mt-2 flex-col gap-3 rounded-xl border border-border/70 bg-surface/95 px-6 py-3 shadow-lg backdrop-blur sm:flex-row sm:items-center sm:justify-between sm:px-8">
                   <p className="text-xs text-muted-foreground">
                     🔒 Avaliação simbólica, sem coleta de respostas e sem exigir apoio a partido.
                   </p>
