@@ -1179,13 +1179,12 @@ function ModernJornalVozPatriota() {
 
       <footer className="border-t border-border bg-background">
         <div className="mx-auto flex max-w-7xl flex-col gap-5 px-5 py-8 text-sm text-muted-foreground md:flex-row md:items-end md:justify-between lg:px-8">
-          <div>
+          <div className="text-center">
             <img
               src={logoImage}
               alt="Jornal Voz Patriota"
-              className="h-auto w-52 object-contain"
+              className="mx-auto h-auto w-52 object-contain"
             />
-
           </div>
           <p>© 2026 Jornal Voz Patriota. Todos os direitos reservados.</p>
         </div>
