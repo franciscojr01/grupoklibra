@@ -1019,7 +1019,7 @@ function ModernJornalVozPatriota() {
               <Megaphone className="h-4 w-4" aria-hidden />
               Informação para a reta final das eleições
             </div>
-            <h1 className="max-w-4xl break-words text-4xl leading-tight sm:text-6xl lg:text-8xl">
+            <h1 className="max-w-4xl whitespace-normal text-3xl leading-[1.08] sm:text-5xl sm:leading-tight lg:text-8xl">
               <span className="md:hidden">
                 A esquerda quer que você continue desinformado{" "}
                 <span className="heat-text">
@@ -1033,7 +1033,7 @@ function ModernJornalVozPatriota() {
                 </span>
               </span>
             </h1>
-            <p className="mt-7 max-w-2xl break-words text-base leading-7 text-foreground/80 sm:text-lg sm:leading-8">
+            <p className="mt-7 max-w-2xl whitespace-normal text-sm leading-6 text-foreground/80 sm:text-base sm:leading-7 lg:text-lg lg:leading-8">
               A reta final das eleições está aí. Enquanto a esquerda e a grande mídia controlam o que
               você pode ver, ouvir e pensar, o Voz Patriota existe para furar o bloqueio.
             </p>
@@ -1089,7 +1089,7 @@ function ModernJornalVozPatriota() {
             <p className="text-sm font-black uppercase tracking-[0.2em] text-secondary">
               A esquerda quer que você engula a narrativa única
             </p>
-            <h2 className="mt-3 text-4xl sm:text-5xl">
+            <h2 className="mt-3 text-3xl leading-tight sm:text-5xl">
               Pare de ser tratado como idiota.
             </h2>
           </div>
@@ -1119,7 +1119,7 @@ function ModernJornalVozPatriota() {
             <p className="text-sm font-black uppercase tracking-[0.2em] text-secondary">
               Depoimentos de quem já largou a narrativa única
             </p>
-            <h2 className="mt-3 text-4xl sm:text-5xl">
+            <h2 className="mt-3 text-3xl leading-tight sm:text-5xl">
               A esquerda odeia quem defende liberdade e família
             </h2>
             <p className="mx-auto mt-5 max-w-2xl leading-7 text-muted-foreground">
@@ -1209,7 +1209,7 @@ function ModernJornalVozPatriota() {
           <p className="text-sm font-black uppercase tracking-[0.2em] text-secondary">
             A esquerda quer que você decida no escuro
             </p>
-            <h2 className="mt-3 text-4xl sm:text-5xl">
+            <h2 className="mt-3 text-3xl leading-tight sm:text-5xl">
               Consciência política é defesa, não opinião.
           </h2>
         </div>
@@ -1250,7 +1250,7 @@ function ModernJornalVozPatriota() {
           <p className="text-sm font-black uppercase tracking-[0.2em] text-secondary">
             A esquerda quer calar quem pensa diferente
           </p>
-          <h2 className="mt-3 text-4xl sm:text-5xl">
+          <h2 className="mt-3 text-3xl leading-tight sm:text-5xl">
             Apoiar o Voz Patriota é resistência.
           </h2>
           <p className="mx-auto mt-5 max-w-2xl leading-7 text-muted-foreground">
@@ -1271,7 +1271,7 @@ function ModernJornalVozPatriota() {
             <p className="text-sm font-black uppercase tracking-[0.2em] text-primary-foreground/75">
               O jornal precisa de você agora
             </p>
-            <h2 className="mt-3 text-4xl sm:text-5xl">
+            <h2 className="mt-3 text-3xl leading-tight sm:text-5xl">
               Cada assinatura é uma trincheira.
             </h2>
             <p className="mt-4 max-w-2xl leading-7 text-primary-foreground/80">
