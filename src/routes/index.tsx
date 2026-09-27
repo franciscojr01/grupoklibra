@@ -935,39 +935,66 @@ function ModernJornalVozPatriota() {
       ) : null}
 
       <section id="inicio" className="relative isolate min-h-[680px] overflow-hidden border-b border-border">
-        <div className="absolute inset-0 -z-20 bg-[url('https://images.pexels.com/photos/14357047/pexels-photo-14357047.jpeg?auto=compress&cs=tinysrgb&w=1600')] bg-cover bg-center" />
-        <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,color-mix(in_oklch,var(--background)_97%,transparent)_0%,color-mix(in_oklch,var(--background)_86%,transparent)_46%,color-mix(in_oklch,var(--background)_45%,transparent)_100%),linear-gradient(0deg,var(--background),transparent_65%)]" />
+        <div className="absolute inset-0 -z-20 bg-[url('https://images.pexels.com/photos/7135024/pexels-photo-7135024.jpeg?auto=compress&cs=tinysrgb&w=1600')] bg-cover bg-center" />
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,color-mix(in_oklch,var(--background)_94%,transparent)_0%,color-mix(in_oklch,var(--background)_78%,transparent)_48%,color-mix(in_oklch,var(--background)_32%,transparent)_100%),linear-gradient(0deg,var(--background),transparent_68%)]" />
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-24 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8 lg:py-32">
-          <div>
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-secondary/60 bg-background/60 px-4 py-2 text-xs font-black tracking-[0.12em] text-secondary shadow-lg shadow-black/10 backdrop-blur">
+          <div className="max-w-3xl">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/50 bg-background/55 px-4 py-2 text-xs font-black uppercase tracking-[0.12em] text-primary-light shadow-lg shadow-black/10 backdrop-blur">
               <Megaphone className="h-4 w-4" aria-hidden />
-              A notícia antes da narrativa
+              Informação para quem pensa à frente
             </div>
-            <h1 className="max-w-4xl text-5xl leading-[0.98] sm:text-6xl lg:text-8xl">
-              Veja notícias de direita.{" "}
-              <span className="heat-text">Pense por conta própria.</span>
+            <h1 className="max-w-4xl text-5xl leading-[0.94] sm:text-6xl lg:text-8xl">
+              O Brasil em foco.{" "}
+              <span className="heat-text">A sua visão em primeiro lugar.</span>
             </h1>
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-muted-foreground">
-              O Jornal Voz Patriota entrega notícias, contexto e análises conservadoras para quem
-              está cansado de receber apenas um lado da história.
+            <p className="mt-7 max-w-2xl text-lg leading-8 text-foreground/80">
+              Notícias, contexto e análises para você acompanhar o que realmente importa — com
+              clareza, independência e uma perspectiva conservadora.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Button type="button" size="lg" className="rounded-full px-7 shadow-[var(--shadow-heat)]" onClick={openBallot}>
-                Quero acesso às notícias
+              <Button
+                type="button"
+                size="lg"
+                className="rounded-full bg-gradient-to-r from-accent via-primary to-secondary px-7 text-primary-foreground shadow-[var(--shadow-heat)] transition-transform hover:-translate-y-0.5"
+                onClick={openBallot}
+              >
+                Quero acompanhar de perto
                 <ArrowRight className="h-5 w-5" aria-hidden />
               </Button>
-              <Button type="button" size="lg" variant="outline" className="rounded-full px-7" onClick={openBallot}>
-                Apoiar o jornal
+              <Button
+                type="button"
+                size="lg"
+                variant="outline"
+                className="rounded-full border-foreground/30 bg-background/35 px-7 backdrop-blur transition-transform hover:-translate-y-0.5"
+                onClick={openBallot}
+              >
+                Conhecer o jornal
               </Button>
             </div>
-            <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-xs font-bold uppercase tracking-[0.12em] text-muted-foreground">
+            <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-xs font-bold uppercase tracking-[0.12em] text-foreground/70">
               <span>✓ Leitura rápida</span>
               <span>✓ Brasil e mundo</span>
               <span>✓ Conteúdo exclusivo</span>
             </div>
           </div>
 
-          <div className="hidden lg:block" aria-hidden="true" />
+          <div className="hidden lg:block" aria-hidden="true">
+            <div className="ml-auto max-w-xs rounded-[2rem] border border-foreground/20 bg-background/35 p-6 shadow-2xl backdrop-blur-md">
+              <div className="mb-8 flex items-center justify-between">
+                <span className="text-xs font-black uppercase tracking-[0.18em] text-secondary">
+                  Em perspectiva
+                </span>
+                <span className="h-2.5 w-2.5 rounded-full bg-primary shadow-[0_0_16px_var(--primary)]" />
+              </div>
+              <p className="text-2xl font-black leading-tight">
+                Informação clara para decisões mais conscientes.
+              </p>
+              <div className="mt-8 h-1 rounded-full bg-gradient-to-r from-accent via-primary to-secondary" />
+              <p className="mt-4 text-sm leading-6 text-foreground/70">
+                Brasil, mundo e política em uma leitura objetiva.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -1170,7 +1197,7 @@ function ModernJornalVozPatriota() {
             </div>
             <p className="mt-1">Informação, opinião e liberdade.</p>
             <p className="mt-3 text-xs">
-              Imagens: Pexels — Vitaly Gariev, Tochukwu Ekeh, Christina Morillo e Joaquin Reyes Ramos.
+              Imagens: Pexels — Codioful (formerly Gradienta). Foto utilizada na hero.
             </p>
           </div>
           <p>© 2026 Jornal Voz Patriota. Todos os direitos reservados.</p>
