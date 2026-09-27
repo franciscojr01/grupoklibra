@@ -551,11 +551,28 @@ function ModernJornalVozPatriota() {
                 </button>
                 <button
                   type="button"
-                  disabled={eliminated}
+                  disabled={!selectedCandidate || confirmed || eliminated}
                   className="min-h-14 rounded-md border-2 border-black/50 bg-ballot-correct text-xs font-black uppercase text-ballot-foreground shadow-[0_4px_0_oklch(0.08_0.012_90),inset_0_1px_0_oklch(1_0_0_/_0.3),inset_0_-3px_6px_oklch(0_0_0_/_0.4)] transition hover:brightness-110 active:translate-y-1 active:shadow-[inset_0_2px_5px_oklch(0_0_0_/_0.6)] disabled:cursor-not-allowed disabled:opacity-50"
-                  onClick={correctNumber}
+                  onClick={() => {
+                    if (selectedCandidate?.number !== "22") {
+                      setEliminated(true);
+                      setSelectedCandidate(null);
+                      setTypedNumber("");
+                      setShowQuiz(false);
+                      return;
+                    }
+
+                    playVotingSound();
+                    setConfirmed(true);
+                    setShowBallot(false);
+                    setQuizStep(0);
+                    setQuizAnswers([]);
+                    setQuizScore(0);
+                    setQuizFailed(false);
+                    setShowQuiz(true);
+                  }}
                 >
-                  Corrige
+                  Confirmar
                 </button>
               </div>
             </div>
@@ -581,32 +598,7 @@ function ModernJornalVozPatriota() {
                 scrolling="no"
               />
             </div>
-            <Button
-            type="button"
-            className="border-2 border-black/60 bg-ballot-confirm text-white shadow-[0_4px_0_oklch(0.08_0.012_90),inset_0_1px_0_oklch(1_0_0_/_0.3),inset_0_-3px_6px_oklch(0_0_0_/_0.45)] hover:brightness-110 active:translate-y-1 active:shadow-[inset_0_2px_5px_oklch(0_0_0_/_0.55)]"
-            disabled={!selectedCandidate || confirmed || eliminated}
-              onClick={() => {
-                if (selectedCandidate?.number !== "22") {
-                  setEliminated(true);
-                  setSelectedCandidate(null);
-                  setTypedNumber("");
-                  setShowQuiz(false);
-                  return;
-                }
 
-                playVotingSound();
-                setConfirmed(true);
-                setShowBallot(false);
-                setQuizStep(0);
-                setQuizAnswers([]);
-                setQuizScore(0);
-                setQuizFailed(false);
-                setShowQuiz(true);
-              }}
-            >
-              {confirmed ? "VOTO REALIZADO" : "CONFIRMA"}
-              {!confirmed ? <ArrowRight className="h-4 w-4" aria-hidden /> : null}
-            </Button>
           </DialogFooter>
 
           {confirmed ? (
