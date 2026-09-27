@@ -666,51 +666,84 @@ function ModernJornalVozPatriota() {
               {
                 question: "O que você acha de Lula?",
                 answers: [
-                  "É o maior líder popular do Brasil",
-                  "Tem méritos, mas errou muito",
                   "É um político corrupto que prejudicou o país",
                   "Nunca deveria ter voltado ao poder",
+                  "É o maior líder popular do Brasil",
+                  "Tem méritos, mas errou muito",
                 ],
               },
               {
                 question: "Você se considera de qual lado político?",
                 answers: [
-                  "De esquerda",
-                  "De centro / não me identifico com nenhum lado",
                   "De direita",
                   "De direita e contra a esquerda",
+                  "De esquerda",
+                  "De centro / não me identifico com nenhum lado",
                 ],
               },
               {
                 question: "Sobre a esquerda brasileira, você pensa:",
                 answers: [
-                  "É essencial para o progresso do país",
-                  "Tem boas intenções, mas erra na prática",
                   "É uma corrente política autoritária, ideológica e que vive de privilégios",
                   "É o maior câncer político do Brasil: corrupta, desonesta e inimiga da liberdade",
+                  "É essencial para o progresso do país",
+                  "Tem boas intenções, mas erra na prática",
                 ],
               },
               {
                 question: "Em 2022, se você pudesse votar de novo, votaria em:",
                 answers: [
-                  "Lula no segundo turno",
-                  "Branco/nulo",
                   "Bolsonaro no segundo turno",
                   "Bolsonaro desde o primeiro turno, sem dúvida",
+                  "Lula no segundo turno",
+                  "Branco/nulo",
                 ],
               },
               {
                 question: "Qual dessas afirmações mais te representa?",
                 answers: [
-                  "Prefiro um governo de esquerda a um de direita",
-                  "Não me identifico com nenhum lado",
                   "Prefiro a direita mesmo com defeitos",
                   "Sou de direita e não confio na esquerda",
+                  "Prefiro um governo de esquerda a um de direita",
+                  "Não me identifico com nenhum lado",
                 ],
               },
             ];
             const currentQuestion = questions[quizStep];
             const currentAnswer = quizAnswers[quizStep];
+
+            if (quizResult) {
+              return (
+                <div className="flex min-h-[520px] flex-col items-center justify-center px-6 py-10 text-center sm:px-8">
+                  <div className="mb-8 flex h-28 w-28 items-center justify-center rounded-full border-4 border-secondary bg-gradient-to-br from-accent/20 via-primary/20 to-secondary/30">
+                    <span className="text-5xl font-black text-secondary">
+                      {quizResult.percentage}%
+                    </span>
+                  </div>
+
+                  <div className="h-1.5 w-32 rounded-full bg-gradient-to-r from-accent via-primary to-secondary" />
+
+                  <p className="mt-7 text-2xl font-black leading-tight sm:text-3xl">
+                    {quizResult.label}
+                  </p>
+
+                  {quizScore >= 12 ? (
+                    <Button
+                      type="button"
+                      size="lg"
+                      className="mt-10 rounded-full bg-gradient-to-r from-accent via-primary to-secondary px-8 text-primary-foreground"
+                      onClick={() => {
+                        setShowQuiz(false);
+                        setShowPlans(true);
+                      }}
+                    >
+                      Ver planos
+                      <ArrowRight className="h-4 w-4" aria-hidden />
+                    </Button>
+                  ) : null}
+                </div>
+              );
+            }
 
             return (
               <>
@@ -757,16 +790,7 @@ function ModernJornalVozPatriota() {
                           const nextScore = nextAnswers.reduce((score, selectedAnswer, index) => {
                             if (!selectedAnswer) return score;
                             const selectedIndex = questions[index].answers.indexOf(selectedAnswer);
-                            const points =
-                              index === 0
-                                ? selectedIndex === 0
-                                  ? 3
-                                  : selectedIndex === 1
-                                    ? 2
-                                    : selectedIndex === 2
-                                      ? 1
-                                      : 0
-                                : selectedIndex;
+                            const points = [3, 2, 0, 1][selectedIndex] ?? 0;
                             return score + points;
                           }, 0);
 
@@ -795,16 +819,7 @@ function ModernJornalVozPatriota() {
                       const finalScore = answersForSubmission.reduce((score, selectedAnswer, index) => {
                         if (!selectedAnswer) return score;
                         const selectedIndex = questions[index].answers.indexOf(selectedAnswer);
-                        const points =
-                          index === 0
-                            ? selectedIndex === 0
-                              ? 3
-                              : selectedIndex === 1
-                                ? 2
-                                : selectedIndex === 2
-                                  ? 1
-                                  : 0
-                            : selectedIndex;
+                        const points = [3, 2, 0, 1][selectedIndex] ?? 0;
                         return score + points;
                       }, 0);
 
@@ -825,11 +840,6 @@ function ModernJornalVozPatriota() {
                                 : "Direita forte";
 
                         setQuizResult({ percentage, label });
-
-                        if (finalScore >= 12) {
-                          setShowQuiz(false);
-                          setShowPlans(true);
-                        }
                       }
                     }}
                   >
