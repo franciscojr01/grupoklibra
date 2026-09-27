@@ -1195,31 +1195,43 @@ function ModernJornalVozPatriota() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl gap-6 px-5 py-20 lg:grid-cols-2 lg:px-8">
-        <div className="overflow-hidden rounded-[2rem] border border-border/80 bg-surface shadow-[var(--shadow-hard)]">
-          <img
-            src={ruasImage}
-            alt="Notícia sobre investigação da Polícia Federal envolvendo integrantes do governo Lula"
-            className="h-auto max-h-72 w-full object-contain object-center bg-surface-2 md:max-h-none"
-          />
-          <div className="p-7">
-            <p className="text-xs font-black uppercase tracking-[0.18em] text-secondary">
-              NOTÍCIAS EM ALTA
-            </p>
-            <h2 className="mt-3 text-3xl">Quem não se informa, deixa outros decidirem por ele.</h2>
-          </div>
+      <section className="mx-auto max-w-7xl px-5 py-20 lg:px-8">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-sm font-black uppercase tracking-[0.2em] text-secondary">
+            Informação que faz diferença
+          </p>
+          <h2 className="mt-3 text-4xl sm:text-5xl">
+            O único jornal a colocar informação clara antes da narrativa pronta.
+          </h2>
         </div>
-        <div className="overflow-hidden rounded-[2rem] border border-border/80 bg-surface shadow-[var(--shadow-hard)]">
-          <img
-            src={economiaImage}
-            alt="Notícia sobre o aumento da dívida pública e a economia brasileira"
-            className="h-auto max-h-72 w-full object-contain object-center bg-surface-2 md:max-h-none"
-          />
-          <div className="p-7">
-            <p className="text-xs font-black uppercase tracking-[0.18em] text-accent">
-              Consciência política
-            </p>
-            <h2 className="mt-3 text-3xl">Entenda o jogo antes de escolher o seu lado.</h2>
+
+        <div className="mt-12 grid gap-6 lg:grid-cols-2">
+          <div className="overflow-hidden rounded-[2rem] border border-border/80 bg-surface shadow-[var(--shadow-hard)]">
+            <img
+              src="https://images.pexels.com/photos/3866816/pexels-photo-3866816.jpeg?auto=compress&cs=tinysrgb&w=1600"
+              alt="Pilha de jornais dobrados sobre uma mesa de madeira"
+              className="mx-auto h-auto max-h-52 w-full object-contain object-center bg-surface-2 sm:max-h-60"
+            />
+            <div className="p-7">
+              <p className="text-xs font-black uppercase tracking-[0.18em] text-secondary">
+                NOTÍCIAS EM ALTA
+              </p>
+              <h2 className="mt-3 text-3xl">Quem não se informa, deixa outros decidirem por ele.</h2>
+            </div>
+          </div>
+
+          <div className="overflow-hidden rounded-[2rem] border border-border/80 bg-surface shadow-[var(--shadow-hard)]">
+            <img
+              src="https://images.pexels.com/photos/13081133/pexels-photo-13081133.jpeg?auto=compress&cs=tinysrgb&w=1600"
+              alt="Páginas de jornal com textos em destaque"
+              className="mx-auto h-auto max-h-52 w-full object-contain object-center bg-surface-2 sm:max-h-60"
+            />
+            <div className="p-7">
+              <p className="text-xs font-black uppercase tracking-[0.18em] text-accent">
+                Consciência política
+              </p>
+              <h2 className="mt-3 text-3xl">Entenda o jogo antes de escolher o seu lado.</h2>
+            </div>
           </div>
         </div>
       </section>
@@ -1273,6 +1285,9 @@ function ModernJornalVozPatriota() {
               alt="Jornal Voz Patriota"
               className="mx-auto h-auto w-52 object-contain"
             />
+            <p className="mt-3 text-xs text-muted-foreground">
+              Imagens: Ylanite Koppens e Suzy Hazelwood via Pexels.
+            </p>
           </div>
           <p>© 2026 Jornal Voz Patriota. Todos os direitos reservados.</p>
         </div>
