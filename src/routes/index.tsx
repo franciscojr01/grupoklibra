@@ -622,33 +622,16 @@ function ModernJornalVozPatriota() {
                 >
                   0
                 </button>
-                <button
-                  type="button"
-                  disabled={!selectedCandidate || confirmed || eliminated}
-                  className="min-h-14 min-w-0 overflow-hidden rounded-md border-2 border-black/50 bg-transparent px-0 text-[11px] font-black uppercase leading-none tracking-[-0.08em] whitespace-nowrap text-ballot-foreground shadow-[0_4px_0_oklch(0.08_0.012_90),inset_0_1px_0_oklch(1_0_0_/_0.3),inset_0_-3px_6px_oklch(0_0_0_/_0.4)] transition hover:bg-transparent hover:brightness-110 active:translate-y-1 active:shadow-[inset_0_2px_5px_oklch(0_0_0_/_0.6)] disabled:cursor-not-allowed disabled:opacity-50"
-                  onClick={() => {
-                    if (selectedCandidate?.number !== "22") {
-                      setEliminated(true);
-                      setSelectedCandidate(null);
-                      setTypedNumber("");
-                      setShowQuiz(false);
-                      return;
-                    }
-
-                    // O som é disparado diretamente pela interação do usuário,
-                    // permitindo que o navegador autorize a reprodução.
-                    playVotingSound();
-                    setConfirmed(true);
-                    setShowBallot(false);
-                    setQuizStep(0);
-                    setQuizAnswers([]);
-                    setQuizScore(0);
-                    setQuizFailed(false);
-                    setShowQuiz(true);
-                  }}
-                >
-                  Confirmar
-                </button>
+                <iframe
+                  width="110"
+                  height="200"
+                  src="https://www.myinstants.com/instant/urna-eletronica-confirma/embed/"
+                  title="Confirmar voto e reproduzir som da urna"
+                  allow="autoplay"
+                  frameBorder="0"
+                  scrolling="no"
+                  className="h-14 w-full overflow-hidden rounded-md border-2 border-black/50"
+                />
               </div>
             </div>
 
@@ -670,18 +653,7 @@ function ModernJornalVozPatriota() {
               <p className="text-xs text-muted-foreground">
                 Simulação meramente ilustrativa.
               </p>
-              <iframe
-                width="110"
-                height="200"
-                src="https://www.myinstants.com/instant/urna-eletronica-confirma/embed/"
-                title="Botão de som da urna eletrônica"
-                aria-hidden="true"
-                tabIndex={-1}
-                allow="autoplay"
-                className="pointer-events-none absolute -left-[9999px] h-px w-px opacity-0"
-                frameBorder="0"
-                scrolling="no"
-              />
+
             </div>
 
           </DialogFooter>
