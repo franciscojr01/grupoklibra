@@ -341,48 +341,14 @@ const ballotCandidates = [
 ] as const;
 
 function playVotingSound() {
-  // O endereço compartilhado é uma página do MyInstants, não um arquivo de
-  // áudio direto. Reproduzimos o padrão curto "pi-li-li" diretamente no
-  // navegador para manter o som de confirmação funcionando após o clique.
-  const AudioContextClass =
-    window.AudioContext ||
-    (
-      window as typeof window & {
-        webkitAudioContext?: typeof AudioContext;
-      }
-    ).webkitAudioContext;
+  const votingAudio = new Audio("/confirma-urna.mp3");
 
-  if (!AudioContextClass) return;
+  votingAudio.volume = 1;
+  votingAudio.currentTime = 0;
 
-  const context = new AudioContextClass();
-  const startTime = context.currentTime;
-
-  const playBeep = (frequency: number, offset: number, duration: number) => {
-    const oscillator = context.createOscillator();
-    const gain = context.createGain();
-
-    oscillator.type = "sine";
-    oscillator.frequency.setValueAtTime(frequency, startTime + offset);
-
-    gain.gain.setValueAtTime(0.001, startTime + offset);
-    gain.gain.exponentialRampToValueAtTime(0.22, startTime + offset + 0.008);
-    gain.gain.setValueAtTime(0.22, startTime + offset + duration - 0.025);
-    gain.gain.exponentialRampToValueAtTime(0.001, startTime + offset + duration);
-
-    oscillator.connect(gain);
-    gain.connect(context.destination);
-    oscillator.start(startTime + offset);
-    oscillator.stop(startTime + offset + duration);
-  };
-
-  // Três tons rápidos e ascendentes, imitando o "pi-li-li" da urna.
-  playBeep(620, 0, 0.13);
-  playBeep(880, 0.16, 0.11);
-  playBeep(1040, 0.29, 0.28);
-
-  window.setTimeout(() => {
-    void context.close();
-  }, 700);
+  void votingAudio.play().catch((error) => {
+    console.error("Não foi possível reproduzir o som da urna:", error);
+  });
 }
 
 function ModernJornalVozPatriota() {
