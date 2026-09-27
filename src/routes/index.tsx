@@ -615,8 +615,9 @@ function ModernJornalVozPatriota() {
           <DialogHeader>
             <DialogTitle className="text-2xl">Acesso não liberado</DialogTitle>
             <DialogDescription className="leading-6 text-muted-foreground">
-              Para continuar, você precisa concluir o quiz patriota demonstrando conhecimento,
-              responsabilidade e compromisso com o Brasil.
+              Para continuar, você precisa demonstrar coerência, responsabilidade e compromisso
+              com o Brasil, com a liberdade de expressão e com o respeito ao processo democrático.
+              O acesso não depende de apoiar um partido ou candidato específico.
             </DialogDescription>
           </DialogHeader>
           <Button
@@ -644,12 +645,13 @@ function ModernJornalVozPatriota() {
                 🇧🇷
               </div>
               <DialogTitle className="text-3xl sm:text-4xl">
-                Quiz patriota
+                Avaliação de consciência cívica
               </DialogTitle>
               <DialogDescription className="mt-2 leading-6 text-muted-foreground">
-                Responda a perguntas sobre líderes, economia, instituições e liberdade. O resultado
-                valoriza coerência, responsabilidade e compromisso com o Brasil — não lealdade cega
-                a um partido.
+                Esta avaliação apresenta situações políticas difíceis e respostas sem alternativa
+                “perfeita”. O acesso depende de demonstrar coerência, responsabilidade,
+                compromisso com a verdade, respeito às instituições e capacidade de criticar
+                qualquer político — inclusive aqueles de que você gosta.
               </DialogDescription>
             </DialogHeader>
           </div>
@@ -812,7 +814,7 @@ function ModernJornalVozPatriota() {
 
                 <DialogFooter className="mt-6 flex-col gap-3 border-t border-border/70 bg-background/30 px-6 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-8">
                   <p className="text-xs text-muted-foreground">
-                    🔒 Quiz simbólico e sem coleta de respostas.
+                    🔒 Avaliação simbólica, sem coleta de respostas e sem exigir apoio a partido.
                   </p>
                   <Button
                     type="button"
@@ -859,7 +861,7 @@ function ModernJornalVozPatriota() {
           <div className="mx-auto max-w-6xl">
             <div className="mx-auto max-w-3xl text-center">
               <p className="text-sm font-black uppercase tracking-[0.2em] text-secondary">
-                Você concluiu a experiência
+                Você concluiu a avaliação
               </p>
               <h2 className="mt-3 text-4xl sm:text-5xl">
                 Escolha como apoiar o Jornal Voz Patriota
