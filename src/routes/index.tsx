@@ -655,7 +655,7 @@ function ModernJornalVozPatriota() {
                       } else {
                         setEliminated(true);
                       }
-                    }, 3000);
+                    }, 2000);
                   }}
                 >
                   Confirmar
