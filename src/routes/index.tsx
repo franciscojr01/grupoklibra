@@ -1045,11 +1045,11 @@ function ModernJornalVozPatriota() {
               <Button
                 type="button"
                 size="lg"
-                className="rounded-full border-2 border-primary-light bg-primary px-8 py-6 text-base font-black text-primary-foreground shadow-[var(--shadow-heat)] ring-4 ring-primary/10 transition-all hover:-translate-y-1 hover:bg-primary-deep hover:shadow-[0_0_28px_var(--primary)] hover:ring-primary/20 sm:px-10 sm:text-lg"
+                className="w-full max-w-full justify-center rounded-full border-2 border-primary-light bg-primary px-5 py-4 text-center text-sm font-black leading-tight text-primary-foreground shadow-[var(--shadow-heat)] ring-4 ring-primary/10 transition-all hover:-translate-y-1 hover:bg-primary-deep hover:shadow-[0_0_28px_var(--primary)] hover:ring-primary/20 sm:w-auto sm:px-8 sm:py-5 sm:text-base"
                 onClick={openBallot}
               >
-                ASSINE AGORA E RECUPERE SUA VISÃO
-                <ArrowRight className="h-5 w-5" aria-hidden />
+                <span className="whitespace-normal">ASSINE AGORA E RECUPERE SUA VISÃO</span>
+                <ArrowRight className="h-5 w-5 shrink-0" aria-hidden />
               </Button>
               <Button
                 asChild
