@@ -118,7 +118,7 @@ function JornalVozPatriota() {
   }
 
   return (
-    <main className="min-h-screen bg-background text-foreground">
+    <main className="homepage-shell min-h-screen bg-background text-foreground">
       <div className="border-b border-primary/30 bg-primary px-4 py-3 text-center text-xs font-bold uppercase tracking-[0.12em] text-primary-foreground md:text-sm">
         <div className="mx-auto flex max-w-7xl items-center justify-center gap-2">
           <ShieldAlert className="hidden h-4 w-4 shrink-0 md:block" aria-hidden />
@@ -1011,16 +1011,21 @@ function ModernJornalVozPatriota() {
         </section>
       ) : null}
 
-      <section id="inicio" className="relative isolate min-h-[560px] border-b border-border lg:min-h-[600px]">
+      <section
+        id="inicio"
+        className="relative isolate min-h-[560px] overflow-hidden border-b border-primary/20 lg:min-h-[600px]"
+      >
         <div className="absolute inset-0 -z-20 bg-[url('https://images.pexels.com/photos/14357047/pexels-photo-14357047.jpeg?auto=compress&cs=tinysrgb&w=1600')] bg-cover bg-center" />
         <div className="absolute inset-0 -z-10 bg-background/75" />
+        <div className="absolute left-[-8rem] top-[-8rem] -z-10 h-72 w-72 rounded-full bg-primary/15 blur-3xl" />
+        <div className="absolute bottom-[-10rem] right-[-5rem] -z-10 h-80 w-80 rounded-full bg-secondary/15 blur-3xl" />
         <div className="mx-auto grid min-w-0 max-w-7xl gap-8 px-5 py-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-10 lg:px-8 lg:py-16">
           <div className="min-w-0 max-w-3xl">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-secondary/60 bg-background/80 px-4 py-2 text-xs font-black uppercase tracking-[0.12em] text-secondary shadow-lg shadow-black/10">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-secondary/70 bg-secondary/10 px-4 py-2 text-xs font-black uppercase tracking-[0.12em] text-secondary shadow-lg shadow-black/10 backdrop-blur">
               <Megaphone className="h-4 w-4" aria-hidden />
               Você percebeu?
             </div>
-            <h1 className="hero-title max-w-full break-normal whitespace-normal text-3xl leading-[1.08] sm:max-w-4xl sm:text-5xl sm:leading-tight lg:max-w-4xl lg:text-7xl">
+            <h1 className="hero-title max-w-full break-normal whitespace-normal text-3xl leading-[1.08] text-secondary sm:max-w-4xl sm:text-5xl sm:leading-tight lg:max-w-4xl lg:text-7xl">
               <span className="md:hidden">
                 Enquanto eles te manipulam, nós falamos{" "}
                 <span className="heat-text">
@@ -1034,7 +1039,7 @@ function ModernJornalVozPatriota() {
                 </span>
               </span>
             </h1>
-            <p className="mt-5 max-w-full break-words whitespace-normal text-sm leading-6 text-foreground/80 sm:max-w-2xl sm:text-base sm:leading-7 lg:mt-6 lg:text-lg lg:leading-8">
+            <p className="mt-5 max-w-full break-words whitespace-normal text-sm leading-6 text-foreground/85 sm:max-w-2xl sm:text-base sm:leading-7 lg:mt-6 lg:text-lg lg:leading-8">
               Entenda o jogo por trás das manchetes. Descubra o que a grande mídia omite e tome suas
               próprias decisões com base em fatos, não em narrativas impostas.
             </p>
@@ -1042,7 +1047,7 @@ function ModernJornalVozPatriota() {
               <Button
                 type="button"
                 size="lg"
-                className="rounded-full border-2 border-primary-light bg-primary px-8 py-6 text-base font-black text-primary-foreground shadow-[var(--shadow-heat)] transition-transform hover:-translate-y-1 hover:bg-primary-deep hover:shadow-[0_0_28px_var(--primary)] sm:px-10 sm:text-lg"
+                className="rounded-full border-2 border-primary-light bg-primary px-8 py-6 text-base font-black text-primary-foreground shadow-[var(--shadow-heat)] ring-4 ring-primary/10 transition-all hover:-translate-y-1 hover:bg-primary-deep hover:shadow-[0_0_28px_var(--primary)] hover:ring-primary/20 sm:px-10 sm:text-lg"
                 onClick={openBallot}
               >
                 ASSINE AGORA E RECUPERE SUA VISÃO
@@ -1052,12 +1057,12 @@ function ModernJornalVozPatriota() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="rounded-full border-foreground/30 bg-background/35 px-7 text-xs backdrop-blur transition-transform hover:-translate-y-0.5 sm:text-sm"
+                className="rounded-full border-secondary/50 bg-background/45 px-7 text-xs text-secondary backdrop-blur transition-all hover:-translate-y-0.5 hover:border-secondary hover:bg-secondary/10 sm:text-sm"
               >
                 <a href="#noticias">Conhecer o jornal</a>
               </Button>
             </div>
-            <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-xs font-bold uppercase tracking-[0.12em] text-foreground/70">
+            <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-xs font-bold uppercase tracking-[0.12em] text-primary/90">
               <span>✓ Análise, não apenas manchete</span>
               <span>✓ Independência real</span>
               <span>✓ Respeito à sua inteligência</span>
@@ -1329,7 +1334,7 @@ function Feature({
   text: string;
 }) {
   return (
-    <div className="rounded-3xl border border-border/80 bg-background/70 p-6 shadow-[var(--shadow-hard)] transition-transform duration-300 hover:-translate-y-1">
+    <div className="rounded-3xl border border-primary/20 bg-gradient-to-br from-background/90 via-background/70 to-primary/10 p-6 shadow-[var(--shadow-hard)] transition-all duration-300 hover:-translate-y-1 hover:border-secondary/50 hover:shadow-[var(--shadow-heat)]">
       <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/15 text-primary">{icon}</div>
       <h3 className="text-xl">{title}</h3>
       <p className="mt-3 text-sm leading-7 text-muted-foreground">{text}</p>

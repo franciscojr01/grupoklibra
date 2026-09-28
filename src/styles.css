@@ -189,6 +189,21 @@
 }
 
 @layer components {
+  .homepage-shell h2,
+  .homepage-shell h3 {
+    text-wrap: balance;
+  }
+
+  .homepage-shell [data-slot="button"] {
+    font-weight: 900;
+    letter-spacing: -0.01em;
+  }
+
+  .homepage-shell [data-slot="button"]:not(:disabled):focus-visible {
+    outline: 2px solid var(--secondary);
+    outline-offset: 3px;
+  }
+
   main [data-slot="button"] {
     font-weight: 800;
     transition:
