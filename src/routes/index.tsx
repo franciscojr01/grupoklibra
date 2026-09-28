@@ -320,7 +320,12 @@ function JornalVozPatriota() {
             </div>
             <p className="mt-1">Informação, opinião e liberdade.</p>
           </div>
-          <p>© 2026 Jornal Voz Patriota. Todos os direitos reservados.</p>
+          <div className="text-center md:text-right">
+            <p>© 2026 Jornal Voz Patriota. Todos os direitos reservados.</p>
+            <p className="mt-1 text-xs text-muted-foreground/75">
+              Foto da hero: Daniel Reche via Pexels.
+            </p>
+          </div>
         </div>
       </footer>
     </main>
@@ -1015,8 +1020,8 @@ function ModernJornalVozPatriota() {
         id="inicio"
         className="relative isolate min-h-[560px] overflow-hidden border-b border-primary/20 lg:min-h-[600px]"
       >
-        <div className="absolute inset-0 -z-20 bg-[url('https://images.pexels.com/photos/14357047/pexels-photo-14357047.jpeg?auto=compress&cs=tinysrgb&w=1600')] bg-cover bg-center" />
-        <div className="absolute inset-0 -z-10 bg-background/75" />
+        <div className="absolute inset-0 -z-20 bg-[url('https://images.pexels.com/photos/5202006/pexels-photo-5202006.jpeg?auto=compress&cs=tinysrgb&w=1600')] bg-cover bg-center" />
+        <div className="absolute inset-0 -z-10 bg-background/85" />
         <div className="absolute left-[-8rem] top-[-8rem] -z-10 h-72 w-72 rounded-full bg-primary/15 blur-3xl" />
         <div className="absolute bottom-[-10rem] right-[-5rem] -z-10 h-80 w-80 rounded-full bg-secondary/15 blur-3xl" />
         <div className="mx-auto grid min-w-0 max-w-7xl gap-8 px-5 py-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-10 lg:px-8 lg:py-16">
