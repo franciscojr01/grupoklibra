@@ -1027,16 +1027,14 @@ function ModernJornalVozPatriota() {
             </div>
             <h1 className="hero-title max-w-full break-normal whitespace-normal text-3xl leading-[1.08] text-secondary sm:max-w-4xl sm:text-5xl sm:leading-tight lg:max-w-4xl lg:text-7xl">
               <span className="md:hidden">
-                Enquanto eles te manipulam, nós falamos{" "}
-                <span className="heat-text">
-                  a verdade.
-                </span>
+                <span className="text-foreground">Enquanto eles te</span>{" "}
+                <span className="text-secondary">manipulam, nós</span>{" "}
+                <span className="text-primary">falamos a verdade.</span>
               </span>
               <span className="hidden md:inline">
-                Enquanto eles te manipulam, nós falamos{" "}
-                <span className="heat-text">
-                  a verdade.
-                </span>
+                <span className="text-foreground">Enquanto eles te</span>{" "}
+                <span className="text-secondary">manipulam, nós</span>{" "}
+                <span className="text-primary">falamos a verdade.</span>
               </span>
             </h1>
             <p className="mt-5 max-w-full break-words whitespace-normal text-sm leading-6 text-foreground/85 sm:max-w-2xl sm:text-base sm:leading-7 lg:mt-6 lg:text-lg lg:leading-8">
