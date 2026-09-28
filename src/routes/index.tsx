@@ -228,8 +228,8 @@ function JornalVozPatriota() {
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             <Feature
               icon={<Star className="h-6 w-6" aria-hidden />}
-              title="Perspectiva clara"
-              text="Notícias e análises que apresentam os fatos sem esconder os pontos de vista que a grande mídia costuma ignorar."
+              title="Análise, não apenas manchete"
+              text="Entendemos o contexto. Sabemos por que certas notícias ganham destaque e outras são apagadas."
             />
             <Feature
               icon={<Globe2 className="h-6 w-6" aria-hidden />}
@@ -517,15 +517,15 @@ function ModernJornalVozPatriota() {
         aria-label="Aviso: jornal sob risco de censura por políticos de esquerda"
       >
         <div className="flex min-w-max animate-marquee whitespace-nowrap">
-          <span className="px-8">⚠️ Jornal sob risco de censura por políticos de esquerda.</span>
+          <span className="px-8">⚠️ A narrativa única está sendo imposta.</span>
           <span className="px-8" aria-hidden="true">
-            ⚠️ Jornal sob risco de censura por políticos de esquerda.
+            ⚠️ A narrativa única está sendo imposta.
           </span>
           <span className="px-8" aria-hidden="true">
-            ⚠️ Jornal sob risco de censura por políticos de esquerda.
+            ⚠️ A narrativa única está sendo imposta.
           </span>
           <span className="px-8" aria-hidden="true">
-            ⚠️ Jornal sob risco de censura por políticos de esquerda.
+            ⚠️ A narrativa única está sendo imposta.
           </span>
         </div>
       </div>
@@ -932,7 +932,8 @@ function ModernJornalVozPatriota() {
                           return;
                         }
 
-                        setQuizResult({ label });
+                        setShowQuiz(false);
+                        setShowPlans(true);
                       }
                     }}
                   >
@@ -1017,25 +1018,25 @@ function ModernJornalVozPatriota() {
           <div className="min-w-0 max-w-3xl">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-secondary/60 bg-background/80 px-4 py-2 text-xs font-black uppercase tracking-[0.12em] text-secondary shadow-lg shadow-black/10">
               <Megaphone className="h-4 w-4" aria-hidden />
-              Informação para a reta final das eleições
+              Você percebeu?
             </div>
             <h1 className="hero-title max-w-full break-normal whitespace-normal text-3xl leading-[1.08] sm:max-w-4xl sm:text-5xl sm:leading-tight lg:max-w-4xl lg:text-7xl">
               <span className="md:hidden">
-                A esquerda quer que você continue desinformado{" "}
+                Enquanto eles te manipulam, nós falamos{" "}
                 <span className="heat-text">
-                  Nós não vamos <span className="text-primary">deixar.</span>
+                  a verdade.
                 </span>
               </span>
               <span className="hidden md:inline">
-                A esquerda quer que você continue desinformado{" "}
+                Enquanto eles te manipulam, nós falamos{" "}
                 <span className="heat-text">
-                  Nós não vamos <span className="text-primary">deixar.</span>
+                  a verdade.
                 </span>
               </span>
             </h1>
             <p className="mt-5 max-w-full break-words whitespace-normal text-sm leading-6 text-foreground/80 sm:max-w-2xl sm:text-base sm:leading-7 lg:mt-6 lg:text-lg lg:leading-8">
-              A reta final das eleições está aí. Enquanto a esquerda e a grande mídia controlam o que
-              você pode ver, ouvir e pensar, o Voz Patriota existe para furar o bloqueio.
+              Entenda o jogo por trás das manchetes. Descubra o que a grande mídia omite e tome suas
+              próprias decisões com base em fatos, não em narrativas impostas.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Button
@@ -1044,7 +1045,7 @@ function ModernJornalVozPatriota() {
                 className="rounded-full border-2 border-primary-light bg-primary px-8 py-6 text-base font-black text-primary-foreground shadow-[var(--shadow-heat)] transition-transform hover:-translate-y-1 hover:bg-primary-deep hover:shadow-[0_0_28px_var(--primary)] sm:px-10 sm:text-lg"
                 onClick={openBallot}
               >
-                Assine agora
+                ASSINE AGORA E RECUPERE SUA VISÃO
                 <ArrowRight className="h-5 w-5" aria-hidden />
               </Button>
               <Button
@@ -1057,9 +1058,9 @@ function ModernJornalVozPatriota() {
               </Button>
             </div>
             <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-xs font-bold uppercase tracking-[0.12em] text-foreground/70">
-              <span>✓ Notícias toda semana</span>
-              <span>✓ Brasil e mundo sem o discurso pronto da esquerda</span>
-              <span>✓ Análises que a grande mídia prefere enterrar</span>
+              <span>✓ Análise, não apenas manchete</span>
+              <span>✓ Independência real</span>
+              <span>✓ Respeito à sua inteligência</span>
             </div>
           </div>
 
@@ -1087,10 +1088,10 @@ function ModernJornalVozPatriota() {
         <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-sm font-black uppercase tracking-[0.2em] text-secondary">
-              A esquerda quer que você engula a narrativa única
+              A VERDADE ESTÁ NOS DETALHES
             </p>
             <h2 className="mt-3 text-3xl leading-tight sm:text-5xl">
-              Pare de ser tratado como idiota.
+              O QUE NOSSOS LEITORES VALORIZAM
             </h2>
           </div>
           <div className="mt-12 grid gap-5 md:grid-cols-3">
@@ -1101,13 +1102,13 @@ function ModernJornalVozPatriota() {
             />
             <Feature
               icon={<Globe2 className="h-6 w-6" aria-hidden />}
-              title="Brasil e mundo"
-              text="Cobertura das pautas e lideranças que a imprensa tradicional prefere demonizar ou apagar."
+              title="Independência real"
+              text="Não temos a obrigação de agradar os donos dos grandes conglomerados de mídia ou as elites políticas."
             />
             <Feature
               icon={<ShieldAlert className="h-6 w-6" aria-hidden />}
-              title="Acesso independente"
-              text="Uma redação que não se ajoelha. Que não pede permissão. Que continua informando mesmo sob pressão."
+              title="Respeito à sua inteligência"
+              text="Tratamos você como um cidadão capaz de formar sua própria opinião, não como um receptor passivo."
             />
           </div>
         </div>
@@ -1117,15 +1118,14 @@ function ModernJornalVozPatriota() {
         <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-sm font-black uppercase tracking-[0.2em] text-secondary">
-              Depoimentos de quem já largou a narrativa única
+              O QUE NOSSOS LEITORES VALORIZAM
             </p>
             <h2 className="mt-3 text-3xl leading-tight sm:text-5xl">
-              A esquerda odeia quem defende liberdade e família
+              Informação para quem quer entender, não apenas para quem quer ser emocionado.
             </h2>
             <p className="mx-auto mt-5 max-w-2xl leading-7 text-muted-foreground">
-              Aqui a gente não pede licença para falar. Aqui a gente defende liberdade, família,
-              responsabilidade e ordem. Não tentamos agradar quem quer destruir esses valores. Não
-              suavizamos a realidade para não ofender a esquerda.
+              Uma leitura clara, fundamentada e independente para quem quer formar a própria opinião
+              com base em fatos, contexto e liberdade.
             </p>
           </div>
 
@@ -1138,19 +1138,20 @@ function ModernJornalVozPatriota() {
                   className="h-12 w-12 rounded-full border-2 border-primary/50 object-cover"
                 />
                 <div>
-                  <p className="font-black">Ricardo Albuquerque</p>
-                  <p className="text-sm text-muted-foreground">@ricardo.albuquerque</p>
+                  <p className="font-black">Marcelo Ribeiro</p>
+                  <p className="text-sm text-muted-foreground">Leitor assinante</p>
                 </div>
               </div>
               <div className="mt-5 flex gap-1 text-secondary" aria-label="5 estrelas">
                 {"★★★★★"}
               </div>
               <blockquote className="mt-5 break-words text-lg leading-8">
-                “Finalmente um jornal que fala direto e não trata o leitor como incapaz de pensar.”
+                “Deixei de ser refém da TV aberta. O Voz Patriota oferece uma análise madura, sem o
+                exagero emocional que a esquerda vende como verdade absoluta.”
               </blockquote>
               <p className="mt-6 text-sm font-black uppercase tracking-wider text-primary">
-                Leitor assinante
-              </p>
+              Leitor assinante
+            </p>
             </article>
 
             <article className="rounded-2xl border border-border bg-surface p-6 shadow-[var(--shadow-hard)]">
@@ -1161,16 +1162,16 @@ function ModernJornalVozPatriota() {
                   className="h-12 w-12 rounded-full border-2 border-primary/50 object-cover"
                 />
                 <div>
-                  <p className="font-black">Coronel Paulo Mendes</p>
-                  <p className="text-sm text-muted-foreground">@cel.paulomendes</p>
+                  <p className="font-black">Terezinha</p>
+                  <p className="text-sm text-muted-foreground">Coronel Paulo Mendes</p>
                 </div>
               </div>
               <div className="mt-5 flex gap-1 text-secondary" aria-label="5 estrelas">
                 {"★★★★★"}
               </div>
               <blockquote className="mt-5 break-words text-lg leading-8">
-                “Passei a acompanhar o Brasil com contexto de verdade. Leitura clara e alinhada com
-                os valores da minha família.”
+                “Uma leitura clara e fundamentada. Finalmente consigo acompanhar o Brasil sem sentir
+                que me tratam como ignorante por ter opiniões diferentes.”
               </blockquote>
               <p className="mt-6 text-sm font-black uppercase tracking-wider text-primary">
                 Leitora assinante
@@ -1186,15 +1187,15 @@ function ModernJornalVozPatriota() {
                 />
                 <div>
                   <p className="font-black">André Figueiredo</p>
-                  <p className="text-sm text-muted-foreground">@andre.figueiredo</p>
+                  <p className="text-sm text-muted-foreground">Leitor assinante</p>
                 </div>
               </div>
               <div className="mt-5 flex gap-1 text-secondary" aria-label="5 estrelas">
                 {"★★★★★"}
               </div>
               <blockquote className="mt-5 break-words text-lg leading-8">
-                “Assinar foi a forma de apoiar um jornalismo que não se ajoelha. Continuo informado
-                sobre o que realmente importa.”
+                “A liberdade de imprensa é a espinha dorsal da democracia. Apoio o Voz Patriota
+                porque ele questiona o poder, em vez de apenas adorá-lo.”
               </blockquote>
               <p className="mt-6 text-sm font-black uppercase tracking-wider text-primary">
                 Leitor assinante
@@ -1207,10 +1208,10 @@ function ModernJornalVozPatriota() {
       <section id="noticias" className="mx-auto max-w-7xl scroll-mt-6 px-5 py-20 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-sm font-black uppercase tracking-[0.2em] text-secondary">
-            A esquerda quer que você decida no escuro
+            A VERDADE ESTÁ NOS DETALHES
             </p>
             <h2 className="mt-3 text-3xl leading-tight sm:text-5xl">
-              Consciência política é defesa, não opinião.
+              A esquerda domina a cultura.
           </h2>
         </div>
 
@@ -1223,9 +1224,9 @@ function ModernJornalVozPatriota() {
             />
             <div className="p-7">
               <p className="text-xs font-black uppercase tracking-[0.18em] text-secondary">
-                A esquerda conta com o seu silêncio
+                Eles controlam as universidades, as TVs e, cada vez mais, as redes sociais.
               </p>
-              <h2 className="mt-3 text-3xl">Cada assinatura dificulta a censura.</h2>
+              <h2 className="mt-3 text-3xl">O resultado? Um Brasil distorcido.</h2>
             </div>
           </div>
 
@@ -1237,9 +1238,11 @@ function ModernJornalVozPatriota() {
             />
             <div className="p-7">
               <p className="text-xs font-black uppercase tracking-[0.18em] text-accent">
-                A esquerda quer que amanhã seja tarde demais
+                Aqui, devolvemos a perspectiva.
               </p>
-              <h2 className="mt-3 text-3xl">Assine agora — antes que tentem derrubar.</h2>
+              <h2 className="mt-3 text-3xl">
+                Mostramos o Brasil real, com seus problemas e suas belezas.
+              </h2>
             </div>
           </div>
         </div>
@@ -1248,15 +1251,15 @@ function ModernJornalVozPatriota() {
       <section id="apoie" className="border-y border-border bg-surface/60">
         <div className="mx-auto max-w-4xl px-5 py-20 text-center lg:px-8">
           <p className="text-sm font-black uppercase tracking-[0.2em] text-secondary">
-            A esquerda quer calar quem pensa diferente
+            A CENSURA É LENTA, MAS INEVITÁVEL SE NÃO NOS RESPONDERMOS.
           </p>
           <h2 className="mt-3 text-3xl leading-tight sm:text-5xl">
-            Apoiar o Voz Patriota é resistência.
+            CADA ASSINATURA É UMA VITÓRIA DA INDEPENDÊNCIA.
           </h2>
           <p className="mx-auto mt-5 max-w-2xl leading-7 text-muted-foreground">
-            Sites de direita são atacados, desmonetizados, censurados e processados. O risco de ser
-            derrubado existe. Por isso cada assinatura importa. Quanto mais leitores pagantes, mais
-            difícil é nos silenciar.
+            Os ataques aos sites patriotas não são aleatórios. São estratégicos. Desmonetização,
+            processos e algoritmos que silenciam vozes conservadoras. Quanto mais leitores pagantes,
+            mais difícil para a elite midiática nos ignorar ou derrubar.
           </p>
           <Button
             type="button"
@@ -1264,7 +1267,7 @@ function ModernJornalVozPatriota() {
             className="mt-8 rounded-full px-7 text-center break-normal whitespace-normal shadow-[var(--shadow-heat)]"
             onClick={openBallot}
           >
-            <span>Quero fazer parte agora — antes que tentem derrubar</span>
+            <span>QUERO FAZER PARTE DA MAIORIA INTELIGENTE</span>
             <ArrowRight className="h-5 w-5 shrink-0" aria-hidden />
           </Button>
         </div>
@@ -1274,15 +1277,15 @@ function ModernJornalVozPatriota() {
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 md:flex-row md:items-center">
           <div className="max-w-3xl">
             <p className="text-sm font-black uppercase tracking-[0.2em] text-primary-foreground/75">
-              O jornal precisa de você agora
+              A CENSURA É LENTA, MAS INEVITÁVEL SE NÃO NOS RESPONDERMOS.
             </p>
             <h2 className="mt-3 text-3xl leading-tight sm:text-5xl">
-              Cada assinatura é uma trincheira.
+              CADA ASSINATURA É UMA VITÓRIA DA INDEPENDÊNCIA.
             </h2>
             <p className="mt-4 max-w-2xl leading-7 text-primary-foreground/80">
-              Cada leitor pagante dificulta a censura. Assine o Voz Patriota e tenha acesso a
-              notícias de direita, análises e cobertura internacional sem depender da velha imprensa
-              de esquerda.
+              Quanto mais leitores pagantes, mais difícil para a elite midiática nos ignorar ou
+              derrubar. Não seja apenas um espectador da história. Seja o autor da sua própria
+              percepção de realidade.
             </p>
           </div>
           <Button
@@ -1292,7 +1295,7 @@ function ModernJornalVozPatriota() {
             className="shrink-0 break-normal whitespace-normal text-center"
           >
             <a id="assinar" href="#planos">
-              <span>Quero fazer parte agora — antes que tentem derrubar</span>
+              <span>QUERO FAZER PARTE AGORA</span>
               <ArrowRight className="h-5 w-5 shrink-0" aria-hidden />
             </a>
           </Button>
