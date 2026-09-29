@@ -95,15 +95,17 @@ function JornalVozPatriota() {
                 <p className="mt-3 min-h-14 text-sm leading-6 text-muted-foreground">
                   {plan.description}
                 </p>
-                <div className="mt-7 flex items-end gap-1 border-b border-border pb-7">
-                  <span className="text-sm text-muted-foreground">R$</span>
+                <div className="mt-7 border-b border-border pb-7">
                   {plan.originalPrice ? (
-                    <span className="mb-2 text-lg font-bold text-muted-foreground line-through">
-                      {plan.originalPrice}
-                    </span>
+                    <div className="mb-1 text-lg font-bold text-muted-foreground line-through">
+                      R$ {plan.originalPrice}
+                    </div>
                   ) : null}
-                  <span className="text-5xl font-black text-primary">{plan.price}</span>
-                  <span className="mb-1 text-sm text-muted-foreground">/mês</span>
+                  <div className="flex items-end gap-1">
+                    <span className="text-sm text-muted-foreground">R$</span>
+                    <span className="text-5xl font-black text-primary">{plan.price}</span>
+                    <span className="mb-1 text-sm text-muted-foreground">/mês</span>
+                  </div>
                 </div>
                 <ul className="mt-7 space-y-4">
                   {plan.features.map((feature) => (
@@ -1016,15 +1018,17 @@ function ModernJornalVozPatriota() {
                   <p className="mt-3 min-h-14 text-sm leading-6 text-muted-foreground">
                     {plan.description}
                   </p>
-                  <div className="mt-7 flex items-end gap-1 border-b border-border pb-7">
-                    <span className="text-sm text-muted-foreground">R$</span>
+                  <div className="mt-7 border-b border-border pb-7">
                     {plan.originalPrice ? (
-                      <span className="mb-2 text-lg font-bold text-muted-foreground line-through">
-                        {plan.originalPrice}
-                      </span>
+                      <div className="mb-1 text-lg font-bold text-muted-foreground line-through">
+                        R$ {plan.originalPrice}
+                      </div>
                     ) : null}
-                    <span className="text-5xl font-black text-primary">{plan.price}</span>
-                    <span className="mb-1 text-sm text-muted-foreground">/mês</span>
+                    <div className="flex items-end gap-1">
+                      <span className="text-sm text-muted-foreground">R$</span>
+                      <span className="text-5xl font-black text-primary">{plan.price}</span>
+                      <span className="mb-1 text-sm text-muted-foreground">/mês</span>
+                    </div>
                   </div>
                   <ul className="mt-7 space-y-4">
                     {plan.features.map((feature) => (
