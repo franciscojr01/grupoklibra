@@ -1176,7 +1176,7 @@ function ModernJornalVozPatriota() {
               </p>
             </article>
 
-            <article className="rounded-2xl border border-border bg-surface p-6 shadow-[var(--shadow-hard)]">
+            <article className="flex flex-col rounded-2xl border border-border bg-surface p-6 shadow-[var(--shadow-hard)]">
               <div className="flex items-center gap-3">
                 <img
                   src="https://images.pexels.com/photos/10319758/pexels-photo-10319758.jpeg?auto=compress&cs=tinysrgb&w=1600"
@@ -1246,59 +1246,7 @@ function ModernJornalVozPatriota() {
         </div>
       </section>
 
-      <section id="apoie" className="border-y border-border bg-surface/60">
-        <div className="mx-auto max-w-4xl px-5 py-20 text-center lg:px-8">
-          <p className="text-sm font-black uppercase tracking-[0.2em] text-secondary">
-            A CENSURA É LENTA, MAS INEVITÁVEL SE NÃO NOS RESPONDERMOS.
-          </p>
-          <h2 className="mt-3 text-3xl leading-tight sm:text-5xl">
-            CADA ASSINATURA É UMA VITÓRIA DA INDEPENDÊNCIA.
-          </h2>
-          <p className="mx-auto mt-5 max-w-2xl leading-7 text-muted-foreground">
-            Os ataques aos sites patriotas não são aleatórios. São estratégicos. Desmonetização,
-            processos e algoritmos que silenciam vozes conservadoras. Quanto mais leitores pagantes,
-            mais difícil para a elite midiática nos ignorar ou derrubar.
-          </p>
-          <Button
-            type="button"
-            size="lg"
-            className="mt-8 rounded-full px-7 text-center break-normal whitespace-normal shadow-[var(--shadow-heat)]"
-            onClick={openBallot}
-          >
-            <span>QUERO FAZER PARTE DA MAIORIA INTELIGENTE</span>
-            <ArrowRight className="h-5 w-5 shrink-0" aria-hidden />
-          </Button>
-        </div>
-      </section>
 
-      <section className="bg-primary px-5 py-16 text-primary-foreground lg:px-8">
-        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 md:flex-row md:items-center">
-          <div className="max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.2em] text-primary-foreground/75">
-              A CENSURA É LENTA, MAS INEVITÁVEL SE NÃO NOS RESPONDERMOS.
-            </p>
-            <h2 className="mt-3 text-3xl leading-tight sm:text-5xl">
-              CADA ASSINATURA É UMA VITÓRIA DA INDEPENDÊNCIA.
-            </h2>
-            <p className="mt-4 max-w-2xl leading-7 text-primary-foreground/80">
-              Quanto mais leitores pagantes, mais difícil para a elite midiática nos ignorar ou
-              derrubar. Não seja apenas um espectador da história. Seja o autor da sua própria
-              percepção de realidade.
-            </p>
-          </div>
-          <Button
-            asChild
-            size="lg"
-            variant="secondary"
-            className="shrink-0 break-normal whitespace-normal text-center"
-          >
-            <a id="assinar" href="#planos">
-              <span>QUERO FAZER PARTE AGORA</span>
-              <ArrowRight className="h-5 w-5 shrink-0" aria-hidden />
-            </a>
-          </Button>
-        </div>
-      </section>
 
       <footer className="border-t border-border bg-background">
         <div className="mx-auto flex max-w-7xl flex-col gap-5 px-5 py-8 text-sm text-muted-foreground md:flex-row md:items-end md:justify-between lg:px-8">
