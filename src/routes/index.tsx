@@ -1185,7 +1185,7 @@ function ModernJornalVozPatriota() {
                 />
                 <div>
                   <p className="font-black">André Figueiredo</p>
-                  <p className="text-sm text-muted-foreground">Leitor assinante</p>
+                  <p className="text-sm text-muted-foreground">@figueiredo_andre</p>
                 </div>
               </div>
               <div className="mt-5 flex gap-1 text-secondary" aria-label="5 estrelas">
