@@ -48,7 +48,6 @@ const plans = [
     features: [
       "Comunidade no Telegram",
       "Tudo do Plano Patriota",
-      "Notícias da direita no Brasil",
       "Cobertura de líderes conservadores internacionais",
       "Notícias sobre Donald Trump e outros líderes mundiais",
     ],
