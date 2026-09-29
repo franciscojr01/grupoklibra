@@ -1135,7 +1135,7 @@ function ModernJornalVozPatriota() {
                   alt="Foto de perfil de Marcelo Ribeiro"
                   className="h-12 w-12 rounded-full border-2 border-primary/50 object-cover"
                 />
-                <div>
+                <div className="flex min-h-12 flex-col justify-center">
                   <p className="font-black">Marcelo Ribeiro</p>
                   <p className="text-sm text-muted-foreground">Leitor assinante</p>
                 </div>
@@ -1159,7 +1159,7 @@ function ModernJornalVozPatriota() {
                   alt="Foto de perfil de Terezinha"
                   className="h-12 w-12 rounded-full border-2 border-primary/50 object-cover"
                 />
-                <div>
+                <div className="flex min-h-12 flex-col justify-center">
                   <p className="font-black">Terezinha</p>
                   <p className="text-sm text-muted-foreground">@dona.terezinha</p>
                 </div>
@@ -1183,7 +1183,7 @@ function ModernJornalVozPatriota() {
                   alt="Foto de perfil de Eduardo Martins"
                   className="h-12 w-12 rounded-full border-2 border-primary/50 object-cover"
                 />
-                <div>
+                <div className="flex min-h-12 flex-col justify-center">
                   <p className="font-black">André Figueiredo</p>
                   <p className="text-sm text-muted-foreground">@figueiredo_andre</p>
                 </div>
