@@ -909,7 +909,7 @@ function ModernJornalVozPatriota() {
                         variant={currentAnswer === answer ? "default" : "outline"}
                         className={`h-auto min-h-14 w-full justify-between rounded-2xl px-5 py-4 text-left text-sm transition-all duration-200 ${
                           currentAnswer === answer
-                            ? "scale-[1.02] shadow-lg shadow-primary/20"
+                            ? "scale-[1.02] border-primary bg-primary text-primary-foreground shadow-lg shadow-primary/20 hover:bg-primary-deep"
                             : "border-border/80 bg-background/40 hover:-translate-y-0.5 hover:border-primary/60 hover:bg-primary/5"
                         }`}
                         onClick={() => {
@@ -1248,11 +1248,11 @@ function ModernJornalVozPatriota() {
 
         <div className="mt-12 grid gap-6 lg:grid-cols-2">
           <div className="overflow-hidden rounded-[2rem] border border-border/80 bg-surface shadow-[var(--shadow-hard)]">
-            <div className="flex min-h-[280px] items-center justify-center bg-background/40 p-3 sm:min-h-[360px]">
+            <div className="flex aspect-[4/3] items-center justify-center bg-background/40 p-3">
               <img
                 src={esquerdaImage}
                 alt="Manifestação política em frente à universidade"
-                className="block h-full max-h-[520px] w-full object-contain object-center"
+                className="block h-full w-full object-contain object-center"
               />
             </div>
             <div className="p-7">
@@ -1264,12 +1264,12 @@ function ModernJornalVozPatriota() {
           </div>
 
           <div className="overflow-hidden rounded-[2rem] border border-border/80 bg-surface shadow-[var(--shadow-hard)]">
-            <div className="flex min-h-[280px] items-center justify-center bg-background/40 p-3 sm:min-h-[360px]">
+            <div className="flex aspect-[4/3] items-center justify-center bg-background/40 p-3">
               <img
                 src={economiaImage}
                 alt="Páginas de jornal com textos em destaque"
                 loading="eager"
-                className="block h-full max-h-[520px] w-full object-contain object-center"
+                className="block h-full w-full object-contain object-center"
               />
             </div>
             <div className="p-7">
