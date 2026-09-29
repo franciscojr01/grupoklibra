@@ -950,12 +950,13 @@ function ModernJornalVozPatriota() {
                           return;
                         }
 
-                        setShowQuiz(false);
-                        setShowPlans(true);
+                        setQuizResult({
+                          label: "Diagnóstico: você é uma pessoa patriota raiz.",
+                        });
                       }
                     }}
                   >
-                    {quizStep < questions.length - 1 ? "Continuar" : "Ver planos"}
+                    {quizStep < questions.length - 1 ? "Continuar" : "Ver resultado"}
                     <ArrowRight className="h-4 w-4" aria-hidden />
                   </Button>
                 </DialogFooter>
