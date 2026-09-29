@@ -7,7 +7,6 @@ import logoImage from "@/assets/uploads/3681.png";
 import wilsonGrassiPhoto from "@/assets/uploads/3682.jpg";
 import candidata27Photo from "@/assets/uploads/3683.png";
 import donaTerezinhaPhoto from "@/assets/uploads/3697.png";
-import heroImage from "@/assets/uploads/4307.png";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -1005,7 +1004,10 @@ function ModernJornalVozPatriota() {
       >
         <div
           className="absolute inset-0 -z-20 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroImage})` }}
+          style={{
+            backgroundImage:
+              "url(https://picsum.photos/seed/manifestacao-politica-direita-bandeiras-brasil/1600/1000)",
+          }}
         />
         <div className="absolute inset-0 -z-10 bg-background/85" />
         <div className="absolute left-[-8rem] top-[-8rem] -z-10 h-72 w-72 rounded-full bg-primary/15 blur-3xl" />
