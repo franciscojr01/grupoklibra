@@ -1002,7 +1002,7 @@ function ModernJornalVozPatriota() {
         id="inicio"
         className="relative isolate min-h-[560px] overflow-hidden border-b border-primary/20 lg:min-h-[600px]"
       >
-        <div className="absolute inset-0 -z-20 bg-[url('https://picsum.photos/seed/manifestacao-direita-bandeiras-brasil/1600/1000')] bg-cover bg-center" />
+        <div className="absolute inset-0 -z-20 bg-[url('https://images.pexels.com/photos/14357187/pexels-photo-14357187.jpeg?auto=compress&cs=tinysrgb&w=1600')] bg-cover bg-center" />
         <div className="absolute inset-0 -z-10 bg-background/85" />
         <div className="absolute left-[-8rem] top-[-8rem] -z-10 h-72 w-72 rounded-full bg-primary/15 blur-3xl" />
         <div className="absolute bottom-[-10rem] right-[-5rem] -z-10 h-80 w-80 rounded-full bg-secondary/15 blur-3xl" />
