@@ -1161,7 +1161,7 @@ function ModernJornalVozPatriota() {
                 />
                 <div>
                   <p className="font-black">Terezinha</p>
-                  <p className="text-sm text-muted-foreground">Coronel Paulo Mendes</p>
+                  <p className="text-sm text-muted-foreground">@dona.terezinha</p>
                 </div>
               </div>
               <div className="mt-5 flex gap-1 text-secondary" aria-label="5 estrelas">
