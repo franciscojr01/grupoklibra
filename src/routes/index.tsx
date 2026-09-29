@@ -1258,7 +1258,7 @@ function ModernJornalVozPatriota() {
               <img
                 src={esquerdaImage}
                 alt="Manifestação política em frente à universidade"
-                className="block h-full w-full object-contain object-center"
+                className="block h-full w-full object-cover object-center"
               />
             </div>
             <div className="p-7">
@@ -1275,7 +1275,7 @@ function ModernJornalVozPatriota() {
                 src="https://images.pexels.com/photos/14357164/pexels-photo-14357164.jpeg?auto=compress&cs=tinysrgb&w=1600"
                 alt="Manifestação política com pessoas acenando bandeiras do Brasil"
                 loading="eager"
-                className="block h-full w-full object-contain object-center"
+                className="block h-full w-full object-cover object-center"
               />
             </div>
             <div className="p-7">
