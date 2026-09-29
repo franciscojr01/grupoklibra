@@ -24,10 +24,12 @@ export const Route = createFileRoute("/")({
 
 const plans = [
   {
-    name: "Plano Básico",
+    name: "Plano Patriota",
     price: "9,90",
-    description: "Notícias e conteúdos exclusivos sobre Flávio Bolsonaro.",
+    originalPrice: "29,90",
+    description: "Uma oferta especial para acompanhar as principais notícias da direita.",
     featured: false,
+    promotional: true,
     features: [
       "Comunidade no Telegram",
       "Notícias sobre o Flávio Bolsonaro",
@@ -37,13 +39,14 @@ const plans = [
     ],
   },
   {
-    name: "Plano Patriota",
+    name: "Plano Patriota Raiz",
     price: "19,90",
     description: "Acompanhe as principais notícias da direita brasileira e mundial.",
     featured: true,
+    promotional: false,
     features: [
       "Comunidade no Telegram",
-      "Tudo do Plano Básico",
+      "Tudo do Plano Patriota",
       "Notícias da direita no Brasil",
       "Cobertura de líderes conservadores internacionais",
       "Notícias sobre Donald Trump e outros líderes mundiais",
@@ -83,6 +86,10 @@ function JornalVozPatriota() {
                   <div className="absolute right-6 top-0 -translate-y-1/2 bg-secondary px-3 py-1 text-xs font-black uppercase tracking-wider text-secondary-foreground">
                     Mais completo
                   </div>
+                ) : plan.promotional ? (
+                  <div className="absolute right-6 top-0 -translate-y-1/2 rounded-full bg-primary px-3 py-1 text-xs font-black uppercase tracking-wider text-primary-foreground shadow-[var(--shadow-heat)]">
+                    Oferta especial
+                  </div>
                 ) : null}
                 <h2 className="text-2xl">{plan.name}</h2>
                 <p className="mt-3 min-h-14 text-sm leading-6 text-muted-foreground">
@@ -90,7 +97,12 @@ function JornalVozPatriota() {
                 </p>
                 <div className="mt-7 flex items-end gap-1 border-b border-border pb-7">
                   <span className="text-sm text-muted-foreground">R$</span>
-                  <span className="text-5xl font-black">{plan.price}</span>
+                  {plan.originalPrice ? (
+                    <span className="mb-2 text-lg font-bold text-muted-foreground line-through">
+                      {plan.originalPrice}
+                    </span>
+                  ) : null}
+                  <span className="text-5xl font-black text-primary">{plan.price}</span>
                   <span className="mb-1 text-sm text-muted-foreground">/mês</span>
                 </div>
                 <ul className="mt-7 space-y-4">
@@ -995,6 +1007,10 @@ function ModernJornalVozPatriota() {
                     <div className="absolute right-6 top-0 -translate-y-1/2 bg-secondary px-3 py-1 text-xs font-black uppercase tracking-wider text-secondary-foreground">
                       Mais completo
                     </div>
+                  ) : plan.promotional ? (
+                    <div className="absolute right-6 top-0 -translate-y-1/2 rounded-full bg-primary px-3 py-1 text-xs font-black uppercase tracking-wider text-primary-foreground shadow-[var(--shadow-heat)]">
+                      Oferta especial
+                    </div>
                   ) : null}
                   <h3 className="text-2xl">{plan.name}</h3>
                   <p className="mt-3 min-h-14 text-sm leading-6 text-muted-foreground">
@@ -1002,7 +1018,12 @@ function ModernJornalVozPatriota() {
                   </p>
                   <div className="mt-7 flex items-end gap-1 border-b border-border pb-7">
                     <span className="text-sm text-muted-foreground">R$</span>
-                    <span className="text-5xl font-black">{plan.price}</span>
+                    {plan.originalPrice ? (
+                      <span className="mb-2 text-lg font-bold text-muted-foreground line-through">
+                        {plan.originalPrice}
+                      </span>
+                    ) : null}
+                    <span className="text-5xl font-black text-primary">{plan.price}</span>
                     <span className="mb-1 text-sm text-muted-foreground">/mês</span>
                   </div>
                   <ul className="mt-7 space-y-4">
