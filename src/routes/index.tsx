@@ -29,11 +29,11 @@ const plans = [
     description: "Acompanhe as principais notícias da direita brasileira e mundial.",
     featured: true,
     features: [
+      "Comunidade no Telegram",
       "Tudo do Plano Básico",
       "Notícias da direita no Brasil",
       "Cobertura de líderes conservadores internacionais",
       "Notícias sobre Donald Trump e outros líderes mundiais",
-      "Comunidade no Telegram",
     ],
   },
   {
@@ -42,11 +42,11 @@ const plans = [
     description: "Notícias e conteúdos exclusivos sobre Flávio Bolsonaro.",
     featured: false,
     features: [
+      "Comunidade no Telegram",
       "Notícias sobre o Flávio Bolsonaro",
       "Notícias da direita no Brasil",
       "Acesso a conteúdos exclusivos",
       "Resumo das principais decisões políticas",
-      "Comunidade no Telegram",
     ],
   },
 ];
