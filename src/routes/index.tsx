@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ArrowRight, Check, CheckCircle2, Globe2, Megaphone, ShieldAlert, Star } from "lucide-react";
 import { createFileRoute } from "@tanstack/react-router";
 import esquerdaImage from "@/assets/uploads/4349.png";
-import economiaImage from "@/assets/uploads/4354.png";
+import economiaImage from "@/assets/uploads/4356.png";
 import logoImage from "@/assets/uploads/3681.png";
 import wilsonGrassiPhoto from "@/assets/uploads/3682.jpg";
 import candidata27Photo from "@/assets/uploads/3683.png";
