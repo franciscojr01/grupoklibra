@@ -909,7 +909,7 @@ function ModernJornalVozPatriota() {
                         variant={currentAnswer === answer ? "default" : "outline"}
                         className={`h-auto min-h-14 w-full justify-between rounded-2xl px-5 py-4 text-left text-sm transition-all duration-200 ${
                           currentAnswer === answer
-                            ? "scale-[1.02] border-primary bg-primary text-primary-foreground shadow-lg shadow-primary/20 hover:bg-primary-deep"
+                            ? "scale-[1.02] border-primary !bg-primary text-primary-foreground shadow-lg shadow-primary/20 hover:!bg-primary"
                             : "border-border/80 bg-background/40 hover:-translate-y-0.5 hover:border-primary/60 hover:bg-primary/5"
                         }`}
                         onClick={() => {
