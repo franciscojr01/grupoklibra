@@ -1128,7 +1128,7 @@ function ModernJornalVozPatriota() {
           </div>
 
           <div className="mt-12 grid gap-5 md:grid-cols-3">
-            <article className="rounded-3xl border border-border/80 bg-surface/90 p-6 shadow-[var(--shadow-hard)]">
+            <article className="flex flex-col rounded-3xl border border-border/80 bg-surface/90 p-6 shadow-[var(--shadow-hard)]">
               <div className="flex items-center gap-3">
                 <img
                   src="https://images.pexels.com/photos/3778610/pexels-photo-3778610.jpeg?auto=compress&cs=tinysrgb&w=1600"
@@ -1143,7 +1143,7 @@ function ModernJornalVozPatriota() {
               <div className="mt-5 flex gap-1 text-secondary" aria-label="5 estrelas">
                 {"★★★★★"}
               </div>
-              <blockquote className="mt-5 break-words text-lg leading-8">
+              <blockquote className="mt-5 flex-1 break-words text-lg leading-8">
                 “Deixei de ser refém da TV aberta. O Voz Patriota oferece uma análise madura, sem o
                 exagero emocional que a esquerda vende como verdade absoluta.”
               </blockquote>
@@ -1152,7 +1152,7 @@ function ModernJornalVozPatriota() {
             </p>
             </article>
 
-            <article className="rounded-2xl border border-border bg-surface p-6 shadow-[var(--shadow-hard)]">
+            <article className="flex flex-col rounded-2xl border border-border bg-surface p-6 shadow-[var(--shadow-hard)]">
               <div className="flex items-center gap-3">
                 <img
                   src={donaTerezinhaPhoto}
@@ -1167,7 +1167,7 @@ function ModernJornalVozPatriota() {
               <div className="mt-5 flex gap-1 text-secondary" aria-label="5 estrelas">
                 {"★★★★★"}
               </div>
-              <blockquote className="mt-5 break-words text-lg leading-8">
+              <blockquote className="mt-5 flex-1 break-words text-lg leading-8">
                 “Uma leitura clara e fundamentada. Finalmente consigo acompanhar o Brasil sem sentir
                 que me tratam como ignorante por ter opiniões diferentes.”
               </blockquote>
@@ -1191,7 +1191,7 @@ function ModernJornalVozPatriota() {
               <div className="mt-5 flex gap-1 text-secondary" aria-label="5 estrelas">
                 {"★★★★★"}
               </div>
-              <blockquote className="mt-5 break-words text-lg leading-8">
+              <blockquote className="mt-5 flex-1 break-words text-lg leading-8">
                 “A liberdade de imprensa é a espinha dorsal da democracia. Apoio o Voz Patriota
                 porque ele questiona o poder, em vez de apenas adorá-lo.”
               </blockquote>
