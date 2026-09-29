@@ -1262,11 +1262,14 @@ function ModernJornalVozPatriota() {
           </div>
 
           <div className="overflow-hidden rounded-[2rem] border border-border/80 bg-surface shadow-[var(--shadow-hard)]">
-            <img
-              src={economiaImage}
-              alt="Páginas de jornal com textos em destaque"
-              className="mx-auto block h-auto w-full object-contain object-center"
-            />
+            <div className="flex min-h-[280px] items-center justify-center bg-background/40 p-3 sm:min-h-[360px]">
+              <img
+                src={economiaImage}
+                alt="Páginas de jornal com textos em destaque"
+                loading="eager"
+                className="block h-auto max-h-[520px] w-full object-contain object-center"
+              />
+            </div>
             <div className="p-7">
               <p className="text-xs font-black uppercase tracking-[0.18em] text-accent">
                 Aqui, devolvemos a perspectiva.
