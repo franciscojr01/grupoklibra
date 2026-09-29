@@ -1248,11 +1248,13 @@ function ModernJornalVozPatriota() {
 
         <div className="mt-12 grid gap-6 lg:grid-cols-2">
           <div className="overflow-hidden rounded-[2rem] border border-border/80 bg-surface shadow-[var(--shadow-hard)]">
-            <img
-              src={esquerdaImage}
-              alt="Manifestação política em frente à universidade"
-              className="mx-auto block h-auto w-full object-contain object-center"
-            />
+            <div className="flex min-h-[280px] items-center justify-center bg-background/40 p-3 sm:min-h-[360px]">
+              <img
+                src={esquerdaImage}
+                alt="Manifestação política em frente à universidade"
+                className="block h-full max-h-[520px] w-full object-contain object-center"
+              />
+            </div>
             <div className="p-7">
               <p className="text-xs font-black uppercase tracking-[0.18em] text-secondary">
                 Eles controlam as universidades, as TVs e, cada vez mais, as redes sociais.
@@ -1267,7 +1269,7 @@ function ModernJornalVozPatriota() {
                 src={economiaImage}
                 alt="Páginas de jornal com textos em destaque"
                 loading="eager"
-                className="block h-auto min-h-[280px] w-full object-contain object-center sm:min-h-[360px]"
+                className="block h-full max-h-[520px] w-full object-contain object-center"
               />
             </div>
             <div className="p-7">
