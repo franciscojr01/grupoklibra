@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ArrowRight, Check, CheckCircle2, Globe2, Megaphone, ShieldAlert, Star } from "lucide-react";
 import { createFileRoute } from "@tanstack/react-router";
 import esquerdaImage from "@/assets/uploads/4349.png";
-import economiaImage from "@/assets/uploads/4356.png";
+import economiaImage from "@/assets/uploads/4354.png";
 import logoImage from "@/assets/uploads/3681.png";
 import wilsonGrassiPhoto from "@/assets/uploads/3682.jpg";
 import candidata27Photo from "@/assets/uploads/3683.png";
@@ -1267,7 +1267,7 @@ function ModernJornalVozPatriota() {
                 src={economiaImage}
                 alt="Páginas de jornal com textos em destaque"
                 loading="eager"
-                className="block h-auto max-h-[520px] w-full object-contain object-center"
+                className="block h-auto min-h-[280px] w-full object-contain object-center sm:min-h-[360px]"
               />
             </div>
             <div className="p-7">
