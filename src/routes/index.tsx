@@ -3,7 +3,7 @@ import { ArrowRight, Check, CheckCircle2, Globe2, Megaphone, ShieldAlert, Star }
 import { createFileRoute } from "@tanstack/react-router";
 import esquerdaImage from "@/assets/uploads/4349.png";
 import economiaImage from "@/assets/uploads/4354.png";
-import brasilFlagImage from "@/assets/uploads/4359.png";
+
 import logoImage from "@/assets/uploads/3681.png";
 import wilsonGrassiPhoto from "@/assets/uploads/3682.jpg";
 import candidata27Photo from "@/assets/uploads/3683.png";
@@ -1267,8 +1267,8 @@ function ModernJornalVozPatriota() {
           <div className="overflow-hidden rounded-[2rem] border border-border/80 bg-surface shadow-[var(--shadow-hard)]">
             <div className="flex aspect-[4/3] items-center justify-center bg-background/40 p-3">
               <img
-                src={brasilFlagImage}
-                alt="Multidão reunida com bandeiras do Brasil em uma manifestação"
+                src="https://picsum.photos/seed/manifestacao-direita-bandeiras-brasil/1200/900"
+                alt="Manifestação de direita com bandeiras do Brasil"
                 loading="eager"
                 className="block h-full w-full object-contain object-center"
               />
