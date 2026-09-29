@@ -288,10 +288,17 @@ function JornalVozPatriota() {
               ) : null}
               <h3 className="text-2xl">{plan.name}</h3>
               <p className="mt-3 min-h-14 text-sm leading-6 text-muted-foreground">{plan.description}</p>
-              <div className="mt-7 flex items-end gap-1 border-b border-border pb-7">
-                <span className="text-sm text-muted-foreground">R$</span>
-                <span className="text-5xl font-black">{plan.price}</span>
-                <span className="mb-1 text-sm text-muted-foreground">/mês</span>
+              <div className="mt-7 border-b border-border pb-7">
+                {plan.originalPrice ? (
+                  <div className="mb-1 text-lg font-bold text-muted-foreground line-through">
+                    R$ {plan.originalPrice}
+                  </div>
+                ) : null}
+                <div className="flex items-end gap-1">
+                  <span className="text-sm text-muted-foreground">R$</span>
+                  <span className="text-5xl font-black">{plan.price}</span>
+                  <span className="mb-1 text-sm text-muted-foreground">/mês</span>
+                </div>
               </div>
               <ul className="mt-7 space-y-4">
                 {plan.features.map((feature) => (
@@ -908,7 +915,6 @@ function ModernJornalVozPatriota() {
                         onClick={() => {
                           const nextAnswers = [...quizAnswers];
                           nextAnswers[quizStep] = answer;
-                          setQuizAnswers(nextAnswers);
 
                           const nextScore = nextAnswers.reduce((score, selectedAnswer, index) => {
                             if (!selectedAnswer) return score;
@@ -917,7 +923,24 @@ function ModernJornalVozPatriota() {
                             return score + points;
                           }, 0);
 
+                          setQuizAnswers(nextAnswers);
                           setQuizScore(nextScore);
+
+                          if (quizStep < questions.length - 1) {
+                            setQuizStep((step) => step + 1);
+                            return;
+                          }
+
+                          if (nextScore < 12) {
+                            setShowQuiz(false);
+                            setQuizResult(null);
+                            setQuizFailed(true);
+                            return;
+                          }
+
+                          setQuizResult({
+                            label: "Diagnóstico: você é uma pessoa patriota raiz.",
+                          });
                         }}
                       >
                         <span className="whitespace-normal">{answer}</span>
@@ -926,54 +949,9 @@ function ModernJornalVozPatriota() {
                   </div>
                 </div>
 
-                <DialogFooter className="sticky bottom-4 z-20 mt-2 flex-col gap-3 rounded-xl border border-border/70 bg-surface/95 px-6 py-3 shadow-lg backdrop-blur sm:flex-row sm:items-center sm:justify-between sm:px-8">
-                  <p className="text-xs text-muted-foreground">
-                    🔒 Avaliação simbólica, sem coleta de respostas e sem exigir apoio a partido.
-                  </p>
-                  <Button
-                    type="button"
-                    size="lg"
-                    className="w-full rounded-full px-6 sm:w-auto"
-                    disabled={!currentAnswer}
-                    onClick={() => {
-                      const answersForSubmission = [...quizAnswers];
-                      answersForSubmission[quizStep] = currentAnswer;
-
-                      const finalScore = answersForSubmission.reduce((score, selectedAnswer, index) => {
-                        if (!selectedAnswer) return score;
-                        const selectedIndex = questions[index].answers.indexOf(selectedAnswer);
-                        const points = [3, 2, 0, 1][selectedIndex] ?? 0;
-                        return score + points;
-                      }, 0);
-
-                      setQuizAnswers(answersForSubmission);
-                      setQuizScore(finalScore);
-
-                      if (quizStep < questions.length - 1) {
-                        setQuizStep((step) => step + 1);
-                      } else {
-                        const label =
-                          finalScore <= 15
-                            ? "Direita moderada"
-                            : "Direita forte";
-
-                        if (finalScore < 12) {
-                          setShowQuiz(false);
-                          setQuizResult(null);
-                          setQuizFailed(true);
-                          return;
-                        }
-
-                        setQuizResult({
-                          label: "Diagnóstico: você é uma pessoa patriota raiz.",
-                        });
-                      }
-                    }}
-                  >
-                    {quizStep < questions.length - 1 ? "Continuar" : "Ver resultado"}
-                    <ArrowRight className="h-4 w-4" aria-hidden />
-                  </Button>
-                </DialogFooter>
+                <p className="px-6 pb-4 text-center text-xs text-muted-foreground sm:px-8">
+                  🔒 Avaliação simbólica, sem coleta de respostas e sem exigir apoio a partido.
+                </p>
               </>
             );
           })()}
