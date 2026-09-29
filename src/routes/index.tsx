@@ -1137,7 +1137,7 @@ function ModernJornalVozPatriota() {
                 />
                 <div className="flex min-h-12 flex-col justify-center">
                   <p className="font-black">Marcelo Ribeiro</p>
-                  <p className="text-sm text-muted-foreground">Leitor assinante</p>
+                  <p className="text-sm text-muted-foreground">@marceloribeiro95</p>
                 </div>
               </div>
               <div className="mt-5 flex gap-1 text-secondary" aria-label="5 estrelas">
