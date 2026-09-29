@@ -374,7 +374,12 @@ function JornalVozPatriota() {
             <p className="mt-1">Informação, opinião e liberdade.</p>
           </div>
           <div className="text-center md:text-right">
+            <div className="text-center md:text-right">
             <p>© 2026 Jornal Voz Patriota. Todos os direitos reservados.</p>
+            <p className="mt-1 text-xs text-muted-foreground/75">
+              Foto da manifestação: Joel Santos via Pexels.
+            </p>
+          </div>
             <p className="mt-1 text-xs text-muted-foreground/75">
               Foto da hero: Joel Santos via Pexels.
             </p>
@@ -1267,8 +1272,8 @@ function ModernJornalVozPatriota() {
           <div className="overflow-hidden rounded-[2rem] border border-border/80 bg-surface shadow-[var(--shadow-hard)]">
             <div className="flex aspect-[4/3] items-center justify-center bg-background/40 p-3">
               <img
-                src="https://picsum.photos/seed/manifestacao-direita-bandeiras-brasil/1200/900"
-                alt="Manifestação de direita com bandeiras do Brasil"
+                src="https://images.pexels.com/photos/14357164/pexels-photo-14357164.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt="Manifestação política com pessoas acenando bandeiras do Brasil"
                 loading="eager"
                 className="block h-full w-full object-contain object-center"
               />
