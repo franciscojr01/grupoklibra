@@ -33,6 +33,7 @@ const plans = [
       "Notícias da direita no Brasil",
       "Cobertura de líderes conservadores internacionais",
       "Notícias sobre Donald Trump e outros líderes mundiais",
+      "Comunidade no Telegram",
     ],
   },
   {
@@ -45,6 +46,7 @@ const plans = [
       "Notícias da direita no Brasil",
       "Acesso a conteúdos exclusivos",
       "Resumo das principais decisões políticas",
+      "Comunidade no Telegram",
     ],
   },
 ];
