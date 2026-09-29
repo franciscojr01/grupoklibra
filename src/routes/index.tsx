@@ -1002,7 +1002,7 @@ function ModernJornalVozPatriota() {
 
       <section
         id="inicio"
-        className="relative isolate min-h-[600px] overflow-hidden border-b border-primary/20 lg:min-h-[640px]"
+        className="relative isolate min-h-[660px] overflow-hidden border-b border-primary/20 lg:min-h-[700px]"
       >
         <div
           className="absolute inset-0 -z-20 bg-cover bg-center"
