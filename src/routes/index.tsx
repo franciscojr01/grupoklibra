@@ -516,24 +516,6 @@ function ModernJornalVozPatriota() {
 
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <div
-        className="overflow-hidden border-b border-destructive/50 bg-destructive px-3 py-1 text-[9px] font-black tracking-[0.04em] text-destructive-foreground sm:text-[10px]"
-        role="status"
-        aria-label="Aviso: jornal sob risco de censura por políticos de esquerda"
-      >
-        <div className="flex min-w-max animate-marquee whitespace-nowrap">
-          <span className="px-8">⚠️ A narrativa única está sendo imposta.</span>
-          <span className="px-8" aria-hidden="true">
-            ⚠️ A narrativa única está sendo imposta.
-          </span>
-          <span className="px-8" aria-hidden="true">
-            ⚠️ A narrativa única está sendo imposta.
-          </span>
-          <span className="px-8" aria-hidden="true">
-            ⚠️ A narrativa única está sendo imposta.
-          </span>
-        </div>
-      </div>
 
       <Dialog open={showBallot} onOpenChange={setShowBallot}>
         <DialogContent className="max-h-[92vh] overflow-y-auto border-secondary/50 bg-surface p-4 sm:max-w-2xl sm:p-6">
@@ -1020,7 +1002,7 @@ function ModernJornalVozPatriota() {
         id="inicio"
         className="relative isolate min-h-[560px] overflow-hidden border-b border-primary/20 lg:min-h-[600px]"
       >
-        <div className="absolute inset-0 -z-20 bg-[url('https://images.pexels.com/photos/14357047/pexels-photo-14357047.jpeg?auto=compress&cs=tinysrgb&w=1600')] bg-cover bg-center" />
+        <div className="absolute inset-0 -z-20 bg-[url('https://picsum.photos/seed/manifestacao-direita-bandeiras-brasil/1600/1000')] bg-cover bg-center" />
         <div className="absolute inset-0 -z-10 bg-background/85" />
         <div className="absolute left-[-8rem] top-[-8rem] -z-10 h-72 w-72 rounded-full bg-primary/15 blur-3xl" />
         <div className="absolute bottom-[-10rem] right-[-5rem] -z-10 h-80 w-80 rounded-full bg-secondary/15 blur-3xl" />
@@ -1053,7 +1035,7 @@ function ModernJornalVozPatriota() {
                 className="w-full max-w-full justify-center rounded-full border-2 border-primary-light bg-primary px-5 py-4 text-center text-sm font-black leading-tight text-primary-foreground shadow-[var(--shadow-heat)] ring-4 ring-primary/10 transition-all hover:-translate-y-1 hover:bg-primary-deep hover:shadow-[0_0_28px_var(--primary)] hover:ring-primary/20 sm:w-auto sm:px-8 sm:py-5 sm:text-base"
                 onClick={openBallot}
               >
-                <span className="whitespace-normal">ASSINE AGORA E RECUPERE SUA VISÃO</span>
+                <span className="whitespace-normal">ASSINE AGORA</span>
                 <ArrowRight className="h-5 w-5 shrink-0" aria-hidden />
               </Button>
               <Button
