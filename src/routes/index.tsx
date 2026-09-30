@@ -160,6 +160,9 @@ function JornalVozPatriota() {
             <a className="transition-colors hover:text-foreground" href="#manifesto">
               Manifesto
             </a>
+            <a className="transition-colors hover:text-foreground" href="#comunidade">
+              Comunidade Telegram
+            </a>
           </nav>
           <Button asChild size="sm">
             <a href="#planos">Assinar agora</a>
@@ -331,6 +334,29 @@ function JornalVozPatriota() {
           <Button type="button" size="lg" variant="secondary" className="shrink-0" onClick={openBallot}>
             Quero fazer parte
             <ArrowRight className="h-5 w-5" aria-hidden />
+          </Button>
+        </div>
+      </section>
+
+      <section id="comunidade" className="border-y border-border bg-surface px-5 py-16 lg:px-8">
+        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+          <div className="max-w-3xl">
+            <p className="text-sm font-black uppercase tracking-[0.2em] text-secondary">
+              Comunidade Voz Patriota
+            </p>
+            <h2 className="mt-3 text-3xl leading-tight sm:text-5xl">
+              Informação e diálogo direto no Telegram.
+            </h2>
+            <p className="mt-4 max-w-2xl leading-7 text-muted-foreground">
+              Faça parte da comunidade do Jornal Voz Patriota para acompanhar novidades, conversar
+              com outros leitores e receber conteúdos exclusivos.
+            </p>
+          </div>
+          <Button asChild size="lg" className="shrink-0">
+            <a href="#planos">
+              Conhecer planos com acesso à comunidade
+              <ArrowRight className="h-5 w-5" aria-hidden />
+            </a>
           </Button>
         </div>
       </section>
