@@ -338,26 +338,35 @@ function JornalVozPatriota() {
         </div>
       </section>
 
-      <section id="comunidade" className="border-y border-border bg-surface px-5 py-16 lg:px-8">
-        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 md:flex-row md:items-center">
-          <div className="max-w-3xl">
+      <section id="comunidade" className="border-y border-secondary/30 bg-secondary/10 px-5 py-20 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="mx-auto max-w-3xl text-center">
             <p className="text-sm font-black uppercase tracking-[0.2em] text-secondary">
-              Comunidade Voz Patriota
+              Comunidade Telegram
             </p>
             <h2 className="mt-3 text-3xl leading-tight sm:text-5xl">
-              Informação e diálogo direto no Telegram.
+              Faça parte da comunidade do Jornal Voz Patriota.
             </h2>
-            <p className="mt-4 max-w-2xl leading-7 text-muted-foreground">
-              Faça parte da comunidade do Jornal Voz Patriota para acompanhar novidades, conversar
-              com outros leitores e receber conteúdos exclusivos.
+            <p className="mx-auto mt-5 max-w-2xl leading-7 text-muted-foreground">
+              Receba novidades, acompanhe os principais assuntos do Brasil e converse diretamente
+              com outros leitores patriotas.
             </p>
           </div>
-          <Button asChild size="lg" className="shrink-0">
-            <a href="#planos">
-              Conhecer planos com acesso à comunidade
-              <ArrowRight className="h-5 w-5" aria-hidden />
-            </a>
-          </Button>
+
+          <div className="mx-auto mt-10 flex max-w-2xl flex-col items-center justify-between gap-6 rounded-3xl border border-secondary/40 bg-background/60 p-6 text-center shadow-[var(--shadow-hard)] sm:p-8 md:flex-row md:text-left">
+            <div>
+              <p className="text-xl font-black">Jornal Voz Patriota no Telegram</p>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                Informação, diálogo e conteúdo exclusivo em um só lugar.
+              </p>
+            </div>
+            <Button asChild size="lg" className="shrink-0">
+              <a href="#planos">
+                Conhecer planos
+                <ArrowRight className="h-5 w-5" aria-hidden />
+              </a>
+            </Button>
+          </div>
         </div>
       </section>
 
